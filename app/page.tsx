@@ -182,8 +182,8 @@ export default function Home() {
                 <div className="col s12 l6">
                   <p className={cn('flow-text', oona['intro-text'])}>
                     {lang === 'ru'
-                      ? 'Placeholder: описание AI-автоматизации, 2–3 предложения.'
-                      : 'Placeholder: AI automation description, 2–3 sentences.'}
+                      ? 'Внедряем AI-агентов в бизнес-процессы — от записи клиентов до программирования станков с ЧПУ. Подключаем к вашим системам, разворачиваем локально, данные не покидают компанию.'
+                      : 'We deploy AI agents into business operations — from booking appointments to programming CNC machines. Connected to your systems, running on your servers, your data stays inside.'}
                   </p>
                   <a href="/ai" className={cn('flow-text', oona['item-title'])}>
                     {lang === 'ru' ? 'Подробнее →' : 'Learn more →'}
