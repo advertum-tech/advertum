@@ -1,14 +1,19 @@
+"use client";
 import cn from "classnames";
 import oona from "@/app/assets/styles/oona/oona.module.scss";
+import { useLang } from "@/app/context/LanguageContext";
 
-export default function Home() {
+export default function Work() {
+  const { lang } = useLang();
+
   return (
     <div className={cn('container', oona['container'])}>
       <div className="row">
         <div className="col s12 l6 offset-l6">
           <p className={cn('flow-text intro-text', oona['intro-text'])}>
-            The finest selection of our projects. Over the years, Advertum has collaborated
-            with clients like Martini, Neste, Coca-Cola, Paxful and many others.
+            {lang === 'ru'
+              ? 'Лучшие проекты из нашего портфолио. За годы работы Advertum сотрудничал с Martini, Neste, Coca-Cola, Paxful и многими другими.'
+              : 'The finest selection of our projects. Over the years, Advertum has collaborated with clients like Martini, Neste, Coca-Cola, Paxful and many others.'}
           </p>
         </div>
       </div>
@@ -45,19 +50,15 @@ export default function Home() {
         <div className="row">
           <div className="col s12 l6 margin-on-medium-and-down">
             <a href="#/work/advertum-cashback-for-gamers" className={cn(oona['no-underline'])}>
-              <img src="/images/work/advertum-cashback-for-gamers.webp" alt="Advertum Cashback for Gamers"
-                   className="responsive-img"/>
+              <img src="/images/work/advertum-cashback-for-gamers.webp" alt="Advertum Cashback for Gamers" className="responsive-img"/>
             </a>
-            <a href="#/work/advertum-cashback-for-gamers" className={cn('flow-text', oona['item-title'])}>Advertum
-              Cashback for Gamers</a>
+            <a href="#/work/advertum-cashback-for-gamers" className={cn('flow-text', oona['item-title'])}>Advertum Cashback for Gamers</a>
           </div>
           <div className="col s12 l6">
             <a href="#/work/paxful-affiliate-program" className={cn(oona['no-underline'])}>
-              <img src="/images/work/paxful-affiliate-program.webp" alt="Paxful Affiliate Program"
-                   className="responsive-img"/>
+              <img src="/images/work/paxful-affiliate-program.webp" alt="Paxful Affiliate Program" className="responsive-img"/>
             </a>
-            <a href="#/work/paxful-affiliate-program" className={cn('flow-text', oona['item-title'])}>Paxful Affiliate
-              Program</a>
+            <a href="#/work/paxful-affiliate-program" className={cn('flow-text', oona['item-title'])}>Paxful Affiliate Program</a>
           </div>
         </div>
       </section>

@@ -1,44 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useLang } from "@/app/context/LanguageContext";
+import LangToggle from "@/app/context/LangToggle";
 
 const b = "font-semibold text-gray-900";
 const sep = "py-6 text-center text-sm tracking-[8px] text-gray-300";
 const h2 = "!mt-2 !mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl";
 const epi = "py-6 text-center font-serif text-base italic leading-relaxed text-gray-500 md:px-8 md:text-lg";
 
-function LangToggle({
-  lang,
-  setLang,
-}: {
-  lang: "ru" | "en";
-  setLang: (l: "ru" | "en") => void;
-}) {
-  return (
-    <div className="mt-6 flex justify-center gap-1 text-xs">
-      <button
-        onClick={() => setLang("ru")}
-        className={`rounded-l-full px-4 py-1.5 transition-colors ${
-          lang === "ru"
-            ? "bg-gray-900 text-white"
-            : "bg-gray-100 text-gray-500 hover:bg-gray-200"
-        }`}
-      >
-        RU
-      </button>
-      <button
-        onClick={() => setLang("en")}
-        className={`rounded-r-full px-4 py-1.5 transition-colors ${
-          lang === "en"
-            ? "bg-gray-900 text-white"
-            : "bg-gray-100 text-gray-500 hover:bg-gray-200"
-        }`}
-      >
-        EN
-      </button>
-    </div>
-  );
-}
 
 function RuBody() {
   return (
@@ -989,7 +958,7 @@ function EnBody() {
 }
 
 export default function ArticleContent() {
-  const [lang, setLang] = useState<"ru" | "en">("en");
+  const { lang, setLang } = useLang();
 
   return (
     <article className="bg-white text-main">
@@ -1014,7 +983,7 @@ export default function ArticleContent() {
               ? "Дидье Баклен · Февраль 2026"
               : "Didier Baclin · February 2026"}
           </p>
-          <LangToggle lang={lang} setLang={setLang} />
+          <LangToggle className="mt-6 justify-center" />
         </header>
 
         {lang === "ru" ? <RuBody /> : <EnBody />}

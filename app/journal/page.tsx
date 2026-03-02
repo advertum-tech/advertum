@@ -1,41 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import cn from "classnames";
 import oona from "../assets/styles/oona/oona.module.scss";
-
-function LangToggle({
-  lang,
-  setLang,
-}: {
-  lang: "ru" | "en";
-  setLang: (l: "ru" | "en") => void;
-}) {
-  return (
-    <div className="flex gap-1 text-xs">
-      <button
-        onClick={() => setLang("ru")}
-        className={`rounded-l-full px-4 py-1.5 transition-colors ${
-          lang === "ru"
-            ? "bg-gray-900 text-white"
-            : "bg-gray-100 text-gray-500 hover:bg-gray-200"
-        }`}
-      >
-        RU
-      </button>
-      <button
-        onClick={() => setLang("en")}
-        className={`rounded-r-full px-4 py-1.5 transition-colors ${
-          lang === "en"
-            ? "bg-gray-900 text-white"
-            : "bg-gray-100 text-gray-500 hover:bg-gray-200"
-        }`}
-      >
-        EN
-      </button>
-    </div>
-  );
-}
+import { useLang } from "@/app/context/LanguageContext";
+import LangToggle from "@/app/context/LangToggle";
 
 function DisplacementSvg() {
   return (
@@ -112,7 +80,7 @@ function HarnessSvg() {
 }
 
 export default function Journal() {
-  const [lang, setLang] = useState<"ru" | "en">("en");
+  const { lang } = useLang();
 
   return (
     <div className="bg-white text-main">
@@ -120,8 +88,8 @@ export default function Journal() {
         <section className={cn(oona["section"], oona["blog-posts"])}>
           <div className="row">
             <div className="col s12 flex items-center justify-between">
-              <h2 className="tracking-tight">Journal</h2>
-              <LangToggle lang={lang} setLang={setLang} />
+              <h2 className="tracking-tight">{lang === 'ru' ? 'Журнал' : 'Journal'}</h2>
+              <LangToggle />
             </div>
           </div>
           <div className="row">

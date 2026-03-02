@@ -6,6 +6,7 @@ import Nav from "@/app/layout/nav";
 import Footer from "@/app/layout/footer";
 import React from "react";
 import Body from "@/app/layout/body";
+import { headers } from "next/headers";
 
 export const metadata: Metadata = {
   title: 'Advertum • design and development',
@@ -13,9 +14,11 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({children}: { children: React.ReactNode }) {
+  const lang = (headers().get("x-lang") ?? "en") as "en" | "ru";
+
   return (
-    <html lang="en">
-    <Body>
+    <html lang={lang}>
+    <Body initialLang={lang}>
       <div className="flex min-h-screen flex-col">
         <Nav/>
         <main id="main" className="flex-1">

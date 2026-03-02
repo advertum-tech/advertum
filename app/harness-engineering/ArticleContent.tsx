@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useLang } from "@/app/context/LanguageContext";
+import LangToggle from "@/app/context/LangToggle";
 import Image from "next/image";
 
 const link =
@@ -36,38 +37,6 @@ docs/
 ├── RELIABILITY.md
 └── SECURITY.md`;
 
-function LangToggle({
-  lang,
-  setLang,
-}: {
-  lang: "ru" | "en";
-  setLang: (l: "ru" | "en") => void;
-}) {
-  return (
-    <div className="mt-6 flex justify-center gap-1 text-xs">
-      <button
-        onClick={() => setLang("ru")}
-        className={`rounded-l-full px-4 py-1.5 transition-colors ${
-          lang === "ru"
-            ? "bg-gray-900 text-white"
-            : "bg-gray-100 text-gray-500 hover:bg-gray-200"
-        }`}
-      >
-        RU
-      </button>
-      <button
-        onClick={() => setLang("en")}
-        className={`rounded-r-full px-4 py-1.5 transition-colors ${
-          lang === "en"
-            ? "bg-gray-900 text-white"
-            : "bg-gray-100 text-gray-500 hover:bg-gray-200"
-        }`}
-      >
-        EN
-      </button>
-    </div>
-  );
-}
 
 function ImgCodexDrives({ caption }: { caption: string }) {
   return (
@@ -1364,7 +1333,7 @@ function EnBody() {
 }
 
 export default function ArticleContent() {
-  const [lang, setLang] = useState<"ru" | "en">("en");
+  const { lang, setLang } = useLang();
 
   return (
     <article className="bg-white text-main">
@@ -1391,7 +1360,7 @@ export default function ArticleContent() {
               ? "Райан Лопополо, OpenAI · Перевод: Advertum"
               : "Ryan Lopopolo, OpenAI · Translation: Advertum"}
           </p>
-          <LangToggle lang={lang} setLang={setLang} />
+          <LangToggle className="mt-6 justify-center" />
         </header>
 
         {lang === "ru" ? <RuBody /> : <EnBody />}
