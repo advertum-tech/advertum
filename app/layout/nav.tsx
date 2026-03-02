@@ -2,6 +2,7 @@
 import oona from '../assets/styles/oona/oona.module.scss'
 import cn from "classnames";
 import {useState} from "react";
+import Link from "next/link";
 import ResponsiveUtility from "@/app/layout/ResponsiveUtility";
 import { useLang } from "@/app/context/LanguageContext";
 
@@ -15,7 +16,7 @@ export default function Nav() {
           <div className={cn(oona['container'], 'container')}>
             <div className="row">
               <div className="col s12 l6">
-                <a href="/" className={oona['current-page']}>
+                <Link href="/" className={oona['current-page']}>
                   <img
                     src="/images/advertum-mobile.webp"
                     alt=""
@@ -24,7 +25,7 @@ export default function Nav() {
                     style={{ objectFit: 'contain', flexShrink: 0 }}
                   />
                   Advertum
-                </a>
+                </Link>
                 {/*<ResponsiveUtility />*/}
                 <span className="right show-on-medium-and-down hide-on-large-only">
                     <a href="#"
@@ -34,15 +35,15 @@ export default function Nav() {
               </div>
               <div className="col s12 l6">
                 <ul className=" hide-on-med-and-down">
-                  <li><a href="/ai">{lang === 'ru' ? 'Агенты' : 'Agents'}</a></li>
-                  <li><a href="/journal">{lang === 'ru' ? 'Журнал' : 'Journal'}</a></li>
-                  <li><a href="/about">{lang === 'ru' ? 'О нас' : 'About'}</a></li>
+                  <li><Link href="/ai">{lang === 'ru' ? 'Агенты' : 'Agents'}</Link></li>
+                  <li><Link href="/journal">{lang === 'ru' ? 'Журнал' : 'Journal'}</Link></li>
+                  <li><Link href="/about">{lang === 'ru' ? 'О нас' : 'About'}</Link></li>
                 </ul>
                 {open && <div onClick={() => setOpen(false)} className={oona['side-nav-overlay']}></div>}
                 <ul className={cn('side-nav', oona['side-nav'], open && oona['side-nav-open'])}>
-                  <li><a href="/ai">{lang === 'ru' ? 'Агенты' : 'Agents'}</a></li>
-                  <li><a href="/journal">{lang === 'ru' ? 'Журнал' : 'Journal'}</a></li>
-                  <li><a href="/about">{lang === 'ru' ? 'О нас' : 'About'}</a></li>
+                  <li><Link href="/ai">{lang === 'ru' ? 'Агенты' : 'Agents'}</Link></li>
+                  <li><Link href="/journal">{lang === 'ru' ? 'Журнал' : 'Journal'}</Link></li>
+                  <li><Link href="/about">{lang === 'ru' ? 'О нас' : 'About'}</Link></li>
                 </ul>
               </div>
             </div>
