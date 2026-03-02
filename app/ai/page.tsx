@@ -232,7 +232,7 @@ export default function AI() {
                 <h2 className="tracking-tight">
                   {lang === 'ru'
                     ? 'Давайте найдём, где у вас теряется время'
-                    : "Let's find where your time goes"}
+                    : "Let\u2019s find where your time goes"}
                 </h2>
               </div>
             </div>
@@ -241,7 +241,7 @@ export default function AI() {
                 <p className={cn("flow-text", oona["item-title"])}>
                   {lang === 'ru'
                     ? <><a href="/contact" className="ajax-link">Напишите нам</a> — обсудим ваш процесс и покажем, как агент может помочь.</>
-                    : <><a href="/contact" className="ajax-link">Get in touch</a> — we'll discuss your process and show how an agent can help.</>}
+                    : <><a href="/contact" className="ajax-link">Get in touch</a> — we&apos;ll discuss your process and show how an agent can help.</>}
                 </p>
               </div>
             </div>
