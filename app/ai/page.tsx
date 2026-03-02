@@ -88,13 +88,74 @@ export default function AI() {
             </div>
             <div className="row">
               <div className="col s12">
-                <div className="rounded-3xl bg-gray-50 flex items-center justify-center" style={{height: 200}}>
-                  <span className="text-gray-400 font-mono text-sm">
-                    {lang === 'ru'
-                      ? 'Запрос → Агент → Действие → Интеграция → Отчёт'
-                      : 'Request → Agent → Action → Integration → Report'}
-                  </span>
-                </div>
+                <svg viewBox="0 0 680 270" className="w-full rounded-3xl" style={{background: '#f8f8f8'}}>
+                  <defs>
+                    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+                      <path d="M0 0.5 L9 5 L0 9.5z" fill="#1a1a1a"/>
+                    </marker>
+                    <marker id="arr-sm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto">
+                      <path d="M0 0.5 L9 5 L0 9.5z" fill="#ccc"/>
+                    </marker>
+                  </defs>
+
+                  {[...Array(12)].map((_, i) => (
+                    <line key={`v${i}`} x1={60*i} y1="0" x2={60*i} y2="270" stroke="#e8e8e8" strokeWidth="0.5"/>
+                  ))}
+                  {[...Array(5)].map((_, i) => (
+                    <line key={`h${i}`} x1="0" y1={60*i} x2="680" y2={60*i} stroke="#e8e8e8" strokeWidth="0.5"/>
+                  ))}
+
+                  {/* REQUEST */}
+                  <rect x="25" y="84" width="118" height="48" rx="8" fill="white" stroke="#1a1a1a" strokeWidth="1.5"/>
+                  <text x="84" y="113" fontSize="12" fontFamily="monospace" fill="#1a1a1a" textAnchor="middle">
+                    {lang === 'ru' ? 'Запрос' : 'Request'}
+                  </text>
+
+                  {/* Arrow → Agent */}
+                  <line x1="143" y1="108" x2="198" y2="108" stroke="#1a1a1a" strokeWidth="1.5" markerEnd="url(#arr)"/>
+
+                  {/* AGENT */}
+                  <rect x="202" y="58" width="276" height="100" rx="12" fill="white" stroke="#1a1a1a" strokeWidth="2"/>
+                  <text x="340" y="78" fontSize="9" fontFamily="monospace" fill="#bbb" textAnchor="middle" letterSpacing="4">
+                    {lang === 'ru' ? 'АГЕНТ' : 'AGENT'}
+                  </text>
+                  <line x1="214" y1="86" x2="466" y2="86" stroke="#ebebeb" strokeWidth="1"/>
+                  <line x1="294" y1="86" x2="294" y2="158" stroke="#ebebeb" strokeWidth="1"/>
+                  <line x1="386" y1="86" x2="386" y2="158" stroke="#ebebeb" strokeWidth="1"/>
+
+                  <text x="248" y="116" fontSize="13" fontFamily="monospace" fill="#1a1a1a" textAnchor="middle" fontWeight="600">LLM</text>
+                  <text x="248" y="134" fontSize="9" fontFamily="monospace" fill="#bbb" textAnchor="middle">{lang === 'ru' ? '— мозг' : '— brain'}</text>
+
+                  <text x="340" y="116" fontSize="13" fontFamily="monospace" fill="#1a1a1a" textAnchor="middle" fontWeight="600">MCP</text>
+                  <text x="340" y="134" fontSize="9" fontFamily="monospace" fill="#bbb" textAnchor="middle">{lang === 'ru' ? '— руки' : '— hands'}</text>
+
+                  <text x="432" y="116" fontSize="13" fontFamily="monospace" fill="#1a1a1a" textAnchor="middle" fontWeight="600">RAG</text>
+                  <text x="432" y="134" fontSize="9" fontFamily="monospace" fill="#bbb" textAnchor="middle">{lang === 'ru' ? '— память' : '— memory'}</text>
+
+                  {/* Arrow Agent → Report */}
+                  <line x1="478" y1="108" x2="537" y2="108" stroke="#1a1a1a" strokeWidth="1.5" markerEnd="url(#arr)"/>
+
+                  {/* REPORT */}
+                  <rect x="541" y="84" width="118" height="48" rx="8" fill="white" stroke="#1a1a1a" strokeWidth="1.5"/>
+                  <text x="600" y="113" fontSize="12" fontFamily="monospace" fill="#1a1a1a" textAnchor="middle">
+                    {lang === 'ru' ? 'Отчёт' : 'Report'}
+                  </text>
+
+                  {/* Dashed arrows down to integrations */}
+                  <line x1="248" y1="158" x2="248" y2="210" stroke="#ddd" strokeWidth="1" strokeDasharray="4 3" markerEnd="url(#arr-sm)"/>
+                  <line x1="340" y1="158" x2="340" y2="210" stroke="#ddd" strokeWidth="1" strokeDasharray="4 3" markerEnd="url(#arr-sm)"/>
+                  <line x1="432" y1="158" x2="432" y2="210" stroke="#ddd" strokeWidth="1" strokeDasharray="4 3" markerEnd="url(#arr-sm)"/>
+
+                  {/* Integration boxes */}
+                  <rect x="202" y="213" width="90" height="34" rx="6" fill="none" stroke="#ddd" strokeWidth="1" strokeDasharray="4 3"/>
+                  <text x="248" y="234" fontSize="10" fontFamily="monospace" fill="#bbb" textAnchor="middle">ERP / 1С</text>
+
+                  <rect x="294" y="213" width="90" height="34" rx="6" fill="none" stroke="#ddd" strokeWidth="1" strokeDasharray="4 3"/>
+                  <text x="340" y="234" fontSize="10" fontFamily="monospace" fill="#bbb" textAnchor="middle">{lang === 'ru' ? 'Базы данных' : 'Databases'}</text>
+
+                  <rect x="386" y="213" width="90" height="34" rx="6" fill="none" stroke="#ddd" strokeWidth="1" strokeDasharray="4 3"/>
+                  <text x="432" y="234" fontSize="10" fontFamily="monospace" fill="#bbb" textAnchor="middle">CRM / API</text>
+                </svg>
               </div>
             </div>
             <div className="row mt-6">
