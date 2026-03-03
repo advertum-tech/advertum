@@ -248,14 +248,16 @@ export default function AI() {
                   problemEn: 'The administrator booked clients manually — scheduling conflicts, missed calls, no service outside business hours.',
                   resultRu: 'AI-агент в Telegram принимает записи на естественном языке, синхронизирует с расписанием и 1С. Запись работает 24/7.',
                   resultEn: 'A Telegram agent accepts bookings in natural language, syncs with schedule and 1C. Bookings run 24/7.',
+                  href: null,
                 },
                 {
-                  labelRu: 'Машиностроение',
-                  labelEn: 'Manufacturing',
-                  problemRu: 'Технологи тратили 4–6 часов на написание программ ЧПУ вручную по каждому чертежу.',
-                  problemEn: 'Engineers spent 4–6 hours writing CNC programs manually for each drawing.',
-                  resultRu: 'Агент анализирует чертёж и генерирует G-code — технолог только проверяет. Время на программирование сократилось на 80%.',
-                  resultEn: 'The agent reads the drawing and generates G-code — the engineer just reviews. Programming time down 80%.',
+                  labelRu: 'Производство · Фабрика Аэрозолей',
+                  labelEn: 'Manufacturing · Aerosol Factory',
+                  problemRu: 'Планировщик тратил часы на сбор данных из разных систем: склад, заказы, каталог — прежде чем принять одно решение о запуске партии.',
+                  problemEn: 'The planner spent hours gathering data from different systems: inventory, orders, catalog — before making a single production decision.',
+                  resultRu: 'AI-агент в Telegram запрашивает данные и выдаёт рекомендацию по объёму производства за секунды.',
+                  resultEn: 'An AI agent in Telegram queries data and delivers a production volume recommendation in seconds.',
+                  href: '/cases/aerosol-factory',
                 },
                 {
                   labelRu: 'Корпоративный клиент',
@@ -264,13 +266,19 @@ export default function AI() {
                   problemEn: 'New employees spent weeks onboarding: policies scattered, no single source of truth.',
                   resultRu: 'Агент-куратор знаний отвечает на вопросы по регламентам и проводит по процессам. Онбординг сократился с недель до дней.',
                   resultEn: 'A knowledge agent answers policy questions and guides through processes. Onboarding reduced from weeks to days.',
+                  href: null,
                 },
               ].map((item, i) => (
                 <div key={i} className="col s12 l4 margin-on-medium-and-down">
-                  <div className="rounded-3xl bg-gray-50 p-6">
+                  <div className="rounded-3xl bg-gray-50 p-6 flex flex-col">
                     <span className="text-xs font-mono text-gray-400 uppercase">{lang === 'ru' ? item.labelRu : item.labelEn}</span>
                     <p className="flow-text mt-2">{lang === 'ru' ? item.problemRu : item.problemEn}</p>
                     <p className="text-sm text-gray-500 mt-1">{lang === 'ru' ? item.resultRu : item.resultEn}</p>
+                    {item.href && (
+                      <a href={item.href} className={cn('text-sm font-mono mt-4', oona['item-title'])}>
+                        {lang === 'ru' ? 'Читать кейс →' : 'Read case →'}
+                      </a>
+                    )}
                   </div>
                 </div>
               ))}
