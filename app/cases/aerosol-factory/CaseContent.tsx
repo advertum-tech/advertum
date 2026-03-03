@@ -2,6 +2,7 @@
 import cn from "classnames";
 import oona from "../../assets/styles/oona/oona.module.scss";
 import { useLang } from "@/app/context/LanguageContext";
+import Script from "next/script";
 
 export default function CaseContent() {
   const { lang } = useLang();
@@ -246,16 +247,17 @@ export default function CaseContent() {
 
               {/* n8n — горизонтальное видео */}
               <div className="col s12 l8">
-                <div
-                  className="rounded-3xl bg-gray-50 flex items-center justify-center w-full"
-                  style={{ aspectRatio: "16/9" }}
-                >
-                  <span className="font-mono text-xs text-gray-300 text-center px-4">
-                    {lang === "ru"
-                      ? "Видео: workflow в n8n"
-                      : "Video: workflow in n8n"}
-                  </span>
+                <div className="rounded-3xl overflow-hidden" style={{padding: "56.25% 0 0 0", position: "relative"}}>
+                  <iframe
+                    src="https://player.vimeo.com/video/1169850144?badge=0&autopause=0&player_id=0&app_id=58479"
+                    frameBorder="0"
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%"}}
+                    title="Manufacturing · Aerosol Factory"
+                  />
                 </div>
+                <Script src="https://player.vimeo.com/api/player.js" strategy="lazyOnload" />
                 <p className="text-sm text-gray-400 font-mono mt-3">
                   {lang === "ru" ? "n8n — оркестрация workflow" : "n8n — workflow orchestration"}
                 </p>
