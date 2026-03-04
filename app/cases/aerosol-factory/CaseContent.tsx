@@ -230,7 +230,7 @@ export default function CaseContent() {
             <div className="row">
               {/* Telegram — вертикальное видео */}
               <div className="col s12 l4 margin-on-medium-and-down">
-                <div className="rounded-3xl overflow-hidden" style={{padding: "216.67% 0 0 0", position: "relative"}}>
+                <div className="rounded-3xl overflow-hidden" style={{padding: "112.5% 0 0 0", position: "relative"}}>
                   <iframe
                     src="https://player.vimeo.com/video/1170327566?badge=0&autopause=0&player_id=0&app_id=58479"
                     frameBorder="0"
