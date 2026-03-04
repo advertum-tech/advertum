@@ -2,7 +2,6 @@
 import cn from "classnames";
 import oona from "../../assets/styles/oona/oona.module.scss";
 import { useLang } from "@/app/context/LanguageContext";
-import Script from "next/script";
 
 export default function CaseContent() {
   const { lang } = useLang();
@@ -227,17 +226,17 @@ export default function CaseContent() {
                 </h2>
               </div>
             </div>
-            <div className="row">
-              {/* Telegram — вертикальное видео */}
-              <div className="col s12 l4 margin-on-medium-and-down">
-                <div className="rounded-3xl overflow-hidden" style={{padding: "112.5% 0 0 0", position: "relative"}}>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-6">
+              {/* Telegram — вертикальное, язык-зависимое */}
+              <div className="flex flex-col">
+                <div className="bg-black rounded-3xl overflow-hidden relative aspect-[9/16] lg:aspect-auto lg:flex-1">
                   <iframe
-                    src="https://player.vimeo.com/video/1170327566?badge=0&autopause=0&player_id=0&app_id=58479"
+                    src={`https://player.vimeo.com/video/${lang === "ru" ? "1170335563" : "1170327566"}?badge=0&autopause=0&player_id=0&app_id=58479`}
                     frameBorder="0"
                     allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
                     referrerPolicy="strict-origin-when-cross-origin"
                     style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%"}}
-                    title="Aerosol Factory Telegram Bot"
+                    title={lang === "ru" ? "Telegram-бот планировщика" : "Telegram Planner Bot"}
                   />
                 </div>
                 <p className="text-sm text-gray-400 font-mono mt-3">
@@ -245,9 +244,9 @@ export default function CaseContent() {
                 </p>
               </div>
 
-              {/* n8n — горизонтальное видео */}
-              <div className="col s12 l8">
-                <div className="rounded-3xl overflow-hidden" style={{padding: "56.25% 0 0 0", position: "relative"}}>
+              {/* n8n — горизонтальное */}
+              <div className="lg:col-span-2 flex flex-col">
+                <div className="rounded-3xl overflow-hidden relative" style={{paddingTop: "56.25%"}}>
                   <iframe
                     src="https://player.vimeo.com/video/1169850144?badge=0&autopause=0&player_id=0&app_id=58479"
                     frameBorder="0"
@@ -257,7 +256,6 @@ export default function CaseContent() {
                     title="Manufacturing · Aerosol Factory"
                   />
                 </div>
-                <Script src="https://player.vimeo.com/api/player.js" strategy="lazyOnload" />
                 <p className="text-sm text-gray-400 font-mono mt-3">
                   {lang === "ru" ? "n8n — оркестрация workflow" : "n8n — workflow orchestration"}
                 </p>
