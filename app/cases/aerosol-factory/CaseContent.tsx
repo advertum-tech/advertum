@@ -230,15 +230,15 @@ export default function CaseContent() {
             <div className="row">
               {/* Telegram — вертикальное видео */}
               <div className="col s12 l4 margin-on-medium-and-down">
-                <div
-                  className="rounded-3xl bg-gray-50 flex flex-col items-center justify-center w-full"
-                  style={{ aspectRatio: "9/16", maxHeight: 560 }}
-                >
-                  <span className="font-mono text-xs text-gray-300 text-center px-4">
-                    {lang === "ru"
-                      ? "Видео: диалог с агентом в Telegram"
-                      : "Video: conversation with the agent in Telegram"}
-                  </span>
+                <div className="rounded-3xl overflow-hidden" style={{padding: "216.67% 0 0 0", position: "relative"}}>
+                  <iframe
+                    src="https://player.vimeo.com/video/1170327566?badge=0&autopause=0&player_id=0&app_id=58479"
+                    frameBorder="0"
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%"}}
+                    title="Aerosol Factory Telegram Bot"
+                  />
                 </div>
                 <p className="text-sm text-gray-400 font-mono mt-3">
                   {lang === "ru" ? "Telegram — интерфейс планировщика" : "Telegram — planner interface"}
