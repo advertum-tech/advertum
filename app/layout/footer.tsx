@@ -1,6 +1,5 @@
 "use client";
 
-import oona from '../assets/styles/oona/oona.module.scss'
 import cn from "classnames";
 import { useLang } from "@/app/context/LanguageContext";
 import LangToggle from "@/app/context/LangToggle";
@@ -9,20 +8,20 @@ export default function Footer() {
   const { lang } = useLang();
 
   return (
-    <footer className={cn(oona['footer'], 'bg-white text-main')}>
-      <div className={cn('container', oona['container'])}>
+    <footer className={cn('pt-8 pb-16 max-lg:pb-8 max-lg:text-center max-sm:pb-4', 'bg-accentBackground text-main')}>
+      <div className={cn('container', '!w-[90%] !max-w-[1600px] sm:!w-4/5')}>
         <div className="row">
           <div className="col s12 l3 margin-on-medium-and-down">
             Advertum Agency
-            <div className={oona['italic']}>since 2009</div>
+            <div className="italic">since 2009</div>
             <a href="mailto:hello@advertum.com">hello@advertum.com</a>
             <br/>+372 5551-1283
           </div>
           <div className="col s12 l3 margin-on-medium-and-down">
-            <address className={oona['normal']}>Narva mnt 5, 10117 Tallinn<br/>Harjumaa, Estonia</address>
+            <address className="not-italic">Narva mnt 5, 10117 Tallinn<br/>Harjumaa, Estonia</address>
             <a href="https://www.google.com/maps?daddr=Narva+mnt+5,+10117+Tallinn" target="_blank">
               {lang === 'ru' ? 'Построить маршрут' : 'Get directions'}
-              <i className={cn('icon-arrows-slim-right', oona['new-window'])}></i>
+              <i className="icon-arrows-slim-right inline-block -rotate-45"></i>
             </a>
           </div>
           <div className="col s12 l3 margin-on-medium-and-down">
