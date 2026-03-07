@@ -11,7 +11,7 @@ const robotoMono = Roboto_Mono({subsets: ['latin']})
 
 export default function Body({ children, initialLang }: { children: React.ReactNode, initialLang: "en" | "ru" }) {
   const pathname = usePathname()
-  const pageClass = pathname === '/work' ? 'page-work' : 'page-home';
+  const pageClass = 'page-home';
 
   return (
     <body className={cn(robotoMono.className, oona[pageClass], 'bg-accentBackground')}>
