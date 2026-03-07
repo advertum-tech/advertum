@@ -150,17 +150,68 @@ export default function Home() {
                 </div>
               </div>
               <div className="row">
+                {/* Aerosol Factory card */}
                 <div className="col s12 l6 margin-on-medium-and-down">
-                  <a href="/work/clip-finance" className={cn(oona['no-underline'], '')}>
-                    <img src="/images/work/clip/clip.webp" alt="Clip Finance" className={'responsive-img rounded-3xl'}/>
-                  </a>
-                  <a href="/work/clip-finance" className={cn('flow-text', oona['item-title'])}>Clip Finance</a>
+                  <div className="rounded-3xl bg-gray-50 p-6 flex flex-col">
+                    <div className="mb-3">
+                      <svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="#1a1a1a" strokeWidth="1.5" aria-hidden="true">
+                        <path d="M2 28 L2 14 L10 18 L10 14 L18 18 L18 14 L26 18 L26 28 Z" />
+                        <rect x="5"  y="21" width="5" height="7" />
+                        <rect x="14" y="21" width="5" height="7" />
+                        <line x1="22" y1="8" x2="22" y2="18" />
+                        <line x1="18" y1="8" x2="26" y2="8" />
+                        <line x1="18" y1="4" x2="26" y2="4" />
+                      </svg>
+                    </div>
+                    <span className="text-xs font-mono text-gray-400 uppercase">
+                      {lang === 'ru' ? 'Производство · Фабрика Аэрозолей' : 'Manufacturing · Aerosol Factory'}
+                    </span>
+                    <p className="flow-text mt-2">
+                      {lang === 'ru'
+                        ? 'Планировщик тратил часы на сбор данных из разных систем: склад, заказы, каталог — прежде чем принять одно решение о запуске партии.'
+                        : 'The planner spent hours gathering data from different systems: inventory, orders, catalog — before making a single production decision.'}
+                    </p>
+                    <p className="text-sm text-gray-500 mt-1">
+                      {lang === 'ru'
+                        ? 'AI-агент в Telegram запрашивает данные и выдаёт рекомендацию по объёму производства за секунды.'
+                        : 'An AI agent in Telegram queries data and delivers a production volume recommendation in seconds.'}
+                    </p>
+                    <a href="/cases/aerosol-factory" className={cn('text-sm font-mono mt-4', oona['item-title'])}>
+                      {lang === 'ru' ? 'Читать кейс →' : 'Read case →'}
+                    </a>
+                  </div>
                 </div>
+
+                {/* Beauty Salon card */}
                 <div className="col s12 l6">
-                  <a href="/work/advertum-cashback" className={cn(oona['no-underline'])}>
-                    <img src="/images/work/advertum/advertum.webp" alt="Advertum Cashback" className={'responsive-img rounded-3xl'}/>
-                  </a>
-                  <a href="/work/advertum-cashback" className={cn('flow-text', oona['item-title'])}>Advertum Cashback</a>
+                  <div className="rounded-3xl bg-gray-50 p-6 flex flex-col">
+                    <div className="mb-3">
+                      <svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="#1a1a1a" strokeWidth="1.5" aria-hidden="true">
+                        <rect x="3" y="6" width="26" height="23" rx="3" />
+                        <line x1="3"  y1="13" x2="29" y2="13" />
+                        <line x1="10" y1="3"  x2="10" y2="9" />
+                        <line x1="22" y1="3"  x2="22" y2="9" />
+                        <circle cx="10" cy="20" r="1.5" fill="#1a1a1a" stroke="none" />
+                        <circle cx="16" cy="20" r="1.5" fill="#1a1a1a" stroke="none" />
+                        <circle cx="22" cy="20" r="1.5" fill="#bbb" stroke="none" />
+                        <circle cx="10" cy="25" r="1.5" fill="#bbb" stroke="none" />
+                        <circle cx="16" cy="25" r="1.5" fill="#bbb" stroke="none" />
+                      </svg>
+                    </div>
+                    <span className="text-xs font-mono text-gray-400 uppercase">
+                      {lang === 'ru' ? 'Салон красоты' : 'Beauty salon'}
+                    </span>
+                    <p className="flow-text mt-2">
+                      {lang === 'ru'
+                        ? 'Администратор записывал клиентов вручную — конфликты расписания, пропущенные звонки, работа только в рабочее время.'
+                        : 'The administrator booked clients manually — scheduling conflicts, missed calls, no service outside business hours.'}
+                    </p>
+                    <p className="text-sm text-gray-500 mt-1">
+                      {lang === 'ru'
+                        ? 'AI-агент в Telegram принимает записи на естественном языке, синхронизирует с расписанием и 1С. Запись работает 24/7.'
+                        : 'A Telegram agent accepts bookings in natural language, syncs with schedule and 1C. Bookings run 24/7.'}
+                    </p>
+                  </div>
                 </div>
               </div>
             </section>
