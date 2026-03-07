@@ -1,7 +1,5 @@
 "use client";
 
-import cn from "classnames";
-import oona from "../assets/styles/oona/oona.module.scss";
 import { useLang } from "@/app/context/LanguageContext";
 import LangToggle from "@/app/context/LangToggle";
 
@@ -84,8 +82,8 @@ export default function Journal() {
 
   return (
     <div className="bg-white text-main">
-      <div className={cn("container", oona["container"])}>
-        <section className={cn(oona["section"], oona["blog-posts"])}>
+      <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
+        <section className="section py-20 max-lg:py-16 max-sm:py-12">
           <div className="row">
             <div className="col s12 flex items-center justify-between">
               <h2 className="tracking-tight">{lang === 'ru' ? 'Журнал' : 'Journal'}</h2>
@@ -94,7 +92,7 @@ export default function Journal() {
           </div>
           <div className="row">
             <div className="col s12 l6 margin-on-medium-and-down">
-              <a href="/great-displacement" className={cn(oona["no-underline"])}>
+              <a href="/great-displacement" className="!border-b-0">
                 <DisplacementSvg />
               </a>
               <div className="meta">
@@ -104,7 +102,7 @@ export default function Journal() {
                   {lang === "ru" ? "Пост-работа · Манифест" : "Post-work · Manifesto"}
                 </span>
               </div>
-              <a href="/great-displacement" className={cn("flow-text", oona["item-title"])}>
+              <a href="/great-displacement" className="flow-text !font-normal">
                 {lang === "ru" ? "Великое вытеснение" : "The Great Displacement"}
               </a>
               <p className="mt-2 text-sm leading-relaxed text-gray-500">
@@ -114,7 +112,7 @@ export default function Journal() {
               </p>
             </div>
             <div className="col s12 l6">
-              <a href="/harness-engineering" className={cn(oona["no-underline"])}>
+              <a href="/harness-engineering" className="!border-b-0">
                 <HarnessSvg />
               </a>
               <div className="meta">
@@ -126,7 +124,7 @@ export default function Journal() {
                     : "AI Agents · Zero Hand-written"}
                 </span>
               </div>
-              <a href="/harness-engineering" className={cn("flow-text", oona["item-title"])}>
+              <a href="/harness-engineering" className="flow-text !font-normal">
                 {lang === "ru" ? "Harness-инженерия" : "Harness Engineering"}
               </a>
               <p className="mt-2 text-sm leading-relaxed text-gray-500">

@@ -1,6 +1,5 @@
 "use client";
 import cn from "classnames";
-import oona from "../assets/styles/oona/oona.module.scss";
 import { useLang } from "@/app/context/LanguageContext";
 import { useState, useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
@@ -204,8 +203,7 @@ function ContactForm() {
           type="submit"
           disabled={status === "submitting"}
           className={cn(
-            "font-mono text-sm tracking-wide transition-opacity duration-200",
-            oona["item-title"],
+            "font-mono text-sm tracking-wide transition-opacity duration-200 !font-normal",
             status === "submitting" ? "opacity-40 cursor-not-allowed" : "opacity-100"
           )}
         >
@@ -228,8 +226,8 @@ export default function Contact() {
 
   return (
     <div className="bg-accentBackground text-main min-h-screen">
-      <div className={cn("container", oona["container"])}>
-        <section className={cn(oona["section"])}>
+      <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
+        <section className="section py-20 max-lg:py-16 max-sm:py-12">
           <div className="row">
             <div className="col s12 l6">
               <h1 className="text-[38px] lg:text-[55px] tracking-tight mb-2">

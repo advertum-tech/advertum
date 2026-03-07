@@ -1,6 +1,4 @@
 "use client";
-import cn from "classnames";
-import oona from './assets/styles/oona/oona.module.scss'
 import { useLang } from "@/app/context/LanguageContext";
 
 export default function Home() {
@@ -9,8 +7,8 @@ export default function Home() {
   return (
       <>
         <div className={'bg-accentBackground text-main'}>
-          <div className={cn('container intro', oona['container'], oona['intro'])}>
-            <div className={cn('row')}>
+          <div className="container intro !w-[90%] !max-w-[1600px] sm:!w-4/5 h-screen max-lg:h-[75vh] bg-contain bg-no-repeat bg-center bg-[url('/images/advertum.webp')] max-lg:bg-[url('/images/advertum-mobile.webp')]">
+            <div className="row">
               <h1 className={
                   'relative lg:absolute ' +
                   'top-0 lg:top-1/3 ' +
@@ -23,11 +21,7 @@ export default function Home() {
                   : 'Improve The Quality and Performance of Your Business'}
               </h1>
               <div className="col s12 l6 offset-l6">
-                <p className={cn('' +
-                    'absolute lg:relative ' +
-                    'top-2/3 md:top-3/4 lg:top-0 ' +
-                    ' lg:text-[1.68rem] ' +
-                    'intro-text text-main font-normal my-5 leading-normal')}>
+                <p className="absolute lg:relative top-2/3 md:top-3/4 lg:top-0 lg:text-[1.68rem] intro-text text-main font-normal my-5 leading-normal">
                   {lang === 'ru'
                     ? 'Advertum — студия автоматизации и разработки. Мы внедряем AI-агентов в бизнес-процессы и создаём продукты, которые работают.'
                     : 'Advertum is a development and automation studio. We deploy AI agents into business processes and build products that work.'}
@@ -38,8 +32,8 @@ export default function Home() {
         </div>
 
         <div className={'bg-white text-main'}>
-          <div className={cn('container', oona['container'])}>
-            <section className={cn(oona['section'], oona['blog-posts'])}>
+          <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
+            <section className="section py-20 max-lg:py-16 max-sm:py-12">
               <div className="row">
                 <div className="col s12">
                   <h2 className={'tracking-tight'}>Journal</h2>
@@ -47,7 +41,7 @@ export default function Home() {
               </div>
               <div className="row">
                 <div className="col s12 l6 margin-on-medium-and-down">
-                  <a href="/great-displacement" className={cn(oona['no-underline'])}>
+                  <a href="/great-displacement" className="!border-b-0">
                     <svg viewBox="0 0 680 400" className="responsive-img rounded-3xl" style={{background: '#f8f8f8'}}>
                       {[...Array(12)].map((_, i) => (
                         <line key={`v${i}`} x1={60 * i} y1="0" x2={60 * i} y2="400" stroke="#e5e5e5" strokeWidth="0.5" />
@@ -78,7 +72,7 @@ export default function Home() {
                     <time dateTime="2026-02-01">02/2026</time>
                     <span>&nbsp;· {lang === 'ru' ? 'Мнение · Лонгрид' : 'Opinion · Essay'}</span>
                   </div>
-                  <a href="/great-displacement" className={cn('flow-text', oona['item-title'])}>
+                  <a href="/great-displacement" className="flow-text !font-normal">
                     {lang === 'ru' ? 'Великое вытеснение' : 'The Great Displacement'}
                   </a>
                   <p className="mt-2 text-sm leading-relaxed text-gray-500">
@@ -88,7 +82,7 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="col s12 l6">
-                  <a href="/harness-engineering" className={cn(oona['no-underline'])}>
+                  <a href="/harness-engineering" className="!border-b-0">
                     <svg viewBox="0 0 680 400" className="responsive-img rounded-3xl" style={{background: '#f8f8f8'}}>
                       {[...Array(12)].map((_, i) => (
                         <line key={`v${i}`} x1={60 * i} y1="0" x2={60 * i} y2="400" stroke="#e5e5e5" strokeWidth="0.5" />
@@ -125,7 +119,7 @@ export default function Home() {
                     <time dateTime="2026-02-11">02/2026</time>
                     <span>&nbsp;· {lang === 'ru' ? 'Инженерия · Перевод' : 'Engineering · Translation'}</span>
                   </div>
-                  <a href="/harness-engineering" className={cn('flow-text', oona['item-title'])}>
+                  <a href="/harness-engineering" className="flow-text !font-normal">
                     {lang === 'ru' ? 'Harness-инженерия' : 'Harness Engineering'}
                   </a>
                   <p className="mt-2 text-sm leading-relaxed text-gray-500">
@@ -140,8 +134,8 @@ export default function Home() {
         </div>
 
         <div className={'bg-white text-main'}>
-          <div className={cn('container', oona['container'])}>
-            <section className={cn('latest-projects', oona['section'], oona['latest-projects'])}>
+          <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
+            <section className="section latest-projects py-20 max-lg:py-16 max-sm:py-12">
               <div className="row">
                 <div className="col s12">
                   <h2 className={'tracking-tight'}>
@@ -176,7 +170,7 @@ export default function Home() {
                         ? 'AI-агент в Telegram запрашивает данные и выдаёт рекомендацию по объёму производства за секунды.'
                         : 'An AI agent in Telegram queries data and delivers a production volume recommendation in seconds.'}
                     </p>
-                    <a href="/cases/aerosol-factory" className={cn('text-sm font-mono mt-4', oona['item-title'])}>
+                    <a href="/cases/aerosol-factory" className="text-sm font-mono mt-4 !font-normal">
                       {lang === 'ru' ? 'Читать кейс →' : 'Read case →'}
                     </a>
                   </div>
@@ -220,8 +214,8 @@ export default function Home() {
 
         {/* TODO: наполнить контентом */}
         <div className={'bg-white text-main'}>
-          <div className={cn('container', oona['container'])}>
-            <section className={cn(oona['section'])}>
+          <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
+            <section className="section py-20 max-lg:py-16 max-sm:py-12">
               <div className="row">
                 <div className="col s12">
                   <h2 className={'tracking-tight'}>
@@ -231,12 +225,12 @@ export default function Home() {
               </div>
               <div className="row">
                 <div className="col s12 l6">
-                  <p className={cn('flow-text', oona['intro-text'])}>
+                  <p className="flow-text max-sm:mt-12 !font-normal">
                     {lang === 'ru'
                       ? 'Внедряем AI-агентов в бизнес-процессы — от записи клиентов до программирования станков с ЧПУ. Подключаем к вашим системам, разворачиваем локально, данные не покидают компанию.'
                       : 'We deploy AI agents into business operations — from booking appointments to programming CNC machines. Connected to your systems, running on your servers, your data stays inside.'}
                   </p>
-                  <a href="/ai" className={cn('flow-text', oona['item-title'])}>
+                  <a href="/ai" className="flow-text !font-normal">
                     {lang === 'ru' ? 'Подробнее →' : 'Learn more →'}
                   </a>
                 </div>
@@ -246,8 +240,8 @@ export default function Home() {
         </div>
 
         <div className={'bg-white text-main'}>
-          <div className={cn('container', oona['container'])}>
-            <section className={cn(oona['section'], oona['get-in-touch'])}>
+          <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
+            <section className="section py-20 max-lg:py-16 max-sm:py-12">
               <div className="row">
                 <div className="col s12">
                   <h2 className={'tracking-tight'}>
@@ -257,7 +251,7 @@ export default function Home() {
               </div>
               <div className="row">
                 <div className="col">
-                  <p className={cn('flow-text', oona['item-title'])}>
+                  <p className="flow-text !font-normal">
                     {lang === 'ru'
                       ? <>Хотите обсудить проект, идею или просто познакомиться — <a href="/contact" className="ajax-link">напишите нам</a>.</>
                       : <>Whether you like to start a new project, discuss an idea or just say hello — <a href="/contact" className="ajax-link">contact us</a>.</>}

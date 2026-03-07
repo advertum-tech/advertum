@@ -1,6 +1,5 @@
 "use client";
 import cn from "classnames";
-import oona from "../../assets/styles/oona/oona.module.scss";
 import { useLang } from "@/app/context/LanguageContext";
 
 export default function CaseContent() {
@@ -10,8 +9,8 @@ export default function CaseContent() {
     <>
       {/* ── HERO ── */}
       <div className="bg-accentBackground text-main">
-        <div className={cn("container", oona["container"])}>
-          <section className={cn(oona["section"])}>
+        <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
+          <section className="section py-20 max-lg:py-16 max-sm:py-12">
             <div className="row">
               <div className="col s12">
                 <span className="font-mono text-sm text-gray-400 uppercase tracking-widest">
@@ -37,7 +36,7 @@ export default function CaseContent() {
                     href="https://www.aerosolfactory.ru/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={oona["item-title"]}
+                    className="!font-normal"
                   >
                     {lang === "ru" ? "Фабрика Аэрозолей →" : "Aerosol Factory →"}
                   </a>
@@ -50,8 +49,8 @@ export default function CaseContent() {
 
       {/* ── КЛИЕНТ ── */}
       <div className="bg-white text-main">
-        <div className={cn("container", oona["container"])}>
-          <section className={cn(oona["section"])}>
+        <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
+          <section className="section py-20 max-lg:py-16 max-sm:py-12">
             <div className="row">
               <div className="col s12">
                 <h2 className="tracking-tight">
@@ -118,8 +117,8 @@ export default function CaseContent() {
 
       {/* ── ЗАДАЧА ── */}
       <div className="bg-white text-main">
-        <div className={cn("container", oona["container"])}>
-          <section className={cn(oona["section"])}>
+        <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
+          <section className="section py-20 max-lg:py-16 max-sm:py-12">
             <div className="row">
               <div className="col s12">
                 <h2 className="tracking-tight">
@@ -155,7 +154,7 @@ export default function CaseContent() {
                 },
               ].map((item, i) => (
                 <div key={i} className="col s12 l4 margin-on-medium-and-down">
-                  <span className={cn("flow-text", oona["item-title"])}>
+                  <span className="flow-text !font-normal">
                     {lang === "ru" ? item.titleRu : item.titleEn}
                   </span>
                   <p className="text-sm text-gray-500 mt-2 leading-relaxed">
@@ -170,8 +169,8 @@ export default function CaseContent() {
 
       {/* ── РЕШЕНИЕ ── */}
       <div className="bg-white text-main">
-        <div className={cn("container", oona["container"])}>
-          <section className={cn(oona["section"])}>
+        <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
+          <section className="section py-20 max-lg:py-16 max-sm:py-12">
             <div className="row">
               <div className="col s12">
                 <h2 className="tracking-tight">
@@ -217,8 +216,8 @@ export default function CaseContent() {
 
       {/* ── ДЕМО ── */}
       <div className="bg-white text-main">
-        <div className={cn("container", oona["container"])}>
-          <section className={cn(oona["section"])}>
+        <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
+          <section className="section py-20 max-lg:py-16 max-sm:py-12">
             <div className="row">
               <div className="col s12">
                 <h2 className="tracking-tight">
@@ -267,8 +266,8 @@ export default function CaseContent() {
 
       {/* ── РЕЗУЛЬТАТ ── */}
       <div className="bg-white text-main">
-        <div className={cn("container", oona["container"])}>
-          <section className={cn(oona["section"])}>
+        <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
+          <section className="section py-20 max-lg:py-16 max-sm:py-12">
             <div className="row">
               <div className="col s12">
                 <h2 className="tracking-tight">
@@ -304,7 +303,7 @@ export default function CaseContent() {
                 },
               ].map((item, i) => (
                 <div key={i} className="col s12 l4 margin-on-medium-and-down">
-                  <span className={cn("flow-text", oona["item-title"])}>
+                  <span className="flow-text !font-normal">
                     {lang === "ru" ? item.titleRu : item.titleEn}
                   </span>
                   <p className="text-sm text-gray-500 mt-2 leading-relaxed">
@@ -319,8 +318,8 @@ export default function CaseContent() {
 
       {/* ── СТЕК ── */}
       <div className="bg-white text-main">
-        <div className={cn("container", oona["container"])}>
-          <section className={cn(oona["section"])}>
+        <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
+          <section className="section py-20 max-lg:py-16 max-sm:py-12">
             <div className="row">
               <div className="col s12">
                 <h2 className="tracking-tight">
@@ -352,7 +351,7 @@ export default function CaseContent() {
                 },
               ].map((item, i) => (
                 <div key={i} className="col s12 l3 margin-on-medium-and-down">
-                  <span className={cn("flow-text font-mono", oona["item-title"])}>{item.name}</span>
+                  <span className="flow-text font-mono !font-normal">{item.name}</span>
                   <p className="text-sm text-gray-500 mt-1 leading-relaxed">
                     {lang === "ru" ? item.descRu : item.descEn}
                   </p>
@@ -365,8 +364,8 @@ export default function CaseContent() {
 
       {/* ── CTA ── */}
       <div className="bg-white text-main">
-        <div className={cn("container", oona["container"])}>
-          <section className={cn(oona["section"], oona["get-in-touch"])}>
+        <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
+          <section className="section py-20 max-lg:py-16 max-sm:py-12">
             <div className="row">
               <div className="col s12">
                 <h2 className="tracking-tight">
@@ -378,7 +377,7 @@ export default function CaseContent() {
             </div>
             <div className="row">
               <div className="col s12 l6">
-                <p className={cn("flow-text", oona["item-title"])}>
+                <p className="flow-text !font-normal">
                   {lang === "ru" ? (
                     <>
                       <a href="/contact" className="ajax-link">Напишите нам</a>{" "}

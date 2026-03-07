@@ -1,6 +1,4 @@
 "use client";
-import cn from "classnames";
-import oona from "../assets/styles/oona/oona.module.scss";
 import { useLang } from "@/app/context/LanguageContext";
 
 // ── Hero: agent network ───────────────────────────────────────────────────────
@@ -306,8 +304,8 @@ export default function AI() {
     <>
       {/* ── 1. HERO ── */}
       <div className="bg-accentBackground text-main">
-        <div className={cn("container", oona["container"])}>
-          <section className={cn(oona["section"])}>
+        <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
+          <section className="section py-20 max-lg:py-16 max-sm:py-12">
             <div className="row">
               <div className="col s12 l7">
                 <h1 className="text-[45px] lg:text-[70px] tracking-tight">
@@ -318,7 +316,7 @@ export default function AI() {
                     ? "Мы внедряем AI-агентов в бизнес-процессы — подключаем к вашим системам, разворачиваем на ваших серверах, настраиваем под ваши задачи."
                     : "We embed AI agents into business operations — connected to your systems, running on your servers, tuned to your processes."}
                 </p>
-                <a href="/contact" className={cn("flow-text", oona["item-title"])}>
+                <a href="/contact" className="flow-text !font-normal">
                   {ru ? "Обсудить пилот →" : "Discuss a pilot →"}
                 </a>
               </div>
@@ -332,8 +330,8 @@ export default function AI() {
 
       {/* ── 2. БОЛИ ── */}
       <div className="bg-white text-main">
-        <div className={cn("container", oona["container"])}>
-          <section className={cn(oona["section"])}>
+        <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
+          <section className="section py-20 max-lg:py-16 max-sm:py-12">
             <div className="row">
               <div className="col s12">
                 <h2 className="tracking-tight mb-6">
@@ -368,7 +366,7 @@ export default function AI() {
               ].map((item, i) => (
                 <div key={i} className="col s12 l4 margin-on-medium-and-down">
                   <div className="mb-3">{item.icon}</div>
-                  <span className={cn("flow-text", oona["item-title"])}>{ru ? item.ru : item.en}</span>
+                  <span className="flow-text !font-normal">{ru ? item.ru : item.en}</span>
                   <p className="text-sm text-gray-500 mt-1">{ru ? item.descRu : item.descEn}</p>
                 </div>
               ))}
@@ -379,8 +377,8 @@ export default function AI() {
 
       {/* ── 3. КАК РАБОТАЕТ (pipeline) ── */}
       <div className="bg-white text-main">
-        <div className={cn("container", oona["container"])}>
-          <section className={cn(oona["section"])}>
+        <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
+          <section className="section py-20 max-lg:py-16 max-sm:py-12">
             <div className="row">
               <div className="col s12">
                 <h2 className="tracking-tight">
@@ -458,8 +456,8 @@ export default function AI() {
 
       {/* ── 4. АГЕНТЫ ── */}
       <div className="bg-white text-main">
-        <div className={cn("container", oona["container"])}>
-          <section className={cn(oona["section"])}>
+        <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
+          <section className="section py-20 max-lg:py-16 max-sm:py-12">
             <div className="row">
               <div className="col s12">
                 <h2 className="tracking-tight">
@@ -477,7 +475,7 @@ export default function AI() {
               ].map((agent, i) => (
                 <div key={i} className="col s12 l4 margin-on-medium-and-down">
                   <div className="mb-3">{agent.icon}</div>
-                  <span className={cn("flow-text", oona["item-title"])}>{ru ? agent.ru : agent.en}</span>
+                  <span className="flow-text !font-normal">{ru ? agent.ru : agent.en}</span>
                   <p className="text-sm text-gray-500 mt-1">{ru ? agent.descRu : agent.descEn}</p>
                 </div>
               ))}
@@ -488,8 +486,8 @@ export default function AI() {
 
       {/* ── 5. КЕЙСЫ ── */}
       <div className="bg-white text-main">
-        <div className={cn("container", oona["container"])}>
-          <section className={cn(oona["section"])}>
+        <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
+          <section className="section py-20 max-lg:py-16 max-sm:py-12">
             <div className="row">
               <div className="col s12">
                 <h2 className="tracking-tight">
@@ -534,7 +532,7 @@ export default function AI() {
                     <p className="flow-text mt-2">{ru ? item.problemRu : item.problemEn}</p>
                     <p className="text-sm text-gray-500 mt-1">{ru ? item.resultRu : item.resultEn}</p>
                     {item.href && (
-                      <a href={item.href} className={cn("text-sm font-mono mt-4", oona["item-title"])}>
+                      <a href={item.href} className="text-sm font-mono mt-4 !font-normal">
                         {ru ? "Читать кейс →" : "Read case →"}
                       </a>
                     )}
@@ -548,8 +546,8 @@ export default function AI() {
 
       {/* ── 6. БЕЗОПАСНОСТЬ ── */}
       <div className="bg-white text-main">
-        <div className={cn("container", oona["container"])}>
-          <section className={cn(oona["section"])}>
+        <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
+          <section className="section py-20 max-lg:py-16 max-sm:py-12">
             <div className="row">
               <div className="col s12">
                 <h2 className="tracking-tight">
@@ -569,7 +567,7 @@ export default function AI() {
                 { ru: "ФЗ-152", en: "Data compliance", descRu: "Соответствие российскому законодательству о персональных данных", descEn: "Compliant with data protection law" },
               ].map((item, i) => (
                 <div key={i} className="col s12 l4 margin-on-medium-and-down">
-                  <span className={cn("flow-text", oona["item-title"])}>{ru ? item.ru : item.en}</span>
+                  <span className="flow-text !font-normal">{ru ? item.ru : item.en}</span>
                   <p className="text-sm text-gray-500 mt-1">{ru ? item.descRu : item.descEn}</p>
                 </div>
               ))}
@@ -580,8 +578,8 @@ export default function AI() {
 
       {/* ── 7. КАК МЫ РАБОТАЕМ ── */}
       <div className="bg-white text-main">
-        <div className={cn("container", oona["container"])}>
-          <section className={cn(oona["section"])}>
+        <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
+          <section className="section py-20 max-lg:py-16 max-sm:py-12">
             <div className="row">
               <div className="col s12">
                 <h2 className="tracking-tight">
@@ -603,7 +601,7 @@ export default function AI() {
               ].map((step, i) => (
                 <div key={i} className="col s12 l3 margin-on-medium-and-down">
                   <span className="font-mono text-gray-400 text-sm">{`0${i + 1}`}</span>
-                  <span className={cn("flow-text", oona["item-title"])}> {ru ? step.ru : step.en}</span>
+                  <span className="flow-text !font-normal"> {ru ? step.ru : step.en}</span>
                   <p className="text-sm text-gray-500 mt-1">{ru ? step.descRu : step.descEn}</p>
                 </div>
               ))}
@@ -614,8 +612,8 @@ export default function AI() {
 
       {/* ── 8. CTA ── */}
       <div className="bg-white text-main">
-        <div className={cn("container", oona["container"])}>
-          <section className={cn(oona["section"], oona["get-in-touch"])}>
+        <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
+          <section className="section py-20 max-lg:py-16 max-sm:py-12">
             <div className="row">
               <div className="col s12">
                 <h2 className="tracking-tight">
@@ -627,7 +625,7 @@ export default function AI() {
             </div>
             <div className="row">
               <div className="col s12 l6">
-                <p className={cn("flow-text", oona["item-title"])}>
+                <p className="flow-text !font-normal">
                   {ru
                     ? <><a href="/contact" className="ajax-link">Напишите нам</a> — обсудим ваш процесс и покажем, как агент может помочь.</>
                     : <><a href="/contact" className="ajax-link">Get in touch</a> — we&apos;ll discuss your process and show how an agent can help.</>}
