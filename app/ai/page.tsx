@@ -306,8 +306,8 @@ export default function AI() {
       <div className="bg-accentBackground text-main">
         <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
           <section className="section py-20 max-lg:py-16 max-sm:py-12">
-            <div className="row">
-              <div className="col s12 l7">
+            <div className="flex flex-col lg:flex-row">
+              <div className="w-full lg:w-7/12">
                 <h1 className="text-[45px] lg:text-[70px] tracking-tight">
                   {ru ? "Рутину — агентам. Решения — людям." : "Routine to agents. Decisions to people."}
                 </h1>
@@ -320,7 +320,7 @@ export default function AI() {
                   {ru ? "Обсудить пилот →" : "Discuss a pilot →"}
                 </a>
               </div>
-              <div className="col s12 l5 hide-on-med-and-down flex items-center">
+              <div className="w-full lg:w-5/12 hidden lg:flex items-center">
                 <HeroSvg lang={lang} />
               </div>
             </div>
@@ -332,15 +332,11 @@ export default function AI() {
       <div className="bg-white text-main">
         <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
           <section className="section py-20 max-lg:py-16 max-sm:py-12">
-            <div className="row">
-              <div className="col s12">
-                <h2 className="tracking-tight mb-6">
-                  {ru ? "Где теряется время" : "Where time goes"}
-                </h2>
-                <TimeSvg lang={lang} />
-              </div>
-            </div>
-            <div className="row mt-8">
+            <h2 className="tracking-tight mb-6">
+              {ru ? "Где теряется время" : "Where time goes"}
+            </h2>
+            <TimeSvg lang={lang} />
+            <div className="flex flex-col lg:flex-row gap-x-6 mt-8">
               {[
                 {
                   icon: <IconClock />,
@@ -364,7 +360,7 @@ export default function AI() {
                   descEn: "ERP, databases, spreadsheets — data is scattered, nobody aggregates it, nobody acts on it.",
                 },
               ].map((item, i) => (
-                <div key={i} className="col s12 l4 margin-on-medium-and-down">
+                <div key={i} className="w-full lg:w-1/3 max-lg:mb-8">
                   <div className="mb-3">{item.icon}</div>
                   <span className="flow-text !font-normal">{ru ? item.ru : item.en}</span>
                   <p className="text-sm text-gray-500 mt-1">{ru ? item.descRu : item.descEn}</p>
@@ -379,15 +375,10 @@ export default function AI() {
       <div className="bg-white text-main">
         <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
           <section className="section py-20 max-lg:py-16 max-sm:py-12">
-            <div className="row">
-              <div className="col s12">
-                <h2 className="tracking-tight">
-                  {ru ? "Как это работает" : "How it works"}
-                </h2>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col s12">
+            <h2 className="tracking-tight">
+              {ru ? "Как это работает" : "How it works"}
+            </h2>
+            <div>
                 <svg viewBox="0 0 680 270" className="w-full rounded-3xl" style={{background: '#f8f8f8'}}>
                   <defs>
                     <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
@@ -436,15 +427,14 @@ export default function AI() {
                   <rect x="386" y="213" width="90" height="34" rx="6" fill="none" stroke="#ddd" strokeWidth="1" strokeDasharray="4 3"/>
                   <text x="432" y="234" fontSize="10" fontFamily="monospace" fill="#bbb" textAnchor="middle">CRM / API</text>
                 </svg>
-              </div>
             </div>
-            <div className="row mt-6">
+            <div className="flex flex-col lg:flex-row gap-x-6 mt-6">
               {[
                 { ru: "LLM — мозг", en: "LLM — brain", descRu: "Понимание языка, reasoning, принятие решений", descEn: "Language understanding, reasoning, decision-making" },
                 { ru: "MCP — руки", en: "MCP — hands", descRu: "Стандартный интерфейс к инструментам и внешним системам", descEn: "Standard interface to tools and external systems" },
                 { ru: "RAG — память", en: "RAG — memory", descRu: "Ответы из корпоративной базы знаний, актуальный контекст", descEn: "Answers from your corporate knowledge base, in context" },
               ].map((item, i) => (
-                <div key={i} className="col s12 l4 margin-on-medium-and-down">
+                <div key={i} className="w-full lg:w-1/3 max-lg:mb-8">
                   <p className="flow-text font-mono">{ru ? item.ru : item.en}</p>
                   <p className="text-sm text-gray-500">{ru ? item.descRu : item.descEn}</p>
                 </div>
@@ -458,14 +448,10 @@ export default function AI() {
       <div className="bg-white text-main">
         <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
           <section className="section py-20 max-lg:py-16 max-sm:py-12">
-            <div className="row">
-              <div className="col s12">
-                <h2 className="tracking-tight">
-                  {ru ? "Команда агентов" : "Meet the agents"}
-                </h2>
-              </div>
-            </div>
-            <div className="row">
+            <h2 className="tracking-tight">
+              {ru ? "Команда агентов" : "Meet the agents"}
+            </h2>
+            <div className="flex flex-col lg:flex-row flex-wrap gap-x-6">
               {[
                 { icon: <IconDoc />, ru: "Документалист", en: "The Documentalist", descRu: "Чертежи, спецификации, договоры. Читает технические документы, структурирует и создаёт документацию.", descEn: "Technical drawings, specs, contracts. Reads, structures, and generates documentation." },
                 { icon: <IconBar />, ru: "Аналитик", en: "The Analyst", descRu: "KPI, продажи, операции. Собирает данные из разных систем, строит отчёты, находит аномалии.", descEn: "KPIs, sales, operations. Pulls data from multiple systems, builds reports, flags anomalies." },
@@ -473,7 +459,7 @@ export default function AI() {
                 { icon: <IconBook />, ru: "Куратор знаний", en: "The Knowledge Curator", descRu: "Регламенты, стандарты, база знаний. Онбординг, обучение, ответы на типовые вопросы.", descEn: "Regulations, standards, knowledge base. Onboarding, training, recurring questions." },
                 { icon: <IconNet />, ru: "Интегратор", en: "The Integrator", descRu: "ERP, 1С, CRM, базы данных. Подключает агентов к вашим системам без переписывания инфраструктуры.", descEn: "ERP, 1C, CRM, databases. Connects agents to your systems without rewriting infrastructure." },
               ].map((agent, i) => (
-                <div key={i} className="col s12 l4 margin-on-medium-and-down">
+                <div key={i} className="w-full lg:w-[calc(33.333%-1rem)] max-lg:mb-8">
                   <div className="mb-3">{agent.icon}</div>
                   <span className="flow-text !font-normal">{ru ? agent.ru : agent.en}</span>
                   <p className="text-sm text-gray-500 mt-1">{ru ? agent.descRu : agent.descEn}</p>
@@ -488,14 +474,10 @@ export default function AI() {
       <div className="bg-white text-main">
         <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
           <section className="section py-20 max-lg:py-16 max-sm:py-12">
-            <div className="row">
-              <div className="col s12">
-                <h2 className="tracking-tight">
-                  {ru ? "Кейсы" : "Case studies"}
-                </h2>
-              </div>
-            </div>
-            <div className="row">
+            <h2 className="tracking-tight">
+              {ru ? "Кейсы" : "Case studies"}
+            </h2>
+            <div className="flex flex-col lg:flex-row gap-x-6">
               {[
                 {
                   icon: <IconCalendar />,
@@ -525,7 +507,7 @@ export default function AI() {
                   href: null,
                 },
               ].map((item, i) => (
-                <div key={i} className="col s12 l4 margin-on-medium-and-down">
+                <div key={i} className="w-full lg:w-1/3 max-lg:mb-8">
                   <div className="rounded-3xl bg-gray-50 p-6 flex flex-col">
                     <div className="mb-3">{item.icon}</div>
                     <span className="text-xs font-mono text-gray-400 uppercase">{ru ? item.labelRu : item.labelEn}</span>
@@ -548,25 +530,17 @@ export default function AI() {
       <div className="bg-white text-main">
         <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
           <section className="section py-20 max-lg:py-16 max-sm:py-12">
-            <div className="row">
-              <div className="col s12">
-                <h2 className="tracking-tight">
-                  {ru ? "Ваши данные не покидают компанию" : "Your data stays inside"}
-                </h2>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col s12">
-                <SecuritySvg lang={lang} />
-              </div>
-            </div>
-            <div className="row mt-6">
+            <h2 className="tracking-tight">
+              {ru ? "Ваши данные не покидают компанию" : "Your data stays inside"}
+            </h2>
+            <SecuritySvg lang={lang} />
+            <div className="flex flex-col lg:flex-row gap-x-6 mt-6">
               {[
                 { ru: "Локальный деплой", en: "Local deployment", descRu: "Данные остаются на серверах клиента — никакого внешнего облака", descEn: "Data stays on your servers — no external cloud" },
                 { ru: "Открытые модели", en: "Open-source models", descRu: "DeepSeek, Llama, Qwen — независимость от зарубежных провайдеров", descEn: "DeepSeek, Llama, Qwen — no dependency on foreign providers" },
                 { ru: "ФЗ-152", en: "Data compliance", descRu: "Соответствие российскому законодательству о персональных данных", descEn: "Compliant with data protection law" },
               ].map((item, i) => (
-                <div key={i} className="col s12 l4 margin-on-medium-and-down">
+                <div key={i} className="w-full lg:w-1/3 max-lg:mb-8">
                   <span className="flow-text !font-normal">{ru ? item.ru : item.en}</span>
                   <p className="text-sm text-gray-500 mt-1">{ru ? item.descRu : item.descEn}</p>
                 </div>
@@ -580,26 +554,18 @@ export default function AI() {
       <div className="bg-white text-main">
         <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
           <section className="section py-20 max-lg:py-16 max-sm:py-12">
-            <div className="row">
-              <div className="col s12">
-                <h2 className="tracking-tight">
-                  {ru ? "Как мы работаем" : "How we work"}
-                </h2>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col s12">
-                <ProcessSvg lang={lang} />
-              </div>
-            </div>
-            <div className="row mt-4">
+            <h2 className="tracking-tight">
+              {ru ? "Как мы работаем" : "How we work"}
+            </h2>
+            <ProcessSvg lang={lang} />
+            <div className="flex flex-col lg:flex-row gap-x-6 mt-4">
               {[
                 { ru: "Аудит", en: "Audit", descRu: "Изучаем процессы, находим точки автоматизации", descEn: "We study your processes and find automation opportunities" },
                 { ru: "Пилот", en: "Pilot", descRu: "Быстрый MVP на одном процессе — 2–4 недели", descEn: "A quick MVP on one process — 2–4 weeks" },
                 { ru: "Интеграция", en: "Integration", descRu: "Подключение к системам клиента", descEn: "Connecting to your existing systems" },
                 { ru: "Масштаб", en: "Scale", descRu: "Расширение на другие процессы", descEn: "Expanding to other processes" },
               ].map((step, i) => (
-                <div key={i} className="col s12 l3 margin-on-medium-and-down">
+                <div key={i} className="w-full lg:w-1/4 max-lg:mb-8">
                   <span className="font-mono text-gray-400 text-sm">{`0${i + 1}`}</span>
                   <span className="flow-text !font-normal"> {ru ? step.ru : step.en}</span>
                   <p className="text-sm text-gray-500 mt-1">{ru ? step.descRu : step.descEn}</p>
@@ -614,23 +580,17 @@ export default function AI() {
       <div className="bg-white text-main">
         <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
           <section className="section py-20 max-lg:py-16 max-sm:py-12">
-            <div className="row">
-              <div className="col s12">
-                <h2 className="tracking-tight">
-                  {ru
-                    ? "Давайте найдём, где у вас теряется время"
-                    : "Let\u2019s find where your time goes"}
-                </h2>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col s12 l6">
-                <p className="flow-text !font-normal">
-                  {ru
-                    ? <><a href="/contact" className="ajax-link">Напишите нам</a> — обсудим ваш процесс и покажем, как агент может помочь.</>
-                    : <><a href="/contact" className="ajax-link">Get in touch</a> — we&apos;ll discuss your process and show how an agent can help.</>}
-                </p>
-              </div>
+            <h2 className="tracking-tight">
+              {ru
+                ? "Давайте найдём, где у вас теряется время"
+                : "Let\u2019s find where your time goes"}
+            </h2>
+            <div className="lg:w-1/2">
+              <p className="flow-text !font-normal">
+                {ru
+                  ? <><a href="/contact" className="ajax-link">Напишите нам</a> — обсудим ваш процесс и покажем, как агент может помочь.</>
+                  : <><a href="/contact" className="ajax-link">Get in touch</a> — we&apos;ll discuss your process and show how an agent can help.</>}
+              </p>
             </div>
           </section>
         </div>

@@ -13,8 +13,8 @@ export default function Nav() {
       <nav className="bg-transparent shadow-none">
         <div className="nav-wrapper bg-accentBackground">
           <div className={cn('container', '!w-[90%] !max-w-[1600px] sm:!w-4/5')}>
-            <div className="row">
-              <div className="col s12 l6">
+            <div className="flex items-center">
+              <div className="flex items-center justify-between flex-1 lg:flex-none lg:w-1/2">
                 <Link href="/" className="inline-flex items-center gap-[0.45rem] border-b-0 hover:border-b-0 text-main">
                   <img
                     src="/images/advertum-mobile.webp"
@@ -32,7 +32,7 @@ export default function Nav() {
                        className="!inline !p-0 text-main border-b border-main/25 hover:border-main/50 hover:bg-transparent">Menu</a>
                   </span>
               </div>
-              <div className="col s12 l6">
+              <div className="lg:w-1/2">
                 <ul className=" hide-on-med-and-down">
                   <li><Link href="/ai" className="!inline !p-0 text-main border-b border-main/25 hover:border-main/50 hover:bg-transparent">{lang === 'ru' ? 'Агенты' : 'Agents'}</Link></li>
                   <li className="ml-8"><Link href="/journal" className="!inline !p-0 text-main border-b border-main/25 hover:border-main/50 hover:bg-transparent">{lang === 'ru' ? 'Журнал' : 'Journal'}</Link></li>

@@ -11,15 +11,10 @@ export default function CaseContent() {
       <div className="bg-accentBackground text-main">
         <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
           <section className="section py-20 max-lg:py-16 max-sm:py-12">
-            <div className="row">
-              <div className="col s12">
-                <span className="font-mono text-sm text-gray-400 uppercase tracking-widest">
-                  {lang === "ru" ? "Кейс · Производство" : "Case Study · Manufacturing"}
-                </span>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col s12 l8">
+            <span className="font-mono text-sm text-gray-400 uppercase tracking-widest">
+              {lang === "ru" ? "Кейс · Производство" : "Case Study · Manufacturing"}
+            </span>
+            <div className="lg:w-2/3">
                 <h1 className="text-[38px] lg:text-[62px] tracking-tight mt-3">
                   {lang === "ru"
                     ? "Агент планирования производства"
@@ -42,7 +37,6 @@ export default function CaseContent() {
                   </a>
                 </p>
               </div>
-            </div>
           </section>
         </div>
       </div>
@@ -51,15 +45,11 @@ export default function CaseContent() {
       <div className="bg-white text-main">
         <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
           <section className="section py-20 max-lg:py-16 max-sm:py-12">
-            <div className="row">
-              <div className="col s12">
-                <h2 className="tracking-tight">
-                  {lang === "ru" ? "Клиент" : "Client"}
-                </h2>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col s12 l7">
+            <h2 className="tracking-tight">
+              {lang === "ru" ? "Клиент" : "Client"}
+            </h2>
+            <div className="flex flex-col lg:flex-row gap-x-6">
+              <div className="w-full lg:w-7/12">
                 <p className="flow-text leading-relaxed">
                   {lang === "ru"
                     ? "Фабрика Аэрозолей — российский производитель аэрозольной жестяной упаковки и готовых аэрозольных продуктов. Предприятие расположено во Владимирской области в особой экономической зоне, в 90 км от Москвы."
@@ -71,7 +61,7 @@ export default function CaseContent() {
                     : "Full production cycle: formula development, contract filling, testing and certification. Their own OKKE brands cover automotive care, household chemicals and disinfectants. Minimum production run: 10,000 units."}
                 </p>
               </div>
-              <div className="col s12 l4 offset-l1">
+              <div className="w-full lg:w-4/12 lg:ml-auto">
                 <div className="rounded-3xl bg-gray-50 p-6 mt-6 lg:mt-0">
                   {[
                     {
@@ -119,14 +109,10 @@ export default function CaseContent() {
       <div className="bg-white text-main">
         <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
           <section className="section py-20 max-lg:py-16 max-sm:py-12">
-            <div className="row">
-              <div className="col s12">
-                <h2 className="tracking-tight">
-                  {lang === "ru" ? "Задача" : "Challenge"}
-                </h2>
-              </div>
-            </div>
-            <div className="row">
+            <h2 className="tracking-tight">
+              {lang === "ru" ? "Задача" : "Challenge"}
+            </h2>
+            <div className="flex flex-col lg:flex-row gap-x-6">
               {[
                 {
                   titleRu: "Данные в разных системах",
@@ -153,7 +139,7 @@ export default function CaseContent() {
                     "Different roles — sales manager, technologist, procurement — accessed data differently. There was no single tool that could understand a request in natural language.",
                 },
               ].map((item, i) => (
-                <div key={i} className="col s12 l4 margin-on-medium-and-down">
+                <div key={i} className="w-full lg:w-1/3 max-lg:mb-8">
                   <span className="flow-text !font-normal">
                     {lang === "ru" ? item.titleRu : item.titleEn}
                   </span>
@@ -171,15 +157,11 @@ export default function CaseContent() {
       <div className="bg-white text-main">
         <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
           <section className="section py-20 max-lg:py-16 max-sm:py-12">
-            <div className="row">
-              <div className="col s12">
-                <h2 className="tracking-tight">
-                  {lang === "ru" ? "Решение" : "Solution"}
-                </h2>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col s12 l7">
+            <h2 className="tracking-tight">
+              {lang === "ru" ? "Решение" : "Solution"}
+            </h2>
+            <div className="flex flex-col lg:flex-row gap-x-6">
+              <div className="w-full lg:w-7/12">
                 <p className="flow-text leading-relaxed">
                   {lang === "ru"
                     ? "Мы разработали AI-агента планирования, доступного прямо из Telegram. Агент подключён к производственным данным через набор инструментов: каталог продуктов, складские остатки, текущие заказы."
@@ -196,7 +178,7 @@ export default function CaseContent() {
                     : "The workflow is orchestrated through n8n: receive message from Telegram, call LLM, call data tools, form a response, send it back to the chat."}
                 </p>
               </div>
-              <div className="col s12 l4 offset-l1 mt-6 lg:mt-0">
+              <div className="w-full lg:w-4/12 lg:ml-auto mt-6 lg:mt-0">
                 {[
                   { step: "01", ru: "Запрос в Telegram", en: "Request in Telegram" },
                   { step: "02", ru: "LLM анализирует задачу", en: "LLM analyses the task" },
@@ -218,13 +200,9 @@ export default function CaseContent() {
       <div className="bg-white text-main">
         <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
           <section className="section py-20 max-lg:py-16 max-sm:py-12">
-            <div className="row">
-              <div className="col s12">
-                <h2 className="tracking-tight">
-                  {lang === "ru" ? "Демо" : "Demo"}
-                </h2>
-              </div>
-            </div>
+            <h2 className="tracking-tight">
+              {lang === "ru" ? "Демо" : "Demo"}
+            </h2>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-6">
               {/* Telegram — вертикальное, язык-зависимое */}
               <div className="flex flex-col">
@@ -268,14 +246,10 @@ export default function CaseContent() {
       <div className="bg-white text-main">
         <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
           <section className="section py-20 max-lg:py-16 max-sm:py-12">
-            <div className="row">
-              <div className="col s12">
-                <h2 className="tracking-tight">
-                  {lang === "ru" ? "Результат" : "Result"}
-                </h2>
-              </div>
-            </div>
-            <div className="row">
+            <h2 className="tracking-tight">
+              {lang === "ru" ? "Результат" : "Result"}
+            </h2>
+            <div className="flex flex-col lg:flex-row gap-x-6">
               {[
                 {
                   titleRu: "Секунды вместо часов",
@@ -302,7 +276,7 @@ export default function CaseContent() {
                     "The prototype passed response quality evaluation. The agent is ready to connect to real data channels and industrial use.",
                 },
               ].map((item, i) => (
-                <div key={i} className="col s12 l4 margin-on-medium-and-down">
+                <div key={i} className="w-full lg:w-1/3 max-lg:mb-8">
                   <span className="flow-text !font-normal">
                     {lang === "ru" ? item.titleRu : item.titleEn}
                   </span>
@@ -320,14 +294,10 @@ export default function CaseContent() {
       <div className="bg-white text-main">
         <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
           <section className="section py-20 max-lg:py-16 max-sm:py-12">
-            <div className="row">
-              <div className="col s12">
-                <h2 className="tracking-tight">
-                  {lang === "ru" ? "Стек" : "Stack"}
-                </h2>
-              </div>
-            </div>
-            <div className="row">
+            <h2 className="tracking-tight">
+              {lang === "ru" ? "Стек" : "Stack"}
+            </h2>
+            <div className="flex flex-col lg:flex-row gap-x-6">
               {[
                 {
                   name: "Telegram",
@@ -350,7 +320,7 @@ export default function CaseContent() {
                   descEn: "Access to product catalog, warehouse inventory and current orders",
                 },
               ].map((item, i) => (
-                <div key={i} className="col s12 l3 margin-on-medium-and-down">
+                <div key={i} className="w-full lg:w-1/4 max-lg:mb-8">
                   <span className="flow-text font-mono !font-normal">{item.name}</span>
                   <p className="text-sm text-gray-500 mt-1 leading-relaxed">
                     {lang === "ru" ? item.descRu : item.descEn}
@@ -366,17 +336,13 @@ export default function CaseContent() {
       <div className="bg-white text-main">
         <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
           <section className="section py-20 max-lg:py-16 max-sm:py-12">
-            <div className="row">
-              <div className="col s12">
-                <h2 className="tracking-tight">
-                  {lang === "ru"
-                    ? "Хотите похожее решение?"
-                    : "Want a similar solution?"}
-                </h2>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col s12 l6">
+            <h2 className="tracking-tight">
+              {lang === "ru"
+                ? "Хотите похожее решение?"
+                : "Want a similar solution?"}
+            </h2>
+            <div className="flex flex-col lg:flex-row">
+              <div className="w-full lg:w-1/2">
                 <p className="flow-text !font-normal">
                   {lang === "ru" ? (
                     <>
@@ -391,7 +357,7 @@ export default function CaseContent() {
                   )}
                 </p>
               </div>
-              <div className="col s12 l4 offset-l2 flex items-center">
+              <div className="w-full lg:w-1/3 lg:ml-auto flex items-center">
                 <a href="/ai" className="font-mono text-sm text-gray-400 hover:text-gray-700 transition-colors">
                   ← {lang === "ru" ? "Все кейсы" : "All cases"}
                 </a>

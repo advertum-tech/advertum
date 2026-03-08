@@ -8,11 +8,11 @@ export default function Home() {
       <>
         <div className={'bg-accentBackground text-main'}>
           <div className="container intro !w-[90%] !max-w-[1600px] sm:!w-4/5 h-screen max-lg:h-[75vh] bg-contain bg-no-repeat bg-center bg-[url('/images/advertum.webp')] max-lg:bg-[url('/images/advertum-mobile.webp')]">
-            <div className="row">
+            <div>
               <h1 className={
                   'relative lg:absolute ' +
                   'top-0 lg:top-1/3 ' +
-                  'px-3 ' +
+                  'lg:px-3 ' +
                   'w-full lg:w-2/3 ' +
                   'text-[45px] lg:text-[70px] ' +
                   'tracking-tight'}>
@@ -20,7 +20,7 @@ export default function Home() {
                   ? 'Улучшаем качество и эффективность вашего бизнеса'
                   : 'Improve The Quality and Performance of Your Business'}
               </h1>
-              <div className="col s12 l6 offset-l6">
+              <div className="w-full lg:w-1/2 lg:ml-auto">
                 <p className="absolute lg:relative top-2/3 md:top-3/4 lg:top-0 lg:text-[1.68rem] intro-text text-main font-normal my-5 leading-normal">
                   {lang === 'ru'
                     ? 'Advertum — студия автоматизации и разработки. Мы внедряем AI-агентов в бизнес-процессы и создаём продукты, которые работают.'
@@ -34,13 +34,9 @@ export default function Home() {
         <div className={'bg-white text-main'}>
           <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
             <section className="section py-20 max-lg:py-16 max-sm:py-12">
-              <div className="row">
-                <div className="col s12">
-                  <h2 className={'tracking-tight'}>Journal</h2>
-                </div>
-              </div>
-              <div className="row">
-                <div className="col s12 l6 margin-on-medium-and-down">
+              <h2 className={'tracking-tight'}>Journal</h2>
+              <div className="flex flex-col lg:flex-row gap-x-6">
+                <div className="w-full lg:w-1/2 max-lg:mb-8">
                   <a href="/great-displacement" className="!border-b-0">
                     <svg viewBox="0 0 680 400" className="responsive-img rounded-3xl" style={{background: '#f8f8f8'}}>
                       {[...Array(12)].map((_, i) => (
@@ -81,7 +77,7 @@ export default function Home() {
                       : 'AI is devaluing cognitive labor faster than we can retrain.'}
                   </p>
                 </div>
-                <div className="col s12 l6">
+                <div className="w-full lg:w-1/2">
                   <a href="/harness-engineering" className="!border-b-0">
                     <svg viewBox="0 0 680 400" className="responsive-img rounded-3xl" style={{background: '#f8f8f8'}}>
                       {[...Array(12)].map((_, i) => (
@@ -136,16 +132,12 @@ export default function Home() {
         <div className={'bg-white text-main'}>
           <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
             <section className="section latest-projects py-20 max-lg:py-16 max-sm:py-12">
-              <div className="row">
-                <div className="col s12">
-                  <h2 className={'tracking-tight'}>
-                    {lang === 'ru' ? 'Последние проекты' : 'Latest projects'}
-                  </h2>
-                </div>
-              </div>
-              <div className="row">
+              <h2 className={'tracking-tight'}>
+                {lang === 'ru' ? 'Последние проекты' : 'Latest projects'}
+              </h2>
+              <div className="flex flex-col lg:flex-row gap-x-6">
                 {/* Aerosol Factory card */}
-                <div className="col s12 l6 margin-on-medium-and-down">
+                <div className="w-full lg:w-1/2 max-lg:mb-8">
                   <div className="rounded-3xl bg-gray-50 p-6 flex flex-col">
                     <div className="mb-3">
                       <svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="#1a1a1a" strokeWidth="1.5" aria-hidden="true">
@@ -177,7 +169,7 @@ export default function Home() {
                 </div>
 
                 {/* Beauty Salon card */}
-                <div className="col s12 l6">
+                <div className="w-full lg:w-1/2">
                   <div className="rounded-3xl bg-gray-50 p-6 flex flex-col">
                     <div className="mb-3">
                       <svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="#1a1a1a" strokeWidth="1.5" aria-hidden="true">
@@ -216,24 +208,18 @@ export default function Home() {
         <div className={'bg-white text-main'}>
           <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
             <section className="section py-20 max-lg:py-16 max-sm:py-12">
-              <div className="row">
-                <div className="col s12">
-                  <h2 className={'tracking-tight'}>
-                    {lang === 'ru' ? 'Автоматизация' : 'Automation'}
-                  </h2>
-                </div>
-              </div>
-              <div className="row">
-                <div className="col s12 l6">
-                  <p className="flow-text max-sm:mt-12 !font-normal">
-                    {lang === 'ru'
-                      ? 'Внедряем AI-агентов в бизнес-процессы — от записи клиентов до программирования станков с ЧПУ. Подключаем к вашим системам, разворачиваем локально, данные не покидают компанию.'
-                      : 'We deploy AI agents into business operations — from booking appointments to programming CNC machines. Connected to your systems, running on your servers, your data stays inside.'}
-                  </p>
-                  <a href="/ai" className="flow-text !font-normal">
-                    {lang === 'ru' ? 'Подробнее →' : 'Learn more →'}
-                  </a>
-                </div>
+              <h2 className={'tracking-tight'}>
+                {lang === 'ru' ? 'Автоматизация' : 'Automation'}
+              </h2>
+              <div className="lg:w-1/2">
+                <p className="flow-text max-sm:mt-12 !font-normal">
+                  {lang === 'ru'
+                    ? 'Внедряем AI-агентов в бизнес-процессы — от записи клиентов до программирования станков с ЧПУ. Подключаем к вашим системам, разворачиваем локально, данные не покидают компанию.'
+                    : 'We deploy AI agents into business operations — from booking appointments to programming CNC machines. Connected to your systems, running on your servers, your data stays inside.'}
+                </p>
+                <a href="/ai" className="flow-text !font-normal">
+                  {lang === 'ru' ? 'Подробнее →' : 'Learn more →'}
+                </a>
               </div>
             </section>
           </div>
@@ -242,22 +228,14 @@ export default function Home() {
         <div className={'bg-white text-main'}>
           <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
             <section className="section py-20 max-lg:py-16 max-sm:py-12">
-              <div className="row">
-                <div className="col s12">
-                  <h2 className={'tracking-tight'}>
-                    {lang === 'ru' ? 'Связаться' : 'Get in touch'}
-                  </h2>
-                </div>
-              </div>
-              <div className="row">
-                <div className="col">
-                  <p className="flow-text !font-normal">
-                    {lang === 'ru'
-                      ? <>Хотите обсудить проект, идею или просто познакомиться — <a href="/contact" className="ajax-link">напишите нам</a>.</>
-                      : <>Whether you like to start a new project, discuss an idea or just say hello — <a href="/contact" className="ajax-link">contact us</a>.</>}
-                  </p>
-                </div>
-              </div>
+              <h2 className={'tracking-tight'}>
+                {lang === 'ru' ? 'Связаться' : 'Get in touch'}
+              </h2>
+              <p className="flow-text !font-normal">
+                {lang === 'ru'
+                  ? <>Хотите обсудить проект, идею или просто познакомиться — <a href="/contact" className="ajax-link">напишите нам</a>.</>
+                  : <>Whether you like to start a new project, discuss an idea or just say hello — <a href="/contact" className="ajax-link">contact us</a>.</>}
+              </p>
               <div className="flex justify-center">
                 <img src="/images/bottom.jpg" alt="Get in touch" className="w-[400px]"/>
               </div>

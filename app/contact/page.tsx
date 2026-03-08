@@ -228,16 +228,14 @@ export default function Contact() {
     <div className="bg-accentBackground text-main min-h-screen">
       <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
         <section className="section py-20 max-lg:py-16 max-sm:py-12">
-          <div className="row">
-            <div className="col s12 l6">
-              <h1 className="text-[38px] lg:text-[55px] tracking-tight mb-2">
-                {t.heading}
-              </h1>
-              <p className="font-mono text-sm text-gray-400 mb-10">{t.sub}</p>
-              <Suspense>
-                <ContactForm />
-              </Suspense>
-            </div>
+          <div className="lg:w-1/2">
+            <h1 className="text-[38px] lg:text-[55px] tracking-tight mb-2">
+              {t.heading}
+            </h1>
+            <p className="font-mono text-sm text-gray-400 mb-10">{t.sub}</p>
+            <Suspense>
+              <ContactForm />
+            </Suspense>
           </div>
         </section>
       </div>

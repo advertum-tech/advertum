@@ -84,14 +84,12 @@ export default function Journal() {
     <div className="bg-white text-main">
       <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
         <section className="section py-20 max-lg:py-16 max-sm:py-12">
-          <div className="row">
-            <div className="col s12 flex items-center justify-between">
-              <h2 className="tracking-tight">{lang === 'ru' ? 'Журнал' : 'Journal'}</h2>
-              <LangToggle />
-            </div>
+          <div className="flex items-center justify-between">
+            <h2 className="tracking-tight">{lang === 'ru' ? 'Журнал' : 'Journal'}</h2>
+            <LangToggle />
           </div>
-          <div className="row">
-            <div className="col s12 l6 margin-on-medium-and-down">
+          <div className="flex flex-col lg:flex-row gap-x-6">
+            <div className="w-full lg:w-1/2 max-lg:mb-8">
               <a href="/great-displacement" className="!border-b-0">
                 <DisplacementSvg />
               </a>
@@ -111,7 +109,7 @@ export default function Journal() {
                   : "AI is devaluing cognitive labor faster than we can retrain. The scarcest resource will be hands, not minds."}
               </p>
             </div>
-            <div className="col s12 l6">
+            <div className="w-full lg:w-1/2">
               <a href="/harness-engineering" className="!border-b-0">
                 <HarnessSvg />
               </a>
