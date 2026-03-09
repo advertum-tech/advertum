@@ -16,6 +16,7 @@ const config: Config = {
       colors: {
         accentBackground: '#faf9f6',
         main: '#37474f',
+        link: '#039be5',
       },
     },
   },

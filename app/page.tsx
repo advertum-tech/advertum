@@ -1,10 +1,13 @@
 "use client";
 import { useLang } from "@/app/context/LanguageContext";
 import Image from "next/image";
+import { useState } from "react";
+import InlineContactForm from "@/app/components/InlineContactForm";
 
 export default function Home() {
   const lang = useLang();
   const p = lang === "ru" ? "/ru" : "";
+  const [contactOpen, setContactOpen] = useState(false);
 
   return (
       <>
@@ -232,12 +235,26 @@ export default function Home() {
               <h2 className={'tracking-tight mb-8'}>
                 {lang === 'ru' ? 'Связаться' : 'Get in touch'}
               </h2>
-              <p className="text-[1.2rem] lg:text-[1.68rem] font-normal">
+              <p className="text-[1.2rem] lg:text-[1.68rem] font-normal mb-2">
                 {lang === 'ru'
-                  ? <>Хотите обсудить проект, идею или просто познакомиться — <a href={`${p}/contact`} className="ajax-link">напишите нам</a>.</>
-                  : <>Whether you like to start a new project, discuss an idea or just say hello — <a href={`${p}/contact`} className="ajax-link">contact us</a>.</>}
+                  ? 'Хотите обсудить проект, идею или просто познакомиться —'
+                  : 'Whether you like to start a new project, discuss an idea or just say hello —'}
               </p>
-              <div className="flex justify-center">
+              <button
+                onClick={() => setContactOpen(o => !o)}
+                className="text-[1.2rem] lg:text-[1.68rem] font-normal text-left text-link"
+              >
+                {lang === 'ru' ? 'напишите нам' : 'contact us'}
+                <span className={`inline-block ml-2 transition-transform duration-500 ${contactOpen ? 'rotate-90' : ''}`}>→</span>
+              </button>
+              <div className={`grid transition-all duration-500 ease-in-out ${contactOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}>
+                <div className="overflow-hidden">
+                  <div className="pt-10 lg:w-1/2">
+                    <InlineContactForm />
+                  </div>
+                </div>
+              </div>
+              <div className="flex justify-center mt-8">
                 <Image src="/images/bottom.jpg" alt="Get in touch" width={400} height={400} className="w-[400px] h-auto" />
               </div>
             </section>

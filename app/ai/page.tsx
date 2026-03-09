@@ -1,5 +1,7 @@
 "use client";
 import { useLang } from "@/app/context/LanguageContext";
+import { useState } from "react";
+import InlineContactForm from "@/app/components/InlineContactForm";
 
 // ── Hero: agent network ───────────────────────────────────────────────────────
 function HeroSvg({ lang }: { lang: string }) {
@@ -110,53 +112,116 @@ const IconDb = () => (
 );
 
 // ── Agent icons ───────────────────────────────────────────────────────────────
+
+// Документалист — ботик-очкарик с карандашом-антенной
 const IconDoc = () => (
-  <svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="#1a1a1a" strokeWidth="1.5" aria-hidden="true">
-    <rect x="5" y="3" width="18" height="26" rx="2" />
-    <line x1="9" y1="11" x2="19" y2="11" stroke="#bbb" strokeWidth="1" />
-    <line x1="9" y1="16" x2="19" y2="16" stroke="#bbb" strokeWidth="1" />
-    <line x1="9" y1="21" x2="14" y2="21" stroke="#bbb" strokeWidth="1" />
+  <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="#1a1a1a" strokeWidth="1.5" aria-hidden="true">
+    {/* pencil tip antenna */}
+    <line x1="20" y1="6.5" x2="20" y2="3" strokeWidth="1.2" />
+    <path d="M17.5 3 L22.5 3 L20 0.5 Z" strokeWidth="1" strokeLinejoin="round" />
+    {/* rectangular head */}
+    <rect x="7" y="6.5" width="26" height="22" rx="5" />
+    {/* glasses left */}
+    <rect x="10" y="13.5" width="8" height="6" rx="2" strokeWidth="1.2" />
+    {/* glasses right */}
+    <rect x="22" y="13.5" width="8" height="6" rx="2" strokeWidth="1.2" />
+    {/* bridge */}
+    <line x1="18" y1="16.5" x2="22" y2="16.5" strokeWidth="1" />
+    {/* temples */}
+    <line x1="7" y1="16.5" x2="10" y2="16.5" strokeWidth="1" />
+    <line x1="33" y1="16.5" x2="30" y2="16.5" strokeWidth="1" />
+    {/* focused straight mouth */}
+    <line x1="15" y1="24.5" x2="25" y2="24.5" strokeWidth="1.2" />
   </svg>
 );
 
+// Аналитик — детектив: шляпа + увеличительное стекло вместо правого глаза
 const IconBar = () => (
-  <svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="#1a1a1a" strokeWidth="1.5" aria-hidden="true">
-    <line x1="4" y1="26" x2="28" y2="26" />
-    <line x1="4" y1="26" x2="4"  y2="4" />
-    <rect x="7"  y="17" width="5" height="9" fill="#e0e0e0" stroke="#bbb" strokeWidth="1" />
-    <rect x="14" y="12" width="5" height="14" fill="#c0c0c0" stroke="#bbb" strokeWidth="1" />
-    <rect x="21" y="7"  width="5" height="19" fill="#1a1a1a" strokeWidth="0" />
+  <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="#1a1a1a" strokeWidth="1.5" aria-hidden="true">
+    {/* fedora brim */}
+    <line x1="7" y1="15" x2="33" y2="15" />
+    {/* fedora crown */}
+    <path d="M10.5 15 L11.5 10 L28.5 10 L29.5 15" strokeWidth="1.2" />
+    {/* crown indent */}
+    <path d="M18 10 Q20 8.5 22 10" strokeWidth="1" />
+    {/* head */}
+    <circle cx="20" cy="26" r="11" />
+    {/* left eye: filled dot */}
+    <circle cx="14.5" cy="24" r="1.8" fill="#1a1a1a" stroke="none" />
+    {/* right eye: magnifying glass */}
+    <circle cx="25" cy="23.5" r="4" strokeWidth="1.3" />
+    <line x1="27.8" y1="26.3" x2="30.5" y2="29.5" strokeWidth="2.2" strokeLinecap="round" />
+    {/* slight smirk */}
+    <path d="M14 30.5 Q17.5 32 22 31" strokeWidth="1.2" strokeLinecap="round" />
   </svg>
 );
 
+// Коммуникатор — три точки-антенны (typing) + большая улыбка
 const IconChat = () => (
-  <svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="#1a1a1a" strokeWidth="1.5" aria-hidden="true">
-    <path d="M3 5 L29 5 L29 21 L18 21 L12 27 L12 21 L3 21 Z" />
-    <circle cx="10" cy="13" r="1.5" fill="#1a1a1a" stroke="none" />
-    <circle cx="16" cy="13" r="1.5" fill="#1a1a1a" stroke="none" />
-    <circle cx="22" cy="13" r="1.5" fill="#1a1a1a" stroke="none" />
+  <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="#1a1a1a" strokeWidth="1.5" aria-hidden="true">
+    {/* three dot antennas */}
+    <circle cx="13" cy="5.5" r="2" fill="#1a1a1a" stroke="none" />
+    <circle cx="20" cy="3.5" r="2" fill="#1a1a1a" stroke="none" />
+    <circle cx="27" cy="5.5" r="2" fill="#1a1a1a" stroke="none" />
+    <line x1="13" y1="7.5" x2="15.5" y2="9.5" strokeWidth="1.2" />
+    <line x1="20" y1="5.5" x2="20" y2="8.5" strokeWidth="1.2" />
+    <line x1="27" y1="7.5" x2="24.5" y2="9.5" strokeWidth="1.2" />
+    {/* head */}
+    <circle cx="20" cy="22" r="12.5" />
+    {/* round eyes */}
+    <circle cx="14.5" cy="19" r="2.5" />
+    <circle cx="25.5" cy="19" r="2.5" />
+    <circle cx="14.5" cy="19" r="1" fill="#1a1a1a" stroke="none" />
+    <circle cx="25.5" cy="19" r="1" fill="#1a1a1a" stroke="none" />
+    {/* big open smile */}
+    <path d="M13.5 25 Q20 33 26.5 25" strokeWidth="1.5" strokeLinecap="round" />
   </svg>
 );
 
+// Куратор знаний — сова: ушки + огромные линзы-глаза + клюв
 const IconBook = () => (
-  <svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="#1a1a1a" strokeWidth="1.5" aria-hidden="true">
-    <path d="M16 7 C16 7 10 5 4 7 L4 27 C10 25 16 27 16 27" />
-    <path d="M16 7 C16 7 22 5 28 7 L28 27 C22 25 16 27 16 27" />
-    <line x1="16" y1="7" x2="16" y2="27" />
+  <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="#1a1a1a" strokeWidth="1.5" aria-hidden="true">
+    {/* ear tufts */}
+    <path d="M13.5 10 L11 4.5 L16.5 9" strokeWidth="1.3" strokeLinejoin="round" strokeLinecap="round" />
+    <path d="M26.5 10 L29 4.5 L23.5 9" strokeWidth="1.3" strokeLinejoin="round" strokeLinecap="round" />
+    {/* head */}
+    <circle cx="20" cy="23" r="13" />
+    {/* large goggle eyes */}
+    <circle cx="14" cy="21" r="5.5" />
+    <circle cx="26" cy="21" r="5.5" />
+    {/* pupils */}
+    <circle cx="14" cy="21" r="2.2" fill="#1a1a1a" stroke="none" />
+    <circle cx="26" cy="21" r="2.2" fill="#1a1a1a" stroke="none" />
+    {/* beak */}
+    <path d="M18 27 L20 30.5 L22 27 Z" fill="#1a1a1a" stroke="none" />
   </svg>
 );
 
+// Интегратор — хаб с 5 коннекторами
 const IconNet = () => (
-  <svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="#1a1a1a" strokeWidth="1.5" aria-hidden="true">
-    <circle cx="16" cy="16" r="4" />
-    <circle cx="5"  cy="8"  r="3" />
-    <circle cx="27" cy="8"  r="3" />
-    <circle cx="5"  cy="24" r="3" />
-    <circle cx="27" cy="24" r="3" />
-    <line x1="8"  y1="10" x2="13" y2="14" strokeWidth="1" />
-    <line x1="24" y1="10" x2="19" y2="14" strokeWidth="1" />
-    <line x1="8"  y1="22" x2="13" y2="18" strokeWidth="1" />
-    <line x1="24" y1="22" x2="19" y2="18" strokeWidth="1" />
+  <svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="#1a1a1a" strokeWidth="1.5" aria-hidden="true">
+    {/* top arm */}
+    <line x1="20" y1="12" x2="20" y2="6" strokeWidth="1.2" />
+    <circle cx="20" cy="4.5" r="2" strokeWidth="1.2" />
+    {/* top-left arm */}
+    <line x1="13.5" y1="14.5" x2="8.5" y2="9.5" strokeWidth="1.2" />
+    <circle cx="7.5" cy="8.5" r="2" strokeWidth="1.2" />
+    {/* top-right arm */}
+    <line x1="26.5" y1="14.5" x2="31.5" y2="9.5" strokeWidth="1.2" />
+    <circle cx="32.5" cy="8.5" r="2" strokeWidth="1.2" />
+    {/* left arm */}
+    <line x1="10" y1="22" x2="5" y2="22" strokeWidth="1.2" />
+    <circle cx="3.5" cy="22" r="2" strokeWidth="1.2" />
+    {/* right arm */}
+    <line x1="30" y1="22" x2="35" y2="22" strokeWidth="1.2" />
+    <circle cx="36.5" cy="22" r="2" strokeWidth="1.2" />
+    {/* central head */}
+    <circle cx="20" cy="22" r="10" />
+    {/* horizontal dash eyes */}
+    <line x1="15" y1="20" x2="18" y2="20" strokeWidth="1.4" />
+    <line x1="22" y1="20" x2="25" y2="20" strokeWidth="1.4" />
+    {/* calm mouth */}
+    <path d="M16.5 25.5 Q20 27 23.5 25.5" strokeWidth="1.2" strokeLinecap="round" />
   </svg>
 );
 
@@ -300,6 +365,7 @@ export default function AI() {
   const lang = useLang();
   const ru = lang === "ru";
   const p = ru ? "/ru" : "";
+  const [pilotOpen, setPilotOpen] = useState(false);
 
   return (
     <>
@@ -317,9 +383,20 @@ export default function AI() {
                     ? "Мы внедряем AI-агентов в бизнес-процессы — подключаем к вашим системам, разворачиваем на ваших серверах, настраиваем под ваши задачи."
                     : "We embed AI agents into business operations — connected to your systems, running on your servers, tuned to your processes."}
                 </p>
-                <a href={`${p}/contact`} className="text-[1.2rem] lg:text-[1.68rem] font-normal">
-                  {ru ? "Обсудить пилот →" : "Discuss a pilot →"}
-                </a>
+                <button
+                  onClick={() => setPilotOpen(o => !o)}
+                  className="text-[1.2rem] lg:text-[1.68rem] font-normal text-left text-link"
+                >
+                  {ru ? "Обсудить пилот" : "Discuss a pilot"}
+                  <span className={`inline-block ml-2 transition-transform duration-500 ${pilotOpen ? 'rotate-90' : ''}`}>→</span>
+                </button>
+                <div className={`grid transition-all duration-500 ease-in-out ${pilotOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}>
+                  <div className="overflow-hidden">
+                    <div className="pt-10">
+                      <InlineContactForm />
+                    </div>
+                  </div>
+                </div>
               </div>
               <div className="w-full lg:w-5/12 hidden lg:flex items-center">
                 <HeroSvg lang={lang} />
