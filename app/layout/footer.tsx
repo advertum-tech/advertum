@@ -9,7 +9,7 @@ export default function Footer() {
 
   return (
     <footer className={cn('pt-8 pb-16 max-lg:pb-8 max-lg:text-center max-sm:pb-4', 'bg-accentBackground text-main')}>
-      <div className={cn('container', '!w-[90%] !max-w-[1600px] sm:!w-4/5')}>
+      <div className={cn('mx-auto', 'w-[90%] max-w-[1600px] sm:w-4/5')}>
         <div className="flex flex-col lg:flex-row gap-x-6">
           <div className="w-full lg:w-1/4 max-lg:mb-8">
             Advertum Agency

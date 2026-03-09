@@ -7,12 +7,11 @@ export default function Home() {
   return (
       <>
         <div className={'bg-accentBackground text-main'}>
-          <div className="container intro !w-[90%] !max-w-[1600px] sm:!w-4/5 h-screen max-lg:h-[75vh] bg-contain bg-no-repeat bg-center bg-[url('/images/advertum.webp')] max-lg:bg-[url('/images/advertum-mobile.webp')]">
+          <div className="mx-auto w-[90%] max-w-[1600px] sm:w-4/5 h-screen max-lg:h-[75vh] bg-contain bg-no-repeat bg-center bg-[url('/images/advertum.webp')] max-lg:bg-[url('/images/advertum-mobile.webp')]">
             <div>
               <h1 className={
                   'relative lg:absolute ' +
                   'top-0 lg:top-1/3 ' +
-                  'lg:px-3 ' +
                   'w-full lg:w-2/3 ' +
                   'text-[45px] lg:text-[70px] ' +
                   'tracking-tight'}>
@@ -32,13 +31,13 @@ export default function Home() {
         </div>
 
         <div className={'bg-white text-main'}>
-          <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
-            <section className="section py-20 max-lg:py-16 max-sm:py-12">
+          <div className="mx-auto w-[90%] max-w-[1600px] sm:w-4/5">
+            <section className="py-20 max-lg:py-16 max-sm:py-12">
               <h2 className={'tracking-tight'}>Journal</h2>
               <div className="flex flex-col lg:flex-row gap-x-6">
                 <div className="w-full lg:w-1/2 max-lg:mb-8">
-                  <a href="/great-displacement" className="!border-b-0">
-                    <svg viewBox="0 0 680 400" className="responsive-img rounded-3xl" style={{background: '#f8f8f8'}}>
+                  <a href="/great-displacement" className="border-b-0">
+                    <svg viewBox="0 0 680 400" className="max-w-full h-auto rounded-3xl" style={{background: '#f8f8f8'}}>
                       {[...Array(12)].map((_, i) => (
                         <line key={`v${i}`} x1={60 * i} y1="0" x2={60 * i} y2="400" stroke="#e5e5e5" strokeWidth="0.5" />
                       ))}
@@ -68,7 +67,7 @@ export default function Home() {
                     <time dateTime="2026-02-01">02/2026</time>
                     <span>&nbsp;· {lang === 'ru' ? 'Мнение · Лонгрид' : 'Opinion · Essay'}</span>
                   </div>
-                  <a href="/great-displacement" className="flow-text !font-normal">
+                  <a href="/great-displacement" className="text-[1.2rem] lg:text-[1.68rem] font-normal">
                     {lang === 'ru' ? 'Великое вытеснение' : 'The Great Displacement'}
                   </a>
                   <p className="mt-2 text-sm leading-relaxed text-gray-500">
@@ -78,8 +77,8 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="w-full lg:w-1/2">
-                  <a href="/harness-engineering" className="!border-b-0">
-                    <svg viewBox="0 0 680 400" className="responsive-img rounded-3xl" style={{background: '#f8f8f8'}}>
+                  <a href="/harness-engineering" className="border-b-0">
+                    <svg viewBox="0 0 680 400" className="max-w-full h-auto rounded-3xl" style={{background: '#f8f8f8'}}>
                       {[...Array(12)].map((_, i) => (
                         <line key={`v${i}`} x1={60 * i} y1="0" x2={60 * i} y2="400" stroke="#e5e5e5" strokeWidth="0.5" />
                       ))}
@@ -115,7 +114,7 @@ export default function Home() {
                     <time dateTime="2026-02-11">02/2026</time>
                     <span>&nbsp;· {lang === 'ru' ? 'Инженерия · Перевод' : 'Engineering · Translation'}</span>
                   </div>
-                  <a href="/harness-engineering" className="flow-text !font-normal">
+                  <a href="/harness-engineering" className="text-[1.2rem] lg:text-[1.68rem] font-normal">
                     {lang === 'ru' ? 'Harness-инженерия' : 'Harness Engineering'}
                   </a>
                   <p className="mt-2 text-sm leading-relaxed text-gray-500">
@@ -130,8 +129,8 @@ export default function Home() {
         </div>
 
         <div className={'bg-white text-main'}>
-          <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
-            <section className="section latest-projects py-20 max-lg:py-16 max-sm:py-12">
+          <div className="mx-auto w-[90%] max-w-[1600px] sm:w-4/5">
+            <section className="py-20 max-lg:py-16 max-sm:py-12">
               <h2 className={'tracking-tight'}>
                 {lang === 'ru' ? 'Последние проекты' : 'Latest projects'}
               </h2>
@@ -152,7 +151,7 @@ export default function Home() {
                     <span className="text-xs font-mono text-gray-400 uppercase">
                       {lang === 'ru' ? 'Производство · Фабрика Аэрозолей' : 'Manufacturing · Aerosol Factory'}
                     </span>
-                    <p className="flow-text mt-2">
+                    <p className="text-[1.2rem] lg:text-[1.68rem] font-light mt-2">
                       {lang === 'ru'
                         ? 'Планировщик тратил часы на сбор данных из разных систем: склад, заказы, каталог — прежде чем принять одно решение о запуске партии.'
                         : 'The planner spent hours gathering data from different systems: inventory, orders, catalog — before making a single production decision.'}
@@ -162,7 +161,7 @@ export default function Home() {
                         ? 'AI-агент в Telegram запрашивает данные и выдаёт рекомендацию по объёму производства за секунды.'
                         : 'An AI agent in Telegram queries data and delivers a production volume recommendation in seconds.'}
                     </p>
-                    <a href="/cases/aerosol-factory" className="text-sm font-mono mt-4 !font-normal">
+                    <a href="/cases/aerosol-factory" className="text-sm font-mono mt-4 font-normal">
                       {lang === 'ru' ? 'Читать кейс →' : 'Read case →'}
                     </a>
                   </div>
@@ -187,7 +186,7 @@ export default function Home() {
                     <span className="text-xs font-mono text-gray-400 uppercase">
                       {lang === 'ru' ? 'Салон красоты' : 'Beauty salon'}
                     </span>
-                    <p className="flow-text mt-2">
+                    <p className="text-[1.2rem] lg:text-[1.68rem] font-light mt-2">
                       {lang === 'ru'
                         ? 'Администратор записывал клиентов вручную — конфликты расписания, пропущенные звонки, работа только в рабочее время.'
                         : 'The administrator booked clients manually — scheduling conflicts, missed calls, no service outside business hours.'}
@@ -206,18 +205,18 @@ export default function Home() {
 
         {/* TODO: наполнить контентом */}
         <div className={'bg-white text-main'}>
-          <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
-            <section className="section py-20 max-lg:py-16 max-sm:py-12">
+          <div className="mx-auto w-[90%] max-w-[1600px] sm:w-4/5">
+            <section className="py-20 max-lg:py-16 max-sm:py-12">
               <h2 className={'tracking-tight'}>
                 {lang === 'ru' ? 'Автоматизация' : 'Automation'}
               </h2>
               <div className="lg:w-1/2">
-                <p className="flow-text max-sm:mt-12 !font-normal">
+                <p className="text-[1.2rem] lg:text-[1.68rem] max-sm:mt-12 font-normal">
                   {lang === 'ru'
                     ? 'Внедряем AI-агентов в бизнес-процессы — от записи клиентов до программирования станков с ЧПУ. Подключаем к вашим системам, разворачиваем локально, данные не покидают компанию.'
                     : 'We deploy AI agents into business operations — from booking appointments to programming CNC machines. Connected to your systems, running on your servers, your data stays inside.'}
                 </p>
-                <a href="/ai" className="flow-text !font-normal">
+                <a href="/ai" className="text-[1.2rem] lg:text-[1.68rem] font-normal">
                   {lang === 'ru' ? 'Подробнее →' : 'Learn more →'}
                 </a>
               </div>
@@ -226,12 +225,12 @@ export default function Home() {
         </div>
 
         <div className={'bg-white text-main'}>
-          <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
-            <section className="section py-20 max-lg:py-16 max-sm:py-12">
+          <div className="mx-auto w-[90%] max-w-[1600px] sm:w-4/5">
+            <section className="py-20 max-lg:py-16 max-sm:py-12">
               <h2 className={'tracking-tight'}>
                 {lang === 'ru' ? 'Связаться' : 'Get in touch'}
               </h2>
-              <p className="flow-text !font-normal">
+              <p className="text-[1.2rem] lg:text-[1.68rem] font-normal">
                 {lang === 'ru'
                   ? <>Хотите обсудить проект, идею или просто познакомиться — <a href="/contact" className="ajax-link">напишите нам</a>.</>
                   : <>Whether you like to start a new project, discuss an idea or just say hello — <a href="/contact" className="ajax-link">contact us</a>.</>}

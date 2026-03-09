@@ -27,6 +27,10 @@
 /*}*/
 
 
+a {
+    color: #039be5;
+}
+
 /* GLOBALS FROM OONA global.scss */
 html {
     font-family: "Roboto Mono", monospace;
@@ -49,6 +53,21 @@ button {
     text-rendering: optimizeLegibility;
     font-kerning: normal;
     -moz-font-feature-settings: "liga", "kern";
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+    line-height: 110%;
+}
+
+h1 {
+    font-size: 4.2rem;
+    margin: 2.1rem 0 1.68rem 0;
+}
+
+h2 {
+    font-size: 3.56rem;
+    margin: 1.78rem 0 1.424rem 0;
 }
 
 @media only screen and (max-width: 600px) {

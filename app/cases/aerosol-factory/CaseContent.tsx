@@ -9,8 +9,8 @@ export default function CaseContent() {
     <>
       {/* ── HERO ── */}
       <div className="bg-accentBackground text-main">
-        <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
-          <section className="section py-20 max-lg:py-16 max-sm:py-12">
+        <div className="mx-auto w-[90%] max-w-[1600px] sm:w-4/5">
+          <section className="py-20 max-lg:py-16 max-sm:py-12">
             <span className="font-mono text-sm text-gray-400 uppercase tracking-widest">
               {lang === "ru" ? "Кейс · Производство" : "Case Study · Manufacturing"}
             </span>
@@ -31,7 +31,7 @@ export default function CaseContent() {
                     href="https://www.aerosolfactory.ru/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="!font-normal"
+                    className="font-normal"
                   >
                     {lang === "ru" ? "Фабрика Аэрозолей →" : "Aerosol Factory →"}
                   </a>
@@ -43,19 +43,19 @@ export default function CaseContent() {
 
       {/* ── КЛИЕНТ ── */}
       <div className="bg-white text-main">
-        <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
-          <section className="section py-20 max-lg:py-16 max-sm:py-12">
+        <div className="mx-auto w-[90%] max-w-[1600px] sm:w-4/5">
+          <section className="py-20 max-lg:py-16 max-sm:py-12">
             <h2 className="tracking-tight">
               {lang === "ru" ? "Клиент" : "Client"}
             </h2>
             <div className="flex flex-col lg:flex-row gap-x-6">
               <div className="w-full lg:w-7/12">
-                <p className="flow-text leading-relaxed">
+                <p className="text-[1.2rem] lg:text-[1.68rem] font-light leading-relaxed">
                   {lang === "ru"
                     ? "Фабрика Аэрозолей — российский производитель аэрозольной жестяной упаковки и готовых аэрозольных продуктов. Предприятие расположено во Владимирской области в особой экономической зоне, в 90 км от Москвы."
                     : "Aerosol Factory is a Russian manufacturer of aerosol tin packaging and ready-to-use aerosol products. The facility is located in Vladimir Oblast in a special economic zone, 90 km from Moscow."}
                 </p>
-                <p className="flow-text leading-relaxed mt-3">
+                <p className="text-[1.2rem] lg:text-[1.68rem] font-light leading-relaxed mt-3">
                   {lang === "ru"
                     ? "Полный производственный цикл: разработка рецептуры, контрактное наполнение, испытания и сертификация. Собственные бренды OKKE охватывают автокосметику, бытовую химию и дезинфицирующие средства. Минимальная партия — 10 000 баллонов."
                     : "Full production cycle: formula development, contract filling, testing and certification. Their own OKKE brands cover automotive care, household chemicals and disinfectants. Minimum production run: 10,000 units."}
@@ -107,8 +107,8 @@ export default function CaseContent() {
 
       {/* ── ЗАДАЧА ── */}
       <div className="bg-white text-main">
-        <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
-          <section className="section py-20 max-lg:py-16 max-sm:py-12">
+        <div className="mx-auto w-[90%] max-w-[1600px] sm:w-4/5">
+          <section className="py-20 max-lg:py-16 max-sm:py-12">
             <h2 className="tracking-tight">
               {lang === "ru" ? "Задача" : "Challenge"}
             </h2>
@@ -140,7 +140,7 @@ export default function CaseContent() {
                 },
               ].map((item, i) => (
                 <div key={i} className="w-full lg:w-1/3 max-lg:mb-8">
-                  <span className="flow-text !font-normal">
+                  <span className="text-[1.2rem] lg:text-[1.68rem] font-normal">
                     {lang === "ru" ? item.titleRu : item.titleEn}
                   </span>
                   <p className="text-sm text-gray-500 mt-2 leading-relaxed">
@@ -155,24 +155,24 @@ export default function CaseContent() {
 
       {/* ── РЕШЕНИЕ ── */}
       <div className="bg-white text-main">
-        <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
-          <section className="section py-20 max-lg:py-16 max-sm:py-12">
+        <div className="mx-auto w-[90%] max-w-[1600px] sm:w-4/5">
+          <section className="py-20 max-lg:py-16 max-sm:py-12">
             <h2 className="tracking-tight">
               {lang === "ru" ? "Решение" : "Solution"}
             </h2>
             <div className="flex flex-col lg:flex-row gap-x-6">
               <div className="w-full lg:w-7/12">
-                <p className="flow-text leading-relaxed">
+                <p className="text-[1.2rem] lg:text-[1.68rem] font-light leading-relaxed">
                   {lang === "ru"
                     ? "Мы разработали AI-агента планирования, доступного прямо из Telegram. Агент подключён к производственным данным через набор инструментов: каталог продуктов, складские остатки, текущие заказы."
                     : "We built an AI planning agent accessible directly from Telegram. The agent is connected to production data through a set of tools: product catalog, warehouse inventory, current orders."}
                 </p>
-                <p className="flow-text leading-relaxed mt-4">
+                <p className="text-[1.2rem] lg:text-[1.68rem] font-light leading-relaxed mt-4">
                   {lang === "ru"
                     ? "Планировщик пишет запрос на естественном языке — например, «Сколько баллонов продукта X нужно запустить в производство?». Агент запрашивает релевантные данные, анализирует ситуацию и возвращает конкретную рекомендацию."
                     : "The planner writes a request in natural language — for example, \"How many units of product X should we schedule for production?\". The agent queries relevant data, analyses the situation and returns a specific recommendation."}
                 </p>
-                <p className="flow-text leading-relaxed mt-4">
+                <p className="text-[1.2rem] lg:text-[1.68rem] font-light leading-relaxed mt-4">
                   {lang === "ru"
                     ? "Workflow оркестрирован через n8n: приём сообщения из Telegram, вызов LLM, вызов инструментов данных, формирование ответа, отправка обратно в чат."
                     : "The workflow is orchestrated through n8n: receive message from Telegram, call LLM, call data tools, form a response, send it back to the chat."}
@@ -198,8 +198,8 @@ export default function CaseContent() {
 
       {/* ── ДЕМО ── */}
       <div className="bg-white text-main">
-        <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
-          <section className="section py-20 max-lg:py-16 max-sm:py-12">
+        <div className="mx-auto w-[90%] max-w-[1600px] sm:w-4/5">
+          <section className="py-20 max-lg:py-16 max-sm:py-12">
             <h2 className="tracking-tight">
               {lang === "ru" ? "Демо" : "Demo"}
             </h2>
@@ -244,8 +244,8 @@ export default function CaseContent() {
 
       {/* ── РЕЗУЛЬТАТ ── */}
       <div className="bg-white text-main">
-        <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
-          <section className="section py-20 max-lg:py-16 max-sm:py-12">
+        <div className="mx-auto w-[90%] max-w-[1600px] sm:w-4/5">
+          <section className="py-20 max-lg:py-16 max-sm:py-12">
             <h2 className="tracking-tight">
               {lang === "ru" ? "Результат" : "Result"}
             </h2>
@@ -277,7 +277,7 @@ export default function CaseContent() {
                 },
               ].map((item, i) => (
                 <div key={i} className="w-full lg:w-1/3 max-lg:mb-8">
-                  <span className="flow-text !font-normal">
+                  <span className="text-[1.2rem] lg:text-[1.68rem] font-normal">
                     {lang === "ru" ? item.titleRu : item.titleEn}
                   </span>
                   <p className="text-sm text-gray-500 mt-2 leading-relaxed">
@@ -292,8 +292,8 @@ export default function CaseContent() {
 
       {/* ── СТЕК ── */}
       <div className="bg-white text-main">
-        <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
-          <section className="section py-20 max-lg:py-16 max-sm:py-12">
+        <div className="mx-auto w-[90%] max-w-[1600px] sm:w-4/5">
+          <section className="py-20 max-lg:py-16 max-sm:py-12">
             <h2 className="tracking-tight">
               {lang === "ru" ? "Стек" : "Stack"}
             </h2>
@@ -321,7 +321,7 @@ export default function CaseContent() {
                 },
               ].map((item, i) => (
                 <div key={i} className="w-full lg:w-1/4 max-lg:mb-8">
-                  <span className="flow-text font-mono !font-normal">{item.name}</span>
+                  <span className="text-[1.2rem] lg:text-[1.68rem] font-mono font-normal">{item.name}</span>
                   <p className="text-sm text-gray-500 mt-1 leading-relaxed">
                     {lang === "ru" ? item.descRu : item.descEn}
                   </p>
@@ -334,8 +334,8 @@ export default function CaseContent() {
 
       {/* ── CTA ── */}
       <div className="bg-white text-main">
-        <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
-          <section className="section py-20 max-lg:py-16 max-sm:py-12">
+        <div className="mx-auto w-[90%] max-w-[1600px] sm:w-4/5">
+          <section className="py-20 max-lg:py-16 max-sm:py-12">
             <h2 className="tracking-tight">
               {lang === "ru"
                 ? "Хотите похожее решение?"
@@ -343,7 +343,7 @@ export default function CaseContent() {
             </h2>
             <div className="flex flex-col lg:flex-row">
               <div className="w-full lg:w-1/2">
-                <p className="flow-text !font-normal">
+                <p className="text-[1.2rem] lg:text-[1.68rem] font-normal">
                   {lang === "ru" ? (
                     <>
                       <a href="/contact" className="ajax-link">Напишите нам</a>{" "}

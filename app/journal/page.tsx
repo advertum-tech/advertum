@@ -7,7 +7,7 @@ function DisplacementSvg() {
   return (
     <svg
       viewBox="0 0 680 400"
-      className="responsive-img rounded-3xl"
+      className="max-w-full h-auto rounded-3xl"
       style={{ background: "#f8f8f8" }}
     >
       {[...Array(12)].map((_, i) => (
@@ -37,7 +37,7 @@ function HarnessSvg() {
   return (
     <svg
       viewBox="0 0 680 400"
-      className="responsive-img rounded-3xl"
+      className="max-w-full h-auto rounded-3xl"
       style={{ background: "#f8f8f8" }}
     >
       {[...Array(12)].map((_, i) => (
@@ -82,15 +82,15 @@ export default function Journal() {
 
   return (
     <div className="bg-white text-main">
-      <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
-        <section className="section py-20 max-lg:py-16 max-sm:py-12">
+      <div className="mx-auto w-[90%] max-w-[1600px] sm:w-4/5">
+        <section className="py-20 max-lg:py-16 max-sm:py-12">
           <div className="flex items-center justify-between">
             <h2 className="tracking-tight">{lang === 'ru' ? 'Журнал' : 'Journal'}</h2>
             <LangToggle />
           </div>
           <div className="flex flex-col lg:flex-row gap-x-6">
             <div className="w-full lg:w-1/2 max-lg:mb-8">
-              <a href="/great-displacement" className="!border-b-0">
+              <a href="/great-displacement" className="border-b-0">
                 <DisplacementSvg />
               </a>
               <div className="meta">
@@ -100,7 +100,7 @@ export default function Journal() {
                   {lang === "ru" ? "Пост-работа · Манифест" : "Post-work · Manifesto"}
                 </span>
               </div>
-              <a href="/great-displacement" className="flow-text !font-normal">
+              <a href="/great-displacement" className="text-[1.2rem] lg:text-[1.68rem] font-normal">
                 {lang === "ru" ? "Великое вытеснение" : "The Great Displacement"}
               </a>
               <p className="mt-2 text-sm leading-relaxed text-gray-500">
@@ -110,7 +110,7 @@ export default function Journal() {
               </p>
             </div>
             <div className="w-full lg:w-1/2">
-              <a href="/harness-engineering" className="!border-b-0">
+              <a href="/harness-engineering" className="border-b-0">
                 <HarnessSvg />
               </a>
               <div className="meta">
@@ -122,7 +122,7 @@ export default function Journal() {
                     : "AI Agents · Zero Hand-written"}
                 </span>
               </div>
-              <a href="/harness-engineering" className="flow-text !font-normal">
+              <a href="/harness-engineering" className="text-[1.2rem] lg:text-[1.68rem] font-normal">
                 {lang === "ru" ? "Harness-инженерия" : "Harness Engineering"}
               </a>
               <p className="mt-2 text-sm leading-relaxed text-gray-500">

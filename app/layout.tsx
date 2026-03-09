@@ -1,6 +1,5 @@
 import type {Metadata} from 'next'
 import './assets/styles/globals.css'
-import './assets/styles/materialize.css'
 import './assets/styles/linea.min.css'
 import Nav from "@/app/layout/nav";
 import Footer from "@/app/layout/footer";

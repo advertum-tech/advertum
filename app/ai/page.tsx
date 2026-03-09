@@ -304,8 +304,8 @@ export default function AI() {
     <>
       {/* ── 1. HERO ── */}
       <div className="bg-accentBackground text-main">
-        <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
-          <section className="section py-20 max-lg:py-16 max-sm:py-12">
+        <div className="mx-auto w-[90%] max-w-[1600px] sm:w-4/5">
+          <section className="py-20 max-lg:py-16 max-sm:py-12">
             <div className="flex flex-col lg:flex-row">
               <div className="w-full lg:w-7/12">
                 <h1 className="text-[45px] lg:text-[70px] tracking-tight">
@@ -316,7 +316,7 @@ export default function AI() {
                     ? "Мы внедряем AI-агентов в бизнес-процессы — подключаем к вашим системам, разворачиваем на ваших серверах, настраиваем под ваши задачи."
                     : "We embed AI agents into business operations — connected to your systems, running on your servers, tuned to your processes."}
                 </p>
-                <a href="/contact" className="flow-text !font-normal">
+                <a href="/contact" className="text-[1.2rem] lg:text-[1.68rem] font-normal">
                   {ru ? "Обсудить пилот →" : "Discuss a pilot →"}
                 </a>
               </div>
@@ -330,8 +330,8 @@ export default function AI() {
 
       {/* ── 2. БОЛИ ── */}
       <div className="bg-white text-main">
-        <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
-          <section className="section py-20 max-lg:py-16 max-sm:py-12">
+        <div className="mx-auto w-[90%] max-w-[1600px] sm:w-4/5">
+          <section className="py-20 max-lg:py-16 max-sm:py-12">
             <h2 className="tracking-tight mb-6">
               {ru ? "Где теряется время" : "Where time goes"}
             </h2>
@@ -362,7 +362,7 @@ export default function AI() {
               ].map((item, i) => (
                 <div key={i} className="w-full lg:w-1/3 max-lg:mb-8">
                   <div className="mb-3">{item.icon}</div>
-                  <span className="flow-text !font-normal">{ru ? item.ru : item.en}</span>
+                  <span className="text-[1.2rem] lg:text-[1.68rem] font-normal">{ru ? item.ru : item.en}</span>
                   <p className="text-sm text-gray-500 mt-1">{ru ? item.descRu : item.descEn}</p>
                 </div>
               ))}
@@ -373,8 +373,8 @@ export default function AI() {
 
       {/* ── 3. КАК РАБОТАЕТ (pipeline) ── */}
       <div className="bg-white text-main">
-        <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
-          <section className="section py-20 max-lg:py-16 max-sm:py-12">
+        <div className="mx-auto w-[90%] max-w-[1600px] sm:w-4/5">
+          <section className="py-20 max-lg:py-16 max-sm:py-12">
             <h2 className="tracking-tight">
               {ru ? "Как это работает" : "How it works"}
             </h2>
@@ -435,7 +435,7 @@ export default function AI() {
                 { ru: "RAG — память", en: "RAG — memory", descRu: "Ответы из корпоративной базы знаний, актуальный контекст", descEn: "Answers from your corporate knowledge base, in context" },
               ].map((item, i) => (
                 <div key={i} className="w-full lg:w-1/3 max-lg:mb-8">
-                  <p className="flow-text font-mono">{ru ? item.ru : item.en}</p>
+                  <p className="text-[1.2rem] lg:text-[1.68rem] font-light font-mono">{ru ? item.ru : item.en}</p>
                   <p className="text-sm text-gray-500">{ru ? item.descRu : item.descEn}</p>
                 </div>
               ))}
@@ -446,8 +446,8 @@ export default function AI() {
 
       {/* ── 4. АГЕНТЫ ── */}
       <div className="bg-white text-main">
-        <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
-          <section className="section py-20 max-lg:py-16 max-sm:py-12">
+        <div className="mx-auto w-[90%] max-w-[1600px] sm:w-4/5">
+          <section className="py-20 max-lg:py-16 max-sm:py-12">
             <h2 className="tracking-tight">
               {ru ? "Команда агентов" : "Meet the agents"}
             </h2>
@@ -461,7 +461,7 @@ export default function AI() {
               ].map((agent, i) => (
                 <div key={i} className="w-full lg:w-[calc(33.333%-1rem)] max-lg:mb-8">
                   <div className="mb-3">{agent.icon}</div>
-                  <span className="flow-text !font-normal">{ru ? agent.ru : agent.en}</span>
+                  <span className="text-[1.2rem] lg:text-[1.68rem] font-normal">{ru ? agent.ru : agent.en}</span>
                   <p className="text-sm text-gray-500 mt-1">{ru ? agent.descRu : agent.descEn}</p>
                 </div>
               ))}
@@ -472,8 +472,8 @@ export default function AI() {
 
       {/* ── 5. КЕЙСЫ ── */}
       <div className="bg-white text-main">
-        <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
-          <section className="section py-20 max-lg:py-16 max-sm:py-12">
+        <div className="mx-auto w-[90%] max-w-[1600px] sm:w-4/5">
+          <section className="py-20 max-lg:py-16 max-sm:py-12">
             <h2 className="tracking-tight">
               {ru ? "Кейсы" : "Case studies"}
             </h2>
@@ -511,10 +511,10 @@ export default function AI() {
                   <div className="rounded-3xl bg-gray-50 p-6 flex flex-col">
                     <div className="mb-3">{item.icon}</div>
                     <span className="text-xs font-mono text-gray-400 uppercase">{ru ? item.labelRu : item.labelEn}</span>
-                    <p className="flow-text mt-2">{ru ? item.problemRu : item.problemEn}</p>
+                    <p className="text-[1.2rem] lg:text-[1.68rem] font-light mt-2">{ru ? item.problemRu : item.problemEn}</p>
                     <p className="text-sm text-gray-500 mt-1">{ru ? item.resultRu : item.resultEn}</p>
                     {item.href && (
-                      <a href={item.href} className="text-sm font-mono mt-4 !font-normal">
+                      <a href={item.href} className="text-sm font-mono mt-4 font-normal">
                         {ru ? "Читать кейс →" : "Read case →"}
                       </a>
                     )}
@@ -528,8 +528,8 @@ export default function AI() {
 
       {/* ── 6. БЕЗОПАСНОСТЬ ── */}
       <div className="bg-white text-main">
-        <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
-          <section className="section py-20 max-lg:py-16 max-sm:py-12">
+        <div className="mx-auto w-[90%] max-w-[1600px] sm:w-4/5">
+          <section className="py-20 max-lg:py-16 max-sm:py-12">
             <h2 className="tracking-tight">
               {ru ? "Ваши данные не покидают компанию" : "Your data stays inside"}
             </h2>
@@ -541,7 +541,7 @@ export default function AI() {
                 { ru: "ФЗ-152", en: "Data compliance", descRu: "Соответствие российскому законодательству о персональных данных", descEn: "Compliant with data protection law" },
               ].map((item, i) => (
                 <div key={i} className="w-full lg:w-1/3 max-lg:mb-8">
-                  <span className="flow-text !font-normal">{ru ? item.ru : item.en}</span>
+                  <span className="text-[1.2rem] lg:text-[1.68rem] font-normal">{ru ? item.ru : item.en}</span>
                   <p className="text-sm text-gray-500 mt-1">{ru ? item.descRu : item.descEn}</p>
                 </div>
               ))}
@@ -552,8 +552,8 @@ export default function AI() {
 
       {/* ── 7. КАК МЫ РАБОТАЕМ ── */}
       <div className="bg-white text-main">
-        <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
-          <section className="section py-20 max-lg:py-16 max-sm:py-12">
+        <div className="mx-auto w-[90%] max-w-[1600px] sm:w-4/5">
+          <section className="py-20 max-lg:py-16 max-sm:py-12">
             <h2 className="tracking-tight">
               {ru ? "Как мы работаем" : "How we work"}
             </h2>
@@ -567,7 +567,7 @@ export default function AI() {
               ].map((step, i) => (
                 <div key={i} className="w-full lg:w-1/4 max-lg:mb-8">
                   <span className="font-mono text-gray-400 text-sm">{`0${i + 1}`}</span>
-                  <span className="flow-text !font-normal"> {ru ? step.ru : step.en}</span>
+                  <span className="text-[1.2rem] lg:text-[1.68rem] font-normal"> {ru ? step.ru : step.en}</span>
                   <p className="text-sm text-gray-500 mt-1">{ru ? step.descRu : step.descEn}</p>
                 </div>
               ))}
@@ -578,15 +578,15 @@ export default function AI() {
 
       {/* ── 8. CTA ── */}
       <div className="bg-white text-main">
-        <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
-          <section className="section py-20 max-lg:py-16 max-sm:py-12">
+        <div className="mx-auto w-[90%] max-w-[1600px] sm:w-4/5">
+          <section className="py-20 max-lg:py-16 max-sm:py-12">
             <h2 className="tracking-tight">
               {ru
                 ? "Давайте найдём, где у вас теряется время"
                 : "Let\u2019s find where your time goes"}
             </h2>
             <div className="lg:w-1/2">
-              <p className="flow-text !font-normal">
+              <p className="text-[1.2rem] lg:text-[1.68rem] font-normal">
                 {ru
                   ? <><a href="/contact" className="ajax-link">Напишите нам</a> — обсудим ваш процесс и покажем, как агент может помочь.</>
                   : <><a href="/contact" className="ajax-link">Get in touch</a> — we&apos;ll discuss your process and show how an agent can help.</>}

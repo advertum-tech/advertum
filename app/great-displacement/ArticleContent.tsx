@@ -5,7 +5,7 @@ import LangToggle from "@/app/context/LangToggle";
 
 const b = "font-semibold text-gray-900";
 const sep = "py-6 text-center text-sm tracking-[8px] text-gray-300";
-const h2 = "!mt-2 !mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl";
+const h2 = "mt-2 mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl";
 const epi = "py-6 text-center font-serif text-base italic leading-relaxed text-gray-500 md:px-8 md:text-lg";
 
 

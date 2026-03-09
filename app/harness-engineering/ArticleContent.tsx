@@ -40,7 +40,7 @@ docs/
 
 function ImgCodexDrives({ caption }: { caption: string }) {
   return (
-    <figure className="!my-8">
+    <figure className="my-8">
       <Image
         src="/images/blog/harness-engineering/fig-1-codex-drives-app.png"
         alt={caption}
@@ -57,7 +57,7 @@ function ImgCodexDrives({ caption }: { caption: string }) {
 
 function ImgObservability({ caption }: { caption: string }) {
   return (
-    <figure className="!my-8">
+    <figure className="my-8">
       <img
         src="/images/blog/harness-engineering/observability-stack.svg"
         alt={caption}
@@ -72,7 +72,7 @@ function ImgObservability({ caption }: { caption: string }) {
 
 function ImgKnowledge({ caption }: { caption: string }) {
   return (
-    <figure className="!my-8">
+    <figure className="my-8">
       <Image
         src="/images/blog/harness-engineering/knowledge-limits.png"
         alt={caption}
@@ -89,7 +89,7 @@ function ImgKnowledge({ caption }: { caption: string }) {
 
 function ImgArchitecture({ caption }: { caption: string }) {
   return (
-    <figure className="!my-8">
+    <figure className="my-8">
       <Image
         src="/images/blog/harness-engineering/architecture-layers.png"
         alt={caption}
@@ -107,7 +107,7 @@ function ImgArchitecture({ caption }: { caption: string }) {
 function DirTreeBlock({ caption }: { caption: string }) {
   return (
     <>
-      <div className="!my-8 overflow-x-auto rounded bg-gray-50 p-4 font-mono text-[13px] leading-relaxed text-gray-700">
+      <div className="my-8 overflow-x-auto rounded bg-gray-50 p-4 font-mono text-[13px] leading-relaxed text-gray-700">
         <pre>{dirTree}</pre>
       </div>
       <p className="text-center text-xs italic text-gray-400">{caption}</p>
@@ -155,7 +155,7 @@ function RuBody() {
           человеческое время и внимание.
         </p>
 
-        <h2 className="!mt-10 !mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
+        <h2 className="mt-10 mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
           Мы начали с пустого git-репозитория
         </h2>
 
@@ -197,7 +197,7 @@ function RuBody() {
           .
         </p>
 
-        <h2 className="!mt-10 !mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
+        <h2 className="mt-10 mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
           Переосмысление роли инженера
         </h2>
 
@@ -247,7 +247,7 @@ function RuBody() {
           перенесли почти все усилия по ревью на взаимодействие агент-агент.
         </p>
 
-        <h2 className="!mt-10 !mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
+        <h2 className="mt-10 mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
           Повышение читаемости приложения
         </h2>
 
@@ -289,7 +289,7 @@ function RuBody() {
           задачей более шести часов (часто пока люди спят).
         </p>
 
-        <h2 className="!mt-10 !mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
+        <h2 className="mt-10 mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
           Мы сделали знание репозитория системой записи
         </h2>
 
@@ -392,7 +392,7 @@ function RuBody() {
           реальное поведение кода, и открывает корректирующие пулл-реквесты.
         </p>
 
-        <h2 className="!mt-10 !mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
+        <h2 className="mt-10 mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
           Читаемость для агента — цель
         </h2>
 
@@ -458,7 +458,7 @@ function RuBody() {
           ), работающих в той же кодовой базе.
         </p>
 
-        <h2 className="!mt-10 !mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
+        <h2 className="mt-10 mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
           Обеспечение архитектуры и вкуса
         </h2>
 
@@ -543,7 +543,7 @@ function RuBody() {
           кода.
         </p>
 
-        <h2 className="!mt-10 !mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
+        <h2 className="mt-10 mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
           Пропускная способность меняет философию мержа
         </h2>
 
@@ -565,7 +565,7 @@ function RuBody() {
           Здесь это часто правильный компромисс.
         </p>
 
-        <h2 className="!mt-10 !mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
+        <h2 className="mt-10 mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
           Что на самом деле значит «сгенерировано агентом»
         </h2>
 
@@ -606,7 +606,7 @@ function RuBody() {
           часто сами сквошат и мержат свои пулл-реквесты.
         </p>
 
-        <h2 className="!mt-10 !mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
+        <h2 className="mt-10 mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
           Растущие уровни автономии
         </h2>
 
@@ -639,7 +639,7 @@ function RuBody() {
           инвестиций — по крайней мере, пока.
         </p>
 
-        <h2 className="!mt-10 !mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
+        <h2 className="mt-10 mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
           Энтропия и сборка мусора
         </h2>
 
@@ -679,7 +679,7 @@ function RuBody() {
           позволять им распространяться по кодовой базе дни или недели.
         </p>
 
-        <h2 className="!mt-10 !mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
+        <h2 className="mt-10 mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
           Чему мы всё ещё учимся
         </h2>
 
@@ -767,7 +767,7 @@ function EnBody() {
           one truly scarce resource: human time and attention.
         </p>
 
-        <h2 className="!mt-10 !mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
+        <h2 className="mt-10 mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
           We started with an empty git repository
         </h2>
 
@@ -810,7 +810,7 @@ function EnBody() {
           .
         </p>
 
-        <h2 className="!mt-10 !mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
+        <h2 className="mt-10 mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
           Redefining the role of the engineer
         </h2>
 
@@ -860,7 +860,7 @@ function EnBody() {
           agent-to-agent.
         </p>
 
-        <h2 className="!mt-10 !mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
+        <h2 className="mt-10 mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
           Increasing application legibility
         </h2>
 
@@ -900,7 +900,7 @@ function EnBody() {
           six hours (often while the humans are sleeping).
         </p>
 
-        <h2 className="!mt-10 !mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
+        <h2 className="mt-10 mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
           We made repository knowledge the system of record
         </h2>
 
@@ -1001,7 +1001,7 @@ function EnBody() {
           opens fix-up pull requests.
         </p>
 
-        <h2 className="!mt-10 !mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
+        <h2 className="mt-10 mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
           Agent legibility is the goal
         </h2>
 
@@ -1067,7 +1067,7 @@ function EnBody() {
           ) that are working on the codebase as well.
         </p>
 
-        <h2 className="!mt-10 !mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
+        <h2 className="mt-10 mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
           Enforcing architecture and taste
         </h2>
 
@@ -1151,7 +1151,7 @@ function EnBody() {
           documentation falls short, we promote the rule into code.
         </p>
 
-        <h2 className="!mt-10 !mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
+        <h2 className="mt-10 mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
           Throughput changes the merge philosophy
         </h2>
 
@@ -1173,7 +1173,7 @@ function EnBody() {
           often the right tradeoff.
         </p>
 
-        <h2 className="!mt-10 !mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
+        <h2 className="mt-10 mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
           What &quot;agent-generated&quot; actually means
         </h2>
 
@@ -1213,7 +1213,7 @@ function EnBody() {
           their own pull requests.
         </p>
 
-        <h2 className="!mt-10 !mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
+        <h2 className="mt-10 mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
           Increasing levels of autonomy
         </h2>
 
@@ -1246,7 +1246,7 @@ function EnBody() {
           investment—at least, not yet.
         </p>
 
-        <h2 className="!mt-10 !mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
+        <h2 className="mt-10 mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
           Entropy and garbage collection
         </h2>
 
@@ -1286,7 +1286,7 @@ function EnBody() {
           code base for days or weeks.
         </p>
 
-        <h2 className="!mt-10 !mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
+        <h2 className="mt-10 mb-5 font-serif text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
           What we&apos;re still learning
         </h2>
 

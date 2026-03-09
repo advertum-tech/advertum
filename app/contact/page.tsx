@@ -203,7 +203,7 @@ function ContactForm() {
           type="submit"
           disabled={status === "submitting"}
           className={cn(
-            "font-mono text-sm tracking-wide transition-opacity duration-200 !font-normal",
+            "font-mono text-sm tracking-wide transition-opacity duration-200 font-normal",
             status === "submitting" ? "opacity-40 cursor-not-allowed" : "opacity-100"
           )}
         >
@@ -226,8 +226,8 @@ export default function Contact() {
 
   return (
     <div className="bg-accentBackground text-main min-h-screen">
-      <div className="container !w-[90%] !max-w-[1600px] sm:!w-4/5">
-        <section className="section py-20 max-lg:py-16 max-sm:py-12">
+      <div className="mx-auto w-[90%] max-w-[1600px] sm:w-4/5">
+        <section className="py-20 max-lg:py-16 max-sm:py-12">
           <div className="lg:w-1/2">
             <h1 className="text-[38px] lg:text-[55px] tracking-tight mb-2">
               {t.heading}
