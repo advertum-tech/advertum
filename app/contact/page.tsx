@@ -10,7 +10,7 @@ const ENDPOINT = "https://n8n.hallstain.me/form/0ce65eff-e779-4d83-ad0d-9d5a25bc
 type Status = "idle" | "submitting" | "success" | "error_403" | "error_500" | "error_network";
 
 function ContactForm() {
-  const { lang } = useLang();
+  const lang = useLang();
   const searchParams = useSearchParams();
   const simulate = searchParams.get("simulate");
 
@@ -215,7 +215,7 @@ function ContactForm() {
 }
 
 export default function Contact() {
-  const { lang } = useLang();
+  const lang = useLang();
 
   const t = {
     heading: lang === "ru" ? "Напишите нам" : "Get in touch",

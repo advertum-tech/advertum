@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import ArticleContent from "./ArticleContent";
 
 export const metadata: Metadata = {
-  title: "Великое вытеснение — ИИ и следующие пятьдесят лет",
+  title: "The Great Displacement — AI and the Next Fifty Years",
   description:
-    "К 2035 году самым высокооплачиваемым работником в вашем городе будет не программист. Это будет электрик. Эссе Дидье Баклена о будущем труда, денег и человечности.",
+    "By 2035 the highest-paid worker in your city won't be a programmer. It will be an electrician. An essay on the future of work, money, and humanity.",
 };
 
 export default function GreatDisplacement() {

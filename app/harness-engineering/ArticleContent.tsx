@@ -58,10 +58,12 @@ function ImgCodexDrives({ caption }: { caption: string }) {
 function ImgObservability({ caption }: { caption: string }) {
   return (
     <figure className="my-8">
-      <img
+      <Image
         src="/images/blog/harness-engineering/observability-stack.svg"
         alt={caption}
-        className="w-full rounded"
+        width={1200}
+        height={800}
+        className="w-full h-auto rounded"
       />
       <figcaption className="mt-2 text-center text-xs text-gray-400">
         {caption}
@@ -1333,7 +1335,7 @@ function EnBody() {
 }
 
 export default function ArticleContent() {
-  const { lang, setLang } = useLang();
+  const lang = useLang();
 
   return (
     <article className="bg-white text-main">

@@ -1,17 +1,14 @@
 "use client";
 
-import {Roboto_Mono} from 'next/font/google'
+import { Roboto_Mono } from "next/font/google";
 import React from "react";
-import {LanguageProvider} from "@/app/context/LanguageContext";
 
-const robotoMono = Roboto_Mono({subsets: ['latin']})
+const robotoMono = Roboto_Mono({ subsets: ["latin"] });
 
-export default function Body({ children, initialLang }: { children: React.ReactNode, initialLang: "en" | "ru" }) {
+export default function Body({ children }: { children: React.ReactNode }) {
   return (
     <body className={`${robotoMono.className} bg-accentBackground`}>
-      <LanguageProvider initialLang={initialLang}>
-        {children}
-      </LanguageProvider>
+      {children}
     </body>
-  )
+  );
 }

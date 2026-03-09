@@ -3,7 +3,8 @@ import cn from "classnames";
 import { useLang } from "@/app/context/LanguageContext";
 
 export default function CaseContent() {
-  const { lang } = useLang();
+  const lang = useLang();
+  const p = lang === "ru" ? "/ru" : "";
 
   return (
     <>
@@ -346,19 +347,19 @@ export default function CaseContent() {
                 <p className="text-[1.2rem] lg:text-[1.68rem] font-normal">
                   {lang === "ru" ? (
                     <>
-                      <a href="/contact" className="ajax-link">Напишите нам</a>{" "}
+                      <a href={`${p}/contact`} className="ajax-link">Напишите нам</a>{" "}
                       — обсудим ваш процесс и покажем, как агент может встроиться в ваше производство.
                     </>
                   ) : (
                     <>
-                      <a href="/contact" className="ajax-link">Get in touch</a>{" "}
+                      <a href={`${p}/contact`} className="ajax-link">Get in touch</a>{" "}
                       — we&apos;ll discuss your process and show how an agent can fit into your operations.
                     </>
                   )}
                 </p>
               </div>
               <div className="w-full lg:w-1/3 lg:ml-auto flex items-center">
-                <a href="/ai" className="font-mono text-sm text-gray-400 hover:text-gray-700 transition-colors">
+                <a href={`${p}/ai`} className="font-mono text-sm text-gray-400 hover:text-gray-700 transition-colors">
                   ← {lang === "ru" ? "Все кейсы" : "All cases"}
                 </a>
               </div>

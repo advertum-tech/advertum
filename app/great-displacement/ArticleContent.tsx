@@ -958,7 +958,7 @@ function EnBody() {
 }
 
 export default function ArticleContent() {
-  const { lang, setLang } = useLang();
+  const lang = useLang();
 
   return (
     <article className="bg-white text-main">

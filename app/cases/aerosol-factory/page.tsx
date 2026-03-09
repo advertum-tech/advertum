@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import CaseContent from "./CaseContent";
 
 export const metadata: Metadata = {
-  title: "Агент планирования производства — Фабрика Аэрозолей · Advertum",
+  title: "Production Planning Agent — Aerosol Factory · Advertum",
   description:
-    "Как AI-агент в Telegram помог заводу аэрозольной упаковки автоматизировать планирование производства — склад, заказы, рекомендации в секунды.",
+    "How an AI agent helped an aerosol packaging factory make production decisions in seconds — directly from Telegram.",
 };
 
 export default function AerosolFactoryCase() {

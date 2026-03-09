@@ -1,9 +1,12 @@
 "use client";
 
+import { useRouter, usePathname } from "next/navigation";
 import { useLang } from "@/app/context/LanguageContext";
 
 export default function LangToggle({ className }: { className?: string }) {
-  const { lang, setLang } = useLang();
+  const lang = useLang();
+  const pathname = usePathname();
+  const router = useRouter();
 
   const active: React.CSSProperties = {
     backgroundColor: "#111827",
@@ -19,17 +22,28 @@ export default function LangToggle({ className }: { className?: string }) {
     cursor: "pointer",
   };
 
+  function switchTo(targetLang: "en" | "ru") {
+    if (targetLang === lang) return;
+    // Persist choice in cookie — middleware will use it on next request
+    document.cookie = `lang=${targetLang}; path=/; max-age=${60 * 60 * 24 * 365}; SameSite=Lax`;
+    if (targetLang === "ru") {
+      router.push(`/ru${pathname === "/" ? "" : pathname}`);
+    } else {
+      router.push(pathname.replace(/^\/ru/, "") || "/");
+    }
+  }
+
   return (
     <div className={`flex gap-1 text-xs ${className ?? ""}`}>
       <button
-        onClick={() => setLang("en")}
+        onClick={() => switchTo("en")}
         style={lang === "en" ? active : inactive}
         className="rounded-l-full px-4 py-1.5 transition-colors"
       >
         EN
       </button>
       <button
-        onClick={() => setLang("ru")}
+        onClick={() => switchTo("ru")}
         style={lang === "ru" ? active : inactive}
         className="rounded-r-full px-4 py-1.5 transition-colors"
       >

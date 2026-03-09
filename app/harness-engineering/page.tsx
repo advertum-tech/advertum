@@ -2,10 +2,9 @@ import type { Metadata } from "next";
 import ArticleContent from "./ArticleContent";
 
 export const metadata: Metadata = {
-  title:
-    "Harness-инженерия: использование Codex в мире, где агенты — на первом месте",
+  title: "Harness Engineering: Using Codex in an Agent-First World",
   description:
-    "Как команда OpenAI за пять месяцев построила продукт с нуля — миллион строк кода без единой строки, написанной вручную. Перевод Advertum.",
+    "How the OpenAI team built a product from scratch in five months — a million lines of code without a single line written by hand. Translated by Advertum.",
 };
 
 export default function HarnessEngineering() {

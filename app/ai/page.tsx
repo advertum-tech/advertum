@@ -297,8 +297,9 @@ function ProcessSvg({ lang }: { lang: string }) {
 // ─────────────────────────────────────────────────────────────────────────────
 
 export default function AI() {
-  const { lang } = useLang();
+  const lang = useLang();
   const ru = lang === "ru";
+  const p = ru ? "/ru" : "";
 
   return (
     <>
@@ -316,7 +317,7 @@ export default function AI() {
                     ? "Мы внедряем AI-агентов в бизнес-процессы — подключаем к вашим системам, разворачиваем на ваших серверах, настраиваем под ваши задачи."
                     : "We embed AI agents into business operations — connected to your systems, running on your servers, tuned to your processes."}
                 </p>
-                <a href="/contact" className="text-[1.2rem] lg:text-[1.68rem] font-normal">
+                <a href={`${p}/contact`} className="text-[1.2rem] lg:text-[1.68rem] font-normal">
                   {ru ? "Обсудить пилот →" : "Discuss a pilot →"}
                 </a>
               </div>
@@ -588,8 +589,8 @@ export default function AI() {
             <div className="lg:w-1/2">
               <p className="text-[1.2rem] lg:text-[1.68rem] font-normal">
                 {ru
-                  ? <><a href="/contact" className="ajax-link">Напишите нам</a> — обсудим ваш процесс и покажем, как агент может помочь.</>
-                  : <><a href="/contact" className="ajax-link">Get in touch</a> — we&apos;ll discuss your process and show how an agent can help.</>}
+                  ? <><a href={`${p}/contact`} className="ajax-link">Напишите нам</a> — обсудим ваш процесс и покажем, как агент может помочь.</>
+                  : <><a href={`${p}/contact`} className="ajax-link">Get in touch</a> — we&apos;ll discuss your process and show how an agent can help.</>}
               </p>
             </div>
           </section>

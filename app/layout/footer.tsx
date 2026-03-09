@@ -5,7 +5,7 @@ import { useLang } from "@/app/context/LanguageContext";
 import LangToggle from "@/app/context/LangToggle";
 
 export default function Footer() {
-  const { lang } = useLang();
+  const lang = useLang();
 
   return (
     <footer className={cn('pt-8 pb-16 max-lg:pb-8 max-lg:text-center max-sm:pb-4', 'bg-accentBackground text-main')}>

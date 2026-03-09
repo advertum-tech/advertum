@@ -78,7 +78,8 @@ function HarnessSvg() {
 }
 
 export default function Journal() {
-  const { lang } = useLang();
+  const lang = useLang();
+  const p = lang === "ru" ? "/ru" : "";
 
   return (
     <div className="bg-white text-main">
@@ -90,7 +91,7 @@ export default function Journal() {
           </div>
           <div className="flex flex-col lg:flex-row gap-x-6">
             <div className="w-full lg:w-1/2 max-lg:mb-8">
-              <a href="/great-displacement" className="border-b-0">
+              <a href={`${p}/great-displacement`} className="border-b-0">
                 <DisplacementSvg />
               </a>
               <div className="meta">
@@ -100,7 +101,7 @@ export default function Journal() {
                   {lang === "ru" ? "Пост-работа · Манифест" : "Post-work · Manifesto"}
                 </span>
               </div>
-              <a href="/great-displacement" className="text-[1.2rem] lg:text-[1.68rem] font-normal">
+              <a href={`${p}/great-displacement`} className="text-[1.2rem] lg:text-[1.68rem] font-normal">
                 {lang === "ru" ? "Великое вытеснение" : "The Great Displacement"}
               </a>
               <p className="mt-2 text-sm leading-relaxed text-gray-500">
@@ -110,7 +111,7 @@ export default function Journal() {
               </p>
             </div>
             <div className="w-full lg:w-1/2">
-              <a href="/harness-engineering" className="border-b-0">
+              <a href={`${p}/harness-engineering`} className="border-b-0">
                 <HarnessSvg />
               </a>
               <div className="meta">
@@ -122,7 +123,7 @@ export default function Journal() {
                     : "AI Agents · Zero Hand-written"}
                 </span>
               </div>
-              <a href="/harness-engineering" className="text-[1.2rem] lg:text-[1.68rem] font-normal">
+              <a href={`${p}/harness-engineering`} className="text-[1.2rem] lg:text-[1.68rem] font-normal">
                 {lang === "ru" ? "Harness-инженерия" : "Harness Engineering"}
               </a>
               <p className="mt-2 text-sm leading-relaxed text-gray-500">
