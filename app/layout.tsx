@@ -7,9 +7,18 @@ import React from "react";
 import Body from "@/app/layout/body";
 
 export const metadata: Metadata = {
-  title: "Advertum • design and development",
+  title: "Advertum • development and automation",
   description:
-    "Advertum is a cutting edge design and development studio that exists to create challenging and engaging visual concepts.",
+    "Advertum is a development and automation studio. We deploy AI agents into business processes and build products that work.",
+  openGraph: {
+    title: "Advertum • development and automation",
+    description:
+      "Advertum is a development and automation studio. We deploy AI agents into business processes and build products that work.",
+    url: "https://advertum.com",
+    siteName: "Advertum",
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
