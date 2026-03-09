@@ -1,5 +1,0 @@
-@mixin transform($property: none) {
-
-  // none | <transform-function>
-  @include prefixer(transform, $property, webkit moz ms o spec);
-}

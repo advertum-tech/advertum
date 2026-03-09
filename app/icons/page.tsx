@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <div className="services">
+    <div>
       <div className="flex flex-wrap">
         <div className="w-full lg:w-1/6 px-3"><i className="icon-basic-accelerator"></i><span
           className="text-[1.2rem] lg:text-[1.68rem] font-light">icon-basic-accelerator</span></div>

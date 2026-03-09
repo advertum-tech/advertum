@@ -20,7 +20,7 @@ export default function Home() {
                   : 'Improve The Quality and Performance of Your Business'}
               </h1>
               <div className="w-full lg:w-1/2 lg:ml-auto">
-                <p className="absolute lg:relative top-2/3 md:top-3/4 lg:top-0 lg:text-[1.68rem] intro-text text-main font-normal my-5 leading-normal">
+                <p className="absolute lg:relative top-2/3 md:top-3/4 lg:top-0 lg:text-[1.68rem] text-main font-normal my-5 leading-normal">
                   {lang === 'ru'
                     ? 'Advertum — студия автоматизации и разработки. Мы внедряем AI-агентов в бизнес-процессы и создаём продукты, которые работают.'
                     : 'Advertum is a development and automation studio. We deploy AI agents into business processes and build products that work.'}
