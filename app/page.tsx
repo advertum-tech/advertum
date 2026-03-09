@@ -35,9 +35,9 @@ export default function Home() {
         <div className={'bg-white text-main'}>
           <div className="mx-auto w-[90%] max-w-[1600px] sm:w-4/5">
             <section className="py-20 max-lg:py-16 max-sm:py-12">
-              <h2 className={'tracking-tight'}>Journal</h2>
+              <h2 className={'tracking-tight mb-8'}>Journal</h2>
               <div className="flex flex-col lg:flex-row gap-x-6">
-                <div className="w-full lg:w-1/2 max-lg:mb-8">
+                <div className="w-full lg:w-1/2 max-lg:mb-12">
                   <a href={`${p}/great-displacement`} className="border-b-0">
                     <svg viewBox="0 0 680 400" className="max-w-full h-auto rounded-3xl" style={{background: '#f8f8f8'}}>
                       {[...Array(12)].map((_, i) => (
@@ -72,7 +72,7 @@ export default function Home() {
                   <a href={`${p}/great-displacement`} className="text-[1.2rem] lg:text-[1.68rem] font-normal">
                     {lang === 'ru' ? 'Великое вытеснение' : 'The Great Displacement'}
                   </a>
-                  <p className="mt-2 text-sm leading-relaxed text-gray-500">
+                  <p className="mt-2 text-sm leading-relaxed text-gray-600">
                     {lang === 'ru'
                       ? 'ИИ обесценивает умственный труд быстрее, чем мы успеваем переучиться.'
                       : 'AI is devaluing cognitive labor faster than we can retrain.'}
@@ -119,7 +119,7 @@ export default function Home() {
                   <a href={`${p}/harness-engineering`} className="text-[1.2rem] lg:text-[1.68rem] font-normal">
                     {lang === 'ru' ? 'Harness-инженерия' : 'Harness Engineering'}
                   </a>
-                  <p className="mt-2 text-sm leading-relaxed text-gray-500">
+                  <p className="mt-2 text-sm leading-relaxed text-gray-600">
                     {lang === 'ru'
                       ? 'Три инженера, Codex и миллион строк кода — ни одной написанной вручную.'
                       : 'Three engineers, Codex, and a million lines of code — none written by hand.'}
@@ -130,16 +130,16 @@ export default function Home() {
           </div>
         </div>
 
-        <div className={'bg-white text-main'}>
+        <div className={'bg-accentBackground text-main'}>
           <div className="mx-auto w-[90%] max-w-[1600px] sm:w-4/5">
             <section className="py-20 max-lg:py-16 max-sm:py-12">
-              <h2 className={'tracking-tight'}>
+              <h2 className={'tracking-tight mb-8'}>
                 {lang === 'ru' ? 'Последние проекты' : 'Latest projects'}
               </h2>
               <div className="flex flex-col lg:flex-row gap-x-6">
                 {/* Aerosol Factory card */}
-                <div className="w-full lg:w-1/2 max-lg:mb-8">
-                  <div className="rounded-3xl bg-gray-50 p-6 flex flex-col">
+                <div className="w-full lg:w-1/2 max-lg:mb-12">
+                  <div className="flex flex-col">
                     <div className="mb-3">
                       <svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="#1a1a1a" strokeWidth="1.5" aria-hidden="true">
                         <path d="M2 28 L2 14 L10 18 L10 14 L18 18 L18 14 L26 18 L26 28 Z" />
@@ -153,12 +153,12 @@ export default function Home() {
                     <span className="text-xs font-mono text-gray-400 uppercase">
                       {lang === 'ru' ? 'Производство · Фабрика Аэрозолей' : 'Manufacturing · Aerosol Factory'}
                     </span>
-                    <p className="text-[1.2rem] lg:text-[1.68rem] font-light mt-2">
+                    <p className="text-[1.2rem] lg:text-[1.68rem] font-light mt-3">
                       {lang === 'ru'
                         ? 'Планировщик тратил часы на сбор данных из разных систем: склад, заказы, каталог — прежде чем принять одно решение о запуске партии.'
                         : 'The planner spent hours gathering data from different systems: inventory, orders, catalog — before making a single production decision.'}
                     </p>
-                    <p className="text-sm text-gray-500 mt-1">
+                    <p className="text-sm text-gray-600 mt-3">
                       {lang === 'ru'
                         ? 'AI-агент в Telegram запрашивает данные и выдаёт рекомендацию по объёму производства за секунды.'
                         : 'An AI agent in Telegram queries data and delivers a production volume recommendation in seconds.'}
@@ -171,7 +171,7 @@ export default function Home() {
 
                 {/* Beauty Salon card */}
                 <div className="w-full lg:w-1/2">
-                  <div className="rounded-3xl bg-gray-50 p-6 flex flex-col">
+                  <div className="flex flex-col">
                     <div className="mb-3">
                       <svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="#1a1a1a" strokeWidth="1.5" aria-hidden="true">
                         <rect x="3" y="6" width="26" height="23" rx="3" />
@@ -188,12 +188,12 @@ export default function Home() {
                     <span className="text-xs font-mono text-gray-400 uppercase">
                       {lang === 'ru' ? 'Салон красоты' : 'Beauty salon'}
                     </span>
-                    <p className="text-[1.2rem] lg:text-[1.68rem] font-light mt-2">
+                    <p className="text-[1.2rem] lg:text-[1.68rem] font-light mt-3">
                       {lang === 'ru'
                         ? 'Администратор записывал клиентов вручную — конфликты расписания, пропущенные звонки, работа только в рабочее время.'
                         : 'The administrator booked clients manually — scheduling conflicts, missed calls, no service outside business hours.'}
                     </p>
-                    <p className="text-sm text-gray-500 mt-1">
+                    <p className="text-sm text-gray-600 mt-3">
                       {lang === 'ru'
                         ? 'AI-агент в Telegram принимает записи на естественном языке, синхронизирует с расписанием и 1С. Запись работает 24/7.'
                         : 'A Telegram agent accepts bookings in natural language, syncs with schedule and 1C. Bookings run 24/7.'}
@@ -209,7 +209,7 @@ export default function Home() {
         <div className={'bg-white text-main'}>
           <div className="mx-auto w-[90%] max-w-[1600px] sm:w-4/5">
             <section className="py-20 max-lg:py-16 max-sm:py-12">
-              <h2 className={'tracking-tight'}>
+              <h2 className={'tracking-tight mb-8'}>
                 {lang === 'ru' ? 'Автоматизация' : 'Automation'}
               </h2>
               <div className="lg:w-1/2">
@@ -229,7 +229,7 @@ export default function Home() {
         <div className={'bg-white text-main'}>
           <div className="mx-auto w-[90%] max-w-[1600px] sm:w-4/5">
             <section className="py-20 max-lg:py-16 max-sm:py-12">
-              <h2 className={'tracking-tight'}>
+              <h2 className={'tracking-tight mb-8'}>
                 {lang === 'ru' ? 'Связаться' : 'Get in touch'}
               </h2>
               <p className="text-[1.2rem] lg:text-[1.68rem] font-normal">
