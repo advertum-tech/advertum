@@ -11,6 +11,7 @@ export default function Home() {
 
   return (
       <>
+        {/* ── HERO ── */}
         <div className={'bg-accentBackground text-main'}>
           <div className="mx-auto w-[90%] max-w-[1600px] sm:w-4/5 h-screen max-lg:h-[75vh] bg-contain bg-no-repeat bg-center bg-[url('/images/advertum.webp')] max-lg:bg-[url('/images/advertum-mobile.webp')]">
             <div>
@@ -35,6 +36,45 @@ export default function Home() {
           </div>
         </div>
 
+        {/* ── NUMBERS ── */}
+        <div className={'bg-white text-main'}>
+          <div className="mx-auto w-[90%] max-w-[1600px] sm:w-4/5">
+            <div className="py-12 max-sm:py-8 grid grid-cols-2 lg:grid-cols-4 gap-8 border-b border-main/10">
+              {([
+                {
+                  n: '2',
+                  unit: lang === 'ru' ? 'часа' : 'hours',
+                  label: lang === 'ru' ? 'в день экономит агент\nпланировщика на заводе' : 'a day saved by\na planning agent',
+                },
+                {
+                  n: '14',
+                  unit: lang === 'ru' ? 'дней' : 'days',
+                  label: lang === 'ru' ? 'от брифа до\nпервого рабочего агента' : 'from brief to\nfirst working agent',
+                },
+                {
+                  n: '100+',
+                  unit: '',
+                  label: lang === 'ru' ? 'интеграций\nс бизнес-системами' : 'integrations\nwith business systems',
+                },
+                {
+                  n: '24/7',
+                  unit: '',
+                  label: lang === 'ru' ? 'агент работает\nбез выходных и обедов' : 'agents run without\nbreaks or weekends',
+                },
+              ] as { n: string; unit: string; label: string }[]).map(({ n, unit, label }) => (
+                <div key={n}>
+                  <div className="text-[2.5rem] lg:text-[3.5rem] tracking-tight leading-none">
+                    {n}
+                    {unit && <span className="text-[1.5rem] lg:text-[2rem] ml-1 opacity-50">{unit}</span>}
+                  </div>
+                  <div className="text-xs font-mono text-gray-400 mt-2 leading-relaxed whitespace-pre-line">{label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* ── JOURNAL ── */}
         <div className={'bg-white text-main'}>
           <div className="mx-auto w-[90%] max-w-[1600px] sm:w-4/5">
             <section className="py-20 max-lg:py-16 max-sm:py-12">
@@ -133,6 +173,7 @@ export default function Home() {
           </div>
         </div>
 
+        {/* ── LATEST PROJECTS ── */}
         <div className={'bg-accentBackground text-main'}>
           <div className="mx-auto w-[90%] max-w-[1600px] sm:w-4/5">
             <section className="py-20 max-lg:py-16 max-sm:py-12">
@@ -208,27 +249,217 @@ export default function Home() {
           </div>
         </div>
 
-        {/* TODO: наполнить контентом */}
+        {/* ── SOCIAL PROOF ── */}
         <div className={'bg-white text-main'}>
           <div className="mx-auto w-[90%] max-w-[1600px] sm:w-4/5">
             <section className="py-20 max-lg:py-16 max-sm:py-12">
               <h2 className={'tracking-tight mb-8'}>
-                {lang === 'ru' ? 'Автоматизация' : 'Automation'}
+                {lang === 'ru' ? 'Клиенты говорят' : 'What clients say'}
               </h2>
-              <div className="lg:w-1/2">
-                <p className="text-[1.2rem] lg:text-[1.68rem] max-sm:mt-12 font-normal">
-                  {lang === 'ru'
-                    ? 'Внедряем AI-агентов в бизнес-процессы — от записи клиентов до программирования станков с ЧПУ. Подключаем к вашим системам, разворачиваем локально, данные не покидают компанию.'
-                    : 'We deploy AI agents into business operations — from booking appointments to programming CNC machines. Connected to your systems, running on your servers, your data stays inside.'}
-                </p>
-                <a href={`${p}/ai`} className="text-[1.2rem] lg:text-[1.68rem] font-normal">
-                  {lang === 'ru' ? 'Подробнее →' : 'Learn more →'}
-                </a>
+              <div className="flex flex-col lg:flex-row gap-6">
+                <div className="w-full lg:w-1/2 border border-main/10 p-8">
+                  <p className="text-[1.1rem] lg:text-[1.4rem] font-light leading-relaxed mb-6">
+                    {lang === 'ru'
+                      ? '«Агент делает за секунды то, на что планировщик тратил несколько часов каждый день. Окупилось за первый месяц.»'
+                      : '"The agent does in seconds what the planner used to spend hours on every single day. It paid for itself in the first month."'}
+                  </p>
+                  <div className="text-xs font-mono text-gray-400 uppercase tracking-widest">
+                    {lang === 'ru' ? 'Фабрика Аэрозолей · Директор по производству' : 'Aerosol Factory · Production Director'}
+                  </div>
+                </div>
+                <div className="w-full lg:w-1/2 border border-main/10 p-8">
+                  <p className="text-[1.1rem] lg:text-[1.4rem] font-light leading-relaxed mb-6">
+                    {lang === 'ru'
+                      ? '«Клиенты пишут в два часа ночи — и получают подтверждение немедленно. Раньше это означало пропущенный звонок утром.»'
+                      : '"Clients write at 2 AM and get confirmation immediately. Before, that meant a missed call in the morning."'}
+                  </p>
+                  <div className="text-xs font-mono text-gray-400 uppercase tracking-widest">
+                    {lang === 'ru' ? 'Салон красоты · Владелец' : 'Beauty Salon · Owner'}
+                  </div>
+                </div>
               </div>
             </section>
           </div>
         </div>
 
+        {/* ── HOW WE WORK ── */}
+        <div className={'bg-accentBackground text-main'}>
+          <div className="mx-auto w-[90%] max-w-[1600px] sm:w-4/5">
+            <section className="py-20 max-lg:py-16 max-sm:py-12">
+              <h2 className={'tracking-tight mb-8'}>
+                {lang === 'ru' ? 'Как мы работаем' : 'How we work'}
+              </h2>
+              <div className="flex flex-col lg:flex-row gap-x-6">
+                {([
+                  {
+                    n: '01',
+                    title: lang === 'ru' ? 'Бриф' : 'Brief',
+                    body: lang === 'ru'
+                      ? 'Одна встреча — разбираемся в задаче, показываем что возможно, называем сроки и стоимость.'
+                      : 'One meeting — we understand your task, show what\'s possible, give timelines and cost.',
+                  },
+                  {
+                    n: '02',
+                    title: lang === 'ru' ? 'Прототип' : 'Prototype',
+                    body: lang === 'ru'
+                      ? 'Первый рабочий агент или прототип через 2 недели. Вы трогаете руками, не читаете презентацию.'
+                      : 'First working agent or prototype in 2 weeks. You test it hands-on, not read a slide deck.',
+                  },
+                  {
+                    n: '03',
+                    title: lang === 'ru' ? 'Запуск' : 'Launch',
+                    body: lang === 'ru'
+                      ? 'Разворачиваем в вашей инфраструктуре, подключаем к системам. Данные не покидают компанию.'
+                      : 'Deploy in your infrastructure, connect to your systems. Your data stays inside.',
+                  },
+                  {
+                    n: '04',
+                    title: lang === 'ru' ? 'Поддержка' : 'Support',
+                    body: lang === 'ru'
+                      ? 'Остаёмся после запуска. Дорабатываем по мере работы с реальными данными.'
+                      : 'We stay after launch and iterate as the system meets real-world data.',
+                  },
+                ] as { n: string; title: string; body: string }[]).map(({ n, title, body }) => (
+                  <div key={n} className="w-full lg:w-1/4 max-lg:mb-10">
+                    <div className="text-xs font-mono text-gray-400 mb-3">{n}</div>
+                    <p className="text-[1.1rem] lg:text-[1.25rem] font-normal mb-2">{title}</p>
+                    <p className="text-sm text-gray-600 leading-relaxed">{body}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          </div>
+        </div>
+
+        {/* ── SERVICES ── */}
+        <div className={'bg-white text-main'}>
+          <div className="mx-auto w-[90%] max-w-[1600px] sm:w-4/5">
+            <section className="py-20 max-lg:py-16 max-sm:py-12">
+              <h2 className={'tracking-tight mb-8'}>
+                {lang === 'ru' ? 'Что мы делаем' : 'What we do'}
+              </h2>
+              <div className="flex flex-col lg:flex-row gap-x-6 mb-12">
+                {([
+                  {
+                    icon: (
+                      <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="#1a1a1a" strokeWidth="1.5" aria-hidden="true">
+                        <circle cx="16" cy="16" r="4" />
+                        <path d="M16 4 L16 8 M16 24 L16 28 M4 16 L8 16 M24 16 L28 16" strokeLinecap="round" />
+                        <path d="M7.8 7.8 L10.6 10.6 M21.4 21.4 L24.2 24.2 M7.8 24.2 L10.6 21.4 M21.4 10.6 L24.2 7.8" strokeLinecap="round" />
+                      </svg>
+                    ),
+                    title: lang === 'ru' ? 'AI-агенты' : 'AI agents',
+                    body: lang === 'ru'
+                      ? 'Внедряем агентов в бизнес-процессы. Работают в Telegram, 1С, CRM, ERP. Данные не покидают компанию.'
+                      : 'Deploy agents into business operations. Work with Telegram, 1C, CRM, ERP. Data stays on-premise.',
+                  },
+                  {
+                    icon: (
+                      <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="#1a1a1a" strokeWidth="1.5" aria-hidden="true">
+                        <rect x="3" y="5" width="26" height="18" rx="2" />
+                        <line x1="10" y1="27" x2="22" y2="27" />
+                        <line x1="16" y1="23" x2="16" y2="27" />
+                        <line x1="7" y1="10" x2="14" y2="10" />
+                        <line x1="7" y1="14" x2="18" y2="14" />
+                      </svg>
+                    ),
+                    title: lang === 'ru' ? 'Сайты и лендинги' : 'Websites & landing pages',
+                    body: lang === 'ru'
+                      ? 'Разрабатываем корпоративные сайты, лендинги, промо-страницы. Быстро, без лишнего кода, на вашем домене.'
+                      : 'Corporate sites, landing pages, promo pages. Fast, clean, on your domain.',
+                  },
+                  {
+                    icon: (
+                      <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="#1a1a1a" strokeWidth="1.5" aria-hidden="true">
+                        <rect x="4" y="4" width="10" height="10" rx="1.5" />
+                        <rect x="18" y="4" width="10" height="10" rx="1.5" />
+                        <rect x="4" y="18" width="10" height="10" rx="1.5" />
+                        <rect x="18" y="18" width="10" height="10" rx="1.5" />
+                        <line x1="14" y1="9" x2="18" y2="9" />
+                        <line x1="9" y1="14" x2="9" y2="18" />
+                        <line x1="23" y1="14" x2="23" y2="18" />
+                        <line x1="14" y1="23" x2="18" y2="23" />
+                      </svg>
+                    ),
+                    title: lang === 'ru' ? 'Интеграции' : 'Integrations',
+                    body: lang === 'ru'
+                      ? 'Связываем системы между собой — 1С, Bitrix, AmoCRM, Telegram, Google Sheets, внутренние базы данных.'
+                      : 'Connect your systems — 1C, Bitrix, AmoCRM, Telegram, Google Sheets, internal databases.',
+                  },
+                  {
+                    icon: (
+                      <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="#1a1a1a" strokeWidth="1.5" aria-hidden="true">
+                        <path d="M6 26 L6 12 L16 6 L26 12 L26 26 Z" />
+                        <rect x="12" y="18" width="8" height="8" />
+                        <line x1="12" y1="13" x2="20" y2="13" />
+                        <line x1="16" y1="10" x2="16" y2="16" />
+                      </svg>
+                    ),
+                    title: lang === 'ru' ? 'Продукты с нуля' : 'Products from scratch',
+                    body: lang === 'ru'
+                      ? 'От идеи до MVP за 4–8 недель. SaaS, внутренние инструменты, мобильные приложения.'
+                      : 'From idea to MVP in 4–8 weeks. SaaS, internal tools, mobile apps.',
+                  },
+                ] as { icon: React.ReactNode; title: string; body: string }[]).map(({ icon, title, body }) => (
+                  <div key={title} className="w-full lg:w-1/4 max-lg:mb-10">
+                    <div className="mb-3">{icon}</div>
+                    <p className="text-[1.1rem] lg:text-[1.25rem] font-normal mb-2">{title}</p>
+                    <p className="text-sm text-gray-600 leading-relaxed">{body}</p>
+                  </div>
+                ))}
+              </div>
+              <a href={`${p}/ai`} className="text-[1.2rem] lg:text-[1.68rem] font-normal">
+                {lang === 'ru' ? 'Подробнее об агентах →' : 'Learn more about agents →'}
+              </a>
+            </section>
+          </div>
+        </div>
+
+        {/* ── FOR WHOM ── */}
+        <div className={'bg-accentBackground text-main'}>
+          <div className="mx-auto w-[90%] max-w-[1600px] sm:w-4/5">
+            <section className="py-20 max-lg:py-16 max-sm:py-12">
+              <h2 className={'tracking-tight mb-8'}>
+                {lang === 'ru' ? 'С кем работаем' : 'Who we work with'}
+              </h2>
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8">
+                {([
+                  {
+                    title: lang === 'ru' ? 'Производство' : 'Manufacturing',
+                    body: lang === 'ru' ? 'Планирование, складской учёт, диспетчеризация, ЧПУ-интеграции' : 'Production planning, inventory, dispatch, CNC integrations',
+                  },
+                  {
+                    title: lang === 'ru' ? 'Торговля и e-com' : 'Retail & e-commerce',
+                    body: lang === 'ru' ? 'Обработка заказов, ценообразование, работа с поставщиками' : 'Order processing, pricing, supplier communication',
+                  },
+                  {
+                    title: lang === 'ru' ? 'Сервисный бизнес' : 'Service businesses',
+                    body: lang === 'ru' ? 'Запись клиентов, расписание, уведомления, лояльность' : 'Client booking, scheduling, notifications, loyalty',
+                  },
+                  {
+                    title: lang === 'ru' ? 'Финансы и учёт' : 'Finance & accounting',
+                    body: lang === 'ru' ? 'Сверки, отчёты, напоминания, интеграция с банками' : 'Reconciliations, reports, reminders, bank integrations',
+                  },
+                  {
+                    title: lang === 'ru' ? 'Логистика' : 'Logistics',
+                    body: lang === 'ru' ? 'Трекинг отправлений, уведомления клиентов, работа с перевозчиками' : 'Shipment tracking, client notifications, carrier management',
+                  },
+                  {
+                    title: lang === 'ru' ? 'Стартапы и продукты' : 'Startups & products',
+                    body: lang === 'ru' ? 'Быстрый MVP, прод-инфраструктура, масштабирование' : 'Fast MVP, production infrastructure, scaling',
+                  },
+                ] as { title: string; body: string }[]).map(({ title, body }) => (
+                  <div key={title}>
+                    <p className="text-[1rem] lg:text-[1.1rem] font-normal mb-1">{title}</p>
+                    <p className="text-sm text-gray-500 leading-relaxed">{body}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          </div>
+        </div>
+
+        {/* ── GET IN TOUCH ── */}
         <div className={'bg-white text-main'}>
           <div className="mx-auto w-[90%] max-w-[1600px] sm:w-4/5">
             <section className="py-20 max-lg:py-16 max-sm:py-12">
