@@ -23,13 +23,13 @@ export default function Home() {
                   'tracking-tight'}>
                 {lang === 'ru'
                   ? 'Улучшаем качество и эффективность вашего бизнеса'
-                  : 'Improve The Quality and Performance of Your Business'}
+                  : 'Improve the quality and performance of your business'}
               </h1>
               <div className="w-full lg:w-1/2 lg:ml-auto">
                 <p className="absolute lg:relative top-2/3 md:top-3/4 lg:top-0 lg:text-[1.68rem] text-main font-normal my-5 leading-normal">
                   {lang === 'ru'
                     ? 'Advertum — студия автоматизации и разработки. Мы внедряем AI-агентов в бизнес-процессы и создаём продукты, которые работают.'
-                    : 'Advertum is a development and automation studio. We deploy AI agents into business processes and build products that work.'}
+                    : 'Advertum is a development and automation studio. We put AI agents into business operations and build products that work.'}
                 </p>
               </div>
             </div>
@@ -118,7 +118,7 @@ export default function Home() {
                   <p className="mt-2 text-sm leading-relaxed text-gray-600">
                     {lang === 'ru'
                       ? 'ИИ обесценивает умственный труд быстрее, чем мы успеваем переучиться.'
-                      : 'AI is devaluing cognitive labor faster than we can retrain.'}
+                      : "AI is devaluing cognitive labor faster than we can retrain."}
                   </p>
                 </div>
                 <div className="w-full lg:w-1/2">
@@ -164,8 +164,8 @@ export default function Home() {
                   </a>
                   <p className="mt-2 text-sm leading-relaxed text-gray-600">
                     {lang === 'ru'
-                      ? 'Три инженера, Codex и миллион строк кода — ни одной написанной вручную.'
-                      : 'Three engineers, Codex, and a million lines of code — none written by hand.'}
+                      ? 'Три инженера, Codex и миллион строк кода. Ни одной написанной вручную.'
+                      : 'Three engineers, Codex, and a million lines of code. None written by hand.'}
                   </p>
                 </div>
               </div>
@@ -199,13 +199,13 @@ export default function Home() {
                     </span>
                     <p className="text-[1.2rem] lg:text-[1.68rem] font-light mt-3">
                       {lang === 'ru'
-                        ? 'Планировщик тратил часы на сбор данных из разных систем: склад, заказы, каталог — прежде чем принять одно решение о запуске партии.'
-                        : 'The planner spent hours gathering data from different systems: inventory, orders, catalog — before making a single production decision.'}
+                        ? 'Планировщик тратил часы на сбор данных из разных систем (склад, заказы, каталог), прежде чем принять одно решение о запуске партии.'
+                        : 'The planner spent hours gathering data from different systems (inventory, orders, catalog) before making a single production decision.'}
                     </p>
                     <p className="text-sm text-gray-600 mt-3">
                       {lang === 'ru'
                         ? 'AI-агент в Telegram запрашивает данные и выдаёт рекомендацию по объёму производства за секунды.'
-                        : 'An AI agent in Telegram queries data and delivers a production volume recommendation in seconds.'}
+                        : 'An AI agent in Telegram pulls the data and gives a production recommendation in seconds.'}
                     </p>
                     <a href={`${p}/cases/aerosol-factory`} className="text-sm font-mono mt-4 font-normal">
                       {lang === 'ru' ? 'Читать кейс →' : 'Read case →'}
@@ -234,8 +234,8 @@ export default function Home() {
                     </span>
                     <p className="text-[1.2rem] lg:text-[1.68rem] font-light mt-3">
                       {lang === 'ru'
-                        ? 'Администратор записывал клиентов вручную — конфликты расписания, пропущенные звонки, работа только в рабочее время.'
-                        : 'The administrator booked clients manually — scheduling conflicts, missed calls, no service outside business hours.'}
+                        ? 'Администратор записывал клиентов вручную: конфликты расписания, пропущенные звонки, работа только в рабочее время.'
+                        : 'The administrator booked clients manually: scheduling conflicts, missed calls, no service outside business hours.'}
                     </p>
                     <p className="text-sm text-gray-600 mt-3">
                       {lang === 'ru'
@@ -270,7 +270,7 @@ export default function Home() {
                 <div className="w-full lg:w-1/2 border border-main/10 p-8">
                   <p className="text-[1.1rem] lg:text-[1.4rem] font-light leading-relaxed mb-6">
                     {lang === 'ru'
-                      ? '«Клиенты пишут в два часа ночи — и получают подтверждение немедленно. Раньше это означало пропущенный звонок утром.»'
+                      ? '«Клиенты пишут в два часа ночи и получают подтверждение немедленно. Раньше это означало пропущенный звонок утром.»'
                       : '"Clients write at 2 AM and get confirmation immediately. Before, that meant a missed call in the morning."'}
                   </p>
                   <div className="text-xs font-mono text-gray-400 uppercase tracking-widest">
@@ -295,22 +295,22 @@ export default function Home() {
                     n: '01',
                     title: lang === 'ru' ? 'Бриф' : 'Brief',
                     body: lang === 'ru'
-                      ? 'Одна встреча — разбираемся в задаче, показываем что возможно, называем сроки и стоимость.'
-                      : 'One meeting — we understand your task, show what\'s possible, give timelines and cost.',
+                      ? 'Одна встреча: разбираемся в задаче, показываем что возможно, называем сроки и стоимость.'
+                      : 'One meeting. We understand your task, show what\'s possible, give you timelines and cost.',
                   },
                   {
                     n: '02',
                     title: lang === 'ru' ? 'Прототип' : 'Prototype',
                     body: lang === 'ru'
                       ? 'Первый рабочий агент или прототип через 2 недели. Вы трогаете руками, не читаете презентацию.'
-                      : 'First working agent or prototype in 2 weeks. You test it hands-on, not read a slide deck.',
+                      : 'First working agent or prototype in 2 weeks. You see and test it, not sit through a presentation.',
                   },
                   {
                     n: '03',
                     title: lang === 'ru' ? 'Запуск' : 'Launch',
                     body: lang === 'ru'
                       ? 'Разворачиваем в вашей инфраструктуре, подключаем к системам. Данные не покидают компанию.'
-                      : 'Deploy in your infrastructure, connect to your systems. Your data stays inside.',
+                      : 'We deploy in your infrastructure and connect to your systems. Your data stays inside.',
                   },
                   {
                     n: '04',
@@ -351,7 +351,7 @@ export default function Home() {
                     title: lang === 'ru' ? 'AI-агенты' : 'AI agents',
                     body: lang === 'ru'
                       ? 'Внедряем агентов в бизнес-процессы. Работают в Telegram, 1С, CRM, ERP. Данные не покидают компанию.'
-                      : 'Deploy agents into business operations. Work with Telegram, 1C, CRM, ERP. Data stays on-premise.',
+                      : 'We put AI agents into your operations. They work with Telegram, 1C, CRM, ERP. Data stays on your servers.',
                   },
                   {
                     icon: (
@@ -383,8 +383,8 @@ export default function Home() {
                     ),
                     title: lang === 'ru' ? 'Интеграции' : 'Integrations',
                     body: lang === 'ru'
-                      ? 'Связываем системы между собой — 1С, Bitrix, AmoCRM, Telegram, Google Sheets, внутренние базы данных.'
-                      : 'Connect your systems — 1C, Bitrix, AmoCRM, Telegram, Google Sheets, internal databases.',
+                      ? 'Связываем системы между собой: 1С, Bitrix, AmoCRM, Telegram, Google Sheets, внутренние базы данных.'
+                      : 'Connect your systems: 1C, Bitrix, AmoCRM, Telegram, Google Sheets, internal databases.',
                   },
                   {
                     icon: (
@@ -398,7 +398,7 @@ export default function Home() {
                     title: lang === 'ru' ? 'Продукты с нуля' : 'Products from scratch',
                     body: lang === 'ru'
                       ? 'От идеи до MVP за 4–8 недель. SaaS, внутренние инструменты, мобильные приложения.'
-                      : 'From idea to MVP in 4–8 weeks. SaaS, internal tools, mobile apps.',
+                      : 'From idea to MVP in 4-8 weeks. SaaS, internal tools, mobile apps.',
                   },
                 ] as { icon: React.ReactNode; title: string; body: string }[]).map(({ icon, title, body }) => (
                   <div key={title} className="w-full lg:w-1/4 max-lg:mb-10">
@@ -468,8 +468,8 @@ export default function Home() {
               </h2>
               <p className="text-[1.2rem] lg:text-[1.68rem] font-normal mb-2">
                 {lang === 'ru'
-                  ? 'Хотите обсудить проект, идею или просто познакомиться —'
-                  : 'Whether you like to start a new project, discuss an idea or just say hello —'}
+                  ? 'Есть проект, идея или просто хотите поговорить,'
+                  : 'Got a project, an idea, or just want to say hello,'}
               </p>
               <button
                 onClick={() => setContactOpen(o => !o)}
