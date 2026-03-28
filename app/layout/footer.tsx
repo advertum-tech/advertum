@@ -33,6 +33,11 @@ export default function Footer() {
               <LangToggle />
             </div>
             &copy; 2009 - {new Date().getFullYear()} <a href="https://www.teatmik.ee/et/personlegal/16351919-Advertum-Tech-O%C3%9C" target="_blank">Advertum Tech OÜ</a>
+            <div className="mt-4 flex flex-col gap-1">
+              <a href="/sensay-v1" className="text-[11px] opacity-30 hover:opacity-60 transition-opacity">Sensay · v1</a>
+              <a href="/sensay-v2" className="text-[11px] opacity-30 hover:opacity-60 transition-opacity">Sensay · v2</a>
+              <a href="/sensay-v3" className="text-[11px] opacity-30 hover:opacity-60 transition-opacity">Sensay · v3</a>
+            </div>
           </div>
         </div>
       </div>
