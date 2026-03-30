@@ -26,14 +26,14 @@ export default function SensayV3OG() {
         {/* ── coral right panel ── */}
         <div style={{
           position: "absolute", top: 0, right: 0,
-          width: 480, height: "100%",
+          width: 600, height: "100%",
           background: CORAL,
         }} />
 
         {/* ── man photo (right half, bleeds to edge) ── */}
         <div style={{
           position: "absolute", right: 0, bottom: 0,
-          width: 480, height: 630,
+          width: 600, height: 630,
         }}>
           <img
             src="/sensay/hero-v3.jpg"
