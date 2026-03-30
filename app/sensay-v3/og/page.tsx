@@ -86,13 +86,13 @@ export default function SensayV3OG() {
           {/* headline — auto margins center it between wordmark and tagline */}
           <h1 style={{
             fontFamily: SANS, fontWeight: 800,
-            fontSize: "8rem", lineHeight: 0.95,
+            fontSize: "8rem", lineHeight: 1,
             letterSpacing: "-.02em",
             color: TEXT,
             margin: "auto 0",
           }}>
-            Just<br />
-            say<br />
+            <span style={{ display: "block", marginBottom: "-0.08em" }}>Just</span>
+            <span style={{ display: "block", marginBottom: "0.08em" }}>say</span>
             <span style={{ color: CORAL }}>it.</span>
           </h1>
 
