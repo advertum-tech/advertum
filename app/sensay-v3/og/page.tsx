@@ -43,7 +43,7 @@ export default function SensayV3OG() {
           {/* fade photo into coral on the left edge */}
           <div style={{
             position: "absolute", inset: 0,
-            background: `linear-gradient(to right, ${CORAL} 0%, transparent 32%)`,
+            background: `linear-gradient(to left, ${CORAL} 0%, transparent 32%)`,
           }} />
         </div>
 
