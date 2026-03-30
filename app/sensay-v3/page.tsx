@@ -82,6 +82,19 @@ export default function SensayV3() {
         @media (max-width: 540px) {
           .v3-four-col { grid-template-columns: 1fr !important; }
         }
+        @media (max-width: 700px) {
+          .v3-two-col { grid-template-columns: 1fr !important; }
+        }
+        .v3-faq-item summary {
+          list-style: none; cursor: pointer;
+          font-family: ${SANS}; font-size: .95rem; font-weight: 600; color: ${TEXT};
+          display: flex; justify-content: space-between; align-items: center;
+          transition: color .15s;
+        }
+        .v3-faq-item summary::-webkit-details-marker { display: none; }
+        .v3-faq-item summary::after { content: '+'; color: ${MUTED}; font-size: 1.3rem; font-weight: 300; line-height: 1; }
+        .v3-faq-item[open] > summary { color: ${CORAL}; }
+        .v3-faq-item[open] > summary::after { content: '−'; color: ${CORAL}; }
       `}</style>
 
       <div className="v3" style={{ background: WHITE, minHeight: "100vh" }}>
@@ -254,6 +267,40 @@ export default function SensayV3() {
           </div>
         </section>
 
+        {/* ── WHY VOICE WINS ── */}
+        <section style={{ background: WHITE, padding: "96px 0", borderTop: `1px solid ${BORDER}` }}>
+          <div style={{ margin: "0 auto", width: "90%", maxWidth: 1200 }}>
+            <div style={{ textAlign: "center", marginBottom: "4rem" }}>
+              <h2 style={{ color: TEXT, fontFamily: SANS, fontSize: "clamp(1.8rem,3.5vw,2.6rem)", fontWeight: 700, letterSpacing: "-.02em", margin: "0 0 .75rem" }}>
+                You type 40 words a minute.<br />You speak 130.
+              </h2>
+              <p style={{ color: MUTED, fontFamily: SANS, fontSize: "1rem", lineHeight: 1.8, margin: "0 auto", maxWidth: 480 }}>
+                Your thoughts don&rsquo;t slow down for your fingers. Neither should your messages.
+              </p>
+            </div>
+            <div className="v3-two-col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem", maxWidth: 820, margin: "0 auto" }}>
+              <div style={{ background: OFF, border: `1.5px solid ${BORDER}`, borderRadius: 12, padding: "2rem" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: "1.2rem" }}>
+                  <div style={{ width: 8, height: 8, borderRadius: "50%", background: MUTED, flexShrink: 0 }} />
+                  <span style={{ color: MUTED, fontFamily: SANS, fontSize: "0.72rem", fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase" }}>Typing</span>
+                </div>
+                <p style={{ color: MUTED, fontFamily: SANS, fontSize: "0.95rem", lineHeight: 1.9, margin: 0 }}>
+                  Hunt for the right words. Fix the typo. Re-read. Edit again. Send something shorter than what you actually meant.
+                </p>
+              </div>
+              <div style={{ background: CORAL + "08", border: `1.5px solid ${CORAL}30`, borderRadius: 12, padding: "2rem" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: "1.2rem" }}>
+                  <div style={{ width: 8, height: 8, borderRadius: "50%", background: CORAL, flexShrink: 0 }} />
+                  <span style={{ color: CORAL, fontFamily: SANS, fontSize: "0.72rem", fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase" }}>Speaking with Sensay</span>
+                </div>
+                <p style={{ color: TEXT, fontFamily: SANS, fontSize: "0.95rem", lineHeight: 1.9, margin: 0 }}>
+                  Say exactly what you mean. Sensay cleans it up. Done in the time it took to unlock your phone.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* ── WHEN TO USE ── */}
         <section style={{ background: WHITE, padding: "96px 0" }}>
           <div style={{ margin: "0 auto", width: "90%", maxWidth: 1200 }}>
@@ -293,6 +340,101 @@ export default function SensayV3() {
                   <h4 style={{ color: TEXT, fontFamily: SANS, fontSize: "1rem", fontWeight: 600, margin: "0 0 .6rem" }}>{title}</h4>
                   <p style={{ color: MUTED, fontFamily: SANS, fontSize: "0.82rem", lineHeight: 1.85, margin: 0 }} dangerouslySetInnerHTML={{ __html: body }} />
                 </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── AI PROMPTS ── */}
+        <section style={{ background: OFF, padding: "96px 0", borderTop: `1px solid ${BORDER}` }}>
+          <div style={{ margin: "0 auto", width: "90%", maxWidth: 1200 }}>
+            <div style={{ textAlign: "center", marginBottom: "4rem" }}>
+              <div style={{
+                display: "inline-block", background: CORAL + "12", color: CORAL,
+                fontFamily: SANS, fontSize: "0.72rem", fontWeight: 600,
+                letterSpacing: "0.12em", textTransform: "uppercase",
+                padding: "5px 14px", borderRadius: 20, marginBottom: "1.5rem",
+              }}>
+                For AI power users
+              </div>
+              <h2 style={{ color: TEXT, fontFamily: SANS, fontSize: "clamp(1.8rem,3.5vw,2.6rem)", fontWeight: 700, letterSpacing: "-.02em", margin: "0 0 .75rem" }}>
+                Your AI gets smarter when you<br />stop typing to it.
+              </h2>
+              <p style={{ color: MUTED, fontFamily: SANS, fontSize: "1rem", lineHeight: 1.8, margin: "0 auto", maxWidth: 520 }}>
+                When you type a prompt, you cut corners. When you speak, you explain. Better input, better output — every time.
+              </p>
+            </div>
+            <div className="v3-two-col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem", maxWidth: 860, margin: "0 auto 2rem" }}>
+              <div>
+                <div style={{ color: MUTED, fontFamily: SANS, fontSize: "0.72rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "0.75rem" }}>Typed prompt</div>
+                <div style={{ background: WHITE, border: `1.5px solid ${BORDER}`, borderRadius: 10, padding: "1.25rem 1.5rem", fontFamily: "'Courier New', monospace", fontSize: "0.88rem", color: MUTED, lineHeight: 1.7, minHeight: 100, display: "flex", alignItems: "center" }}>
+                  summarize this article
+                </div>
+              </div>
+              <div>
+                <div style={{ color: CORAL, fontFamily: SANS, fontSize: "0.72rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "0.75rem" }}>Spoken → cleaned by Sensay</div>
+                <div style={{ background: WHITE, border: `1.5px solid ${CORAL}30`, borderRadius: 10, padding: "1.25rem 1.5rem", fontFamily: "'Courier New', monospace", fontSize: "0.88rem", color: TEXT, lineHeight: 1.7 }}>
+                  Can you summarize this article in 3 bullet points, focusing on the practical implications for a non-technical audience? Keep it under 100 words.
+                </div>
+              </div>
+            </div>
+            <p style={{ textAlign: "center", color: MUTED, fontFamily: SANS, fontSize: "0.85rem", margin: 0 }}>
+              Same thought. One took 3 seconds to type. The other took 4 seconds to say — and got a much better answer.
+            </p>
+          </div>
+        </section>
+
+        {/* ── TESTIMONIALS ── */}
+        <section style={{ background: WHITE, padding: "96px 0", borderTop: `1px solid ${BORDER}` }}>
+          <div style={{ margin: "0 auto", width: "90%", maxWidth: 1200 }}>
+            <div style={{ textAlign: "center", marginBottom: "4rem" }}>
+              <h2 style={{ color: TEXT, fontFamily: SANS, fontSize: "clamp(1.8rem,3.5vw,2.6rem)", fontWeight: 700, letterSpacing: "-.02em", margin: 0 }}>
+                Real people. Real messages.
+              </h2>
+            </div>
+            <div className="v3-three-col" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "1.5rem" }}>
+              {[
+                { quote: "I replied to like 12 WhatsApps during my commute. Without Sensay I would've just stared at them until evening.", name: "Marcus T.", role: "Project manager", color: "#ff9985" },
+                { quote: "My ChatGPT answers got noticeably better. Turns out I was just being lazy with my prompts because typing them out felt like work.", name: "Daria S.", role: "Designer", color: "#ff7055" },
+                { quote: "I drafted a full client update email while walking to the coffee machine. Hit send before I even sat back down.", name: "James R.", role: "Consultant", color: "#ff4422" },
+              ].map(({ quote, name, role, color }) => (
+                <div key={name} className="v3-card" style={{ display: "flex", flexDirection: "column" }}>
+                  <div style={{ color: CORAL, fontSize: "3rem", lineHeight: 1, marginBottom: ".75rem", opacity: 0.2, fontFamily: "Georgia, serif" }}>&ldquo;</div>
+                  <p style={{ color: TEXT, fontFamily: SANS, fontSize: "0.92rem", lineHeight: 1.85, margin: "0 0 auto", flex: 1 }}>{quote}</p>
+                  <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: "1.5rem", paddingTop: "1.25rem", borderTop: `1px solid ${BORDER}` }}>
+                    <div style={{ width: 36, height: 36, borderRadius: "50%", background: color, flexShrink: 0 }} />
+                    <div>
+                      <div style={{ color: TEXT, fontFamily: SANS, fontSize: "0.85rem", fontWeight: 600 }}>{name}</div>
+                      <div style={{ color: MUTED, fontFamily: SANS, fontSize: "0.75rem" }}>{role}</div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── FAQ ── */}
+        <section style={{ background: WHITE, padding: "96px 0", borderTop: `1px solid ${BORDER}` }}>
+          <div style={{ margin: "0 auto", width: "90%", maxWidth: 720 }}>
+            <div style={{ textAlign: "center", marginBottom: "4rem" }}>
+              <h2 style={{ color: TEXT, fontFamily: SANS, fontSize: "clamp(1.8rem,3.5vw,2.6rem)", fontWeight: 700, letterSpacing: "-.02em", margin: 0 }}>
+                Simple answers.
+              </h2>
+            </div>
+            <div style={{ border: `1.5px solid ${BORDER}`, borderRadius: 12, overflow: "hidden" }}>
+              {[
+                { q: "How accurate is it?", a: "Very. It handles natural speech well — including filler words, mid-sentence corrections, and most accents. It won't be perfect 100% of the time, but it's faster to fix one word than to type the whole thing." },
+                { q: "What languages does it support?", a: "50+ languages including English, Spanish, French, German, Portuguese, Russian, Arabic, Japanese, and more. The free tier covers all major languages." },
+                { q: "Is my voice recorded or stored?", a: "No. Audio is processed in real time and not stored on our servers. What you say stays with you." },
+                { q: "Does it work offline?", a: "Not yet — processing happens in the cloud for best accuracy. You need a connection, but it's fast enough that you won't notice." },
+                { q: "Which apps does it work with?", a: "Any app where you can type — Gmail, Slack, WhatsApp, Notion, ChatGPT, Outlook, Google Docs, Teams, any browser input field. If there's a text cursor, Sensay works." },
+                { q: "What happens when my free trial ends?", a: "Nothing scary. You drop to the free tier — 30 minutes a day, forever. Upgrade only if you want more." },
+              ].map(({ q, a }, i, arr) => (
+                <details key={q} className="v3-faq-item" style={{ background: WHITE, borderBottom: i < arr.length - 1 ? `1px solid ${BORDER}` : "none" }}>
+                  <summary style={{ padding: "1.3rem 1.75rem" }}>{q}</summary>
+                  <p style={{ padding: "0 1.75rem 1.3rem", color: MUTED, fontFamily: SANS, fontSize: "0.88rem", lineHeight: 1.85, margin: 0 }}>{a}</p>
+                </details>
               ))}
             </div>
           </div>
