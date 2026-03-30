@@ -20,6 +20,7 @@ export default function SensayV3OG() {
         position: "relative",
         overflow: "hidden",
         fontFamily: SANS,
+        outline: "1px solid rgba(0,0,0,.15)",
       }}>
 
         {/* ── coral right panel ── */}
