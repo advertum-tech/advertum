@@ -1,5 +1,25 @@
-"use client";
-import { useState, useEffect } from "react";
+import type { Metadata } from "next";
+import { FadingThought, StickyCta } from "./client";
+
+export const metadata: Metadata = {
+  title: "Sensay — Voice Dictation AI",
+  description: "Your best ideas don't wait for a keyboard. Speak naturally, get clean text — in any app, instantly.",
+  openGraph: {
+    title: "Sensay — Voice Dictation AI",
+    description: "Your best ideas don't wait for a keyboard. Speak naturally, get clean text — in any app, instantly.",
+    url: "https://advertum.com/sensay-v1",
+    siteName: "Sensay",
+    images: [{ url: "https://advertum.com/sensay/hero-v1.jpg", width: 1200, height: 800 }],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sensay — Voice Dictation AI",
+    description: "Your best ideas don't wait for a keyboard. Speak naturally, get clean text — in any app, instantly.",
+    images: ["https://advertum.com/sensay/hero-v1.jpg"],
+  },
+};
 
 const BG     = "#0c0b09";
 const BG2    = "#101009";
@@ -11,53 +31,7 @@ const BORDER = "#272318";
 const SERIF  = "'Playfair Display', Georgia, 'Times New Roman', serif";
 const SANS   = "'Inter', system-ui, -apple-system, sans-serif";
 
-const THOUGHTS = [
-  "I should email Sarah about the Thursday thing — actually I know exactly what to say —",
-  "The report opens wrong. What it should say is — actually it's obvious, it's —",
-  "Just tell him directly: the numbers don't work because —",
-  "The reply to that client. I've got it. It starts with —",
-];
-
-function FadingThought() {
-  const [idx, setIdx]   = useState(0);
-  const [show, setShow] = useState(true);
-
-  useEffect(() => {
-    const t = setInterval(() => {
-      setShow(false);
-      setTimeout(() => { setIdx(i => (i + 1) % THOUGHTS.length); setShow(true); }, 700);
-    }, 3600);
-    return () => clearInterval(t);
-  }, []);
-
-  return (
-    <p style={{
-      color: MUTED,
-      fontFamily: SERIF,
-      fontStyle: "italic",
-      fontSize: "clamp(0.95rem, 1.9vw, 1.15rem)",
-      lineHeight: 1.75,
-      maxWidth: 600,
-      margin: "0 0 2.5rem",
-      transition: "opacity 0.7s ease, transform 0.7s ease",
-      opacity: show ? 0.55 : 0,
-      transform: show ? "translateY(0)" : "translateY(8px)",
-      minHeight: 56,
-    }}>
-      &ldquo;{THOUGHTS[idx]}&rdquo;
-    </p>
-  );
-}
-
 export default function SensayV1() {
-  const [sticky, setSticky] = useState(false);
-
-  useEffect(() => {
-    const fn = () => setSticky(window.scrollY > window.innerHeight * 0.8);
-    window.addEventListener("scroll", fn, { passive: true });
-    return () => window.removeEventListener("scroll", fn);
-  }, []);
-
   return (
     <>
       <style>{`
@@ -122,7 +96,6 @@ export default function SensayV1() {
 
         {/* ── HERO ── */}
         <section style={{ minHeight: "100vh", paddingTop: 56, display: "flex", alignItems: "center", position: "relative", overflow: "hidden" }}>
-          {/* Background photo with dark amber overlay */}
           <div style={{
             position: "absolute", inset: 0,
             backgroundImage: "url('/sensay/hero-v1.jpg')",
@@ -130,7 +103,6 @@ export default function SensayV1() {
             backgroundPosition: "center 40%",
             filter: "brightness(0.35) saturate(0.6)",
           }} />
-          {/* Amber gradient layer */}
           <div style={{
             position: "absolute", inset: 0,
             background: "linear-gradient(100deg, rgba(12,11,9,0.92) 45%, rgba(40,25,5,0.6) 100%)",
@@ -162,7 +134,6 @@ export default function SensayV1() {
           <div style={{ margin: "0 auto", width: "90%", maxWidth: 1200 }}>
             <div className="v1-two-col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6rem", alignItems: "center" }}>
 
-              {/* Left – the story */}
               <div>
                 <div style={{ color: ACCENT, fontFamily: SANS, fontSize: "0.68rem", letterSpacing: "0.16em", textTransform: "uppercase", marginBottom: "1.8rem", opacity: 0.65 }}>
                   The moment
@@ -176,9 +147,7 @@ export default function SensayV1() {
                 </p>
               </div>
 
-              {/* Right – empty email */}
               <div style={{ background: CARD, border: `1px solid ${BORDER}`, borderRadius: 8, overflow: "hidden" }}>
-                {/* Fake window chrome */}
                 <div style={{ background: "#1e1c18", borderBottom: `1px solid ${BORDER}`, padding: "10px 16px", display: "flex", alignItems: "center", gap: 6 }}>
                   {["#3a3530","#3a3530","#3a3530"].map((c,i) => (
                     <div key={i} style={{ width: 10, height: 10, borderRadius: "50%", background: c }} />
@@ -214,7 +183,6 @@ export default function SensayV1() {
             </div>
 
             <div className="v1-demo-grid" style={{ display: "grid", gridTemplateColumns: "1fr 56px 1fr", gap: 12, alignItems: "stretch" }}>
-              {/* Before */}
               <div style={{ background: CARD, border: `1px solid ${BORDER}`, borderRadius: 8, padding: "2.5rem" }}>
                 <div style={{ color: MUTED, fontFamily: SANS, fontSize: "0.68rem", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "1.5rem" }}>You say</div>
                 <p style={{ color: "#4a4035", fontFamily: SANS, fontSize: "0.93rem", lineHeight: 1.9, margin: 0, fontWeight: 300 }}>
@@ -222,13 +190,11 @@ export default function SensayV1() {
                 </p>
               </div>
 
-              {/* Arrow */}
               <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 6 }}>
                 <div style={{ color: ACCENT, fontSize: "1.4rem", opacity: 0.7 }}>→</div>
                 <div style={{ color: MUTED, fontFamily: SANS, fontSize: "0.58rem", letterSpacing: "0.1em", textTransform: "uppercase", opacity: 0.5 }}>Sensay</div>
               </div>
 
-              {/* After */}
               <div style={{ background: "#100e0a", border: `1px solid #2a2010`, borderRadius: 8, padding: "2.5rem" }}>
                 <div style={{ color: ACCENT, fontFamily: SANS, fontSize: "0.68rem", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "1.5rem", opacity: 0.8 }}>Ready to send</div>
                 <p style={{ color: "#d5c8a8", fontFamily: SANS, fontSize: "0.93rem", lineHeight: 1.9, margin: 0, fontWeight: 300 }}>
@@ -237,7 +203,6 @@ export default function SensayV1() {
               </div>
             </div>
 
-            {/* Stats */}
             <div style={{ display: "flex", flexWrap: "wrap", gap: "4rem", marginTop: "4rem", paddingTop: "3rem", borderTop: `1px solid ${BORDER}` }}>
               {[
                 { n: "4×",    label: "faster than typing" },
@@ -389,20 +354,7 @@ export default function SensayV1() {
 
       </div>
 
-      {/* Sticky CTA */}
-      {sticky && (
-        <div style={{ position: "fixed", bottom: 24, right: 24, zIndex: 1000 }}>
-          <a href="#pricing" style={{
-            background: ACCENT, color: BG,
-            fontFamily: SANS, fontSize: "0.82rem", fontWeight: 500,
-            padding: "12px 24px", borderRadius: 3,
-            display: "inline-block",
-            boxShadow: "0 4px 20px rgba(232,160,48,.28)",
-          }}>
-            Try free →
-          </a>
-        </div>
-      )}
+      <StickyCta />
     </>
   );
 }

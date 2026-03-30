@@ -1,88 +1,42 @@
-"use client";
-import { useState, useEffect } from "react";
+import type { Metadata } from "next";
+import { SplitQuotes, StickyCta } from "./client";
 
-// ── Light sections
-const CREAM   = "#f8f4ef";
-const CREAM2  = "#f2ece3";
-const INK     = "#1a1510";
-const WARM_MUTED = "#9c8e7e";
-const WARM_BORDER = "#e0d8ce";
+export const metadata: Metadata = {
+  title: "Sensay — Say It Like You Mean It",
+  description: "You explain it perfectly on the phone. Then type it flat. Sensay gives you the first version, in text.",
+  openGraph: {
+    title: "Sensay — Say It Like You Mean It",
+    description: "You explain it perfectly on the phone. Then type it flat. Sensay gives you the first version, in text.",
+    url: "https://advertum.com/sensay-v2",
+    siteName: "Sensay",
+    images: [{ url: "https://advertum.com/sensay/hero-v2.jpg", width: 1200, height: 800 }],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sensay — Say It Like You Mean It",
+    description: "You explain it perfectly on the phone. Then type it flat. Sensay gives you the first version, in text.",
+    images: ["https://advertum.com/sensay/hero-v2.jpg"],
+  },
+};
 
-// ── Dark sections
-const DARK    = "#0f0f18";
-const DARK2   = "#13131e";
-const DARK_CARD = "#1a1a28";
-const LIGHT_TEXT = "#eae6ff";
-const VIOLET  = "#9b72f8";
-const DARK_MUTED = "#5e5878";
-const DARK_BORDER = "#252336";
-
-const SERIF = "'DM Serif Display', Georgia, serif";
-const SANS  = "'DM Sans', system-ui, -apple-system, sans-serif";
-
-// ── The split: two "voices" of the same person ──
-const PHONE_CALL = [
-  { quote: "You know what? I think we&rsquo;ve been overthinking this the whole time. The answer is obvious — ship it, see what happens, iterate from real data. I&rsquo;d bet money on it.", label: "How you said it" },
-  { quote: "Honestly the brief is fine, we just need to stop talking about it. Three days of meetings and we know less than we did on Monday. Just pick something and go.", label: "How you said it" },
-  { quote: "The client&rsquo;s nervous about the timeline — but if you ask me, that&rsquo;s because nobody&rsquo;s been straight with them. Just tell them it&rsquo;s two more weeks and here&rsquo;s why.", label: "How you said it" },
-];
-
-const EMAIL_SENT = [
-  { quote: "I believe the current situation may benefit from a more iterative approach. Potentially worth considering a preliminary launch to gather initial data and inform subsequent decisions.", label: "What you sent" },
-  { quote: "Following our recent discussions, I wanted to share some initial thoughts on the brief. There may be value in exploring a few additional strategic directions before finalizing.", label: "What you sent" },
-  { quote: "With regard to the project timeline, I understand there may be some concern. I wanted to proactively reach out to provide clarity on the current status and anticipated completion date.", label: "What you sent" },
-];
-
-function SplitQuotes() {
-  const [idx, setIdx] = useState(0);
-  const [show, setShow] = useState(true);
-
-  useEffect(() => {
-    const t = setInterval(() => {
-      setShow(false);
-      setTimeout(() => { setIdx(i => (i + 1) % PHONE_CALL.length); setShow(true); }, 600);
-    }, 5000);
-    return () => clearInterval(t);
-  }, []);
-
-  const tr = "opacity .6s ease, transform .6s ease";
-
-  return (
-    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2px" }}>
-      {/* Left — the real you */}
-      <div style={{ background: CREAM, border: `1px solid ${WARM_BORDER}`, borderRight: "none", borderRadius: "8px 0 0 8px", padding: "2.5rem" }}>
-        <div style={{ color: WARM_MUTED, fontFamily: SANS, fontSize: "0.65rem", letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: "1.5rem" }}>
-          {PHONE_CALL[idx].label}
-        </div>
-        <p style={{
-          color: INK, fontFamily: SERIF, fontSize: "clamp(1rem,2vw,1.2rem)", lineHeight: 1.75, margin: 0,
-          transition: tr, opacity: show ? 1 : 0, transform: show ? "translateY(0)" : "translateY(6px)",
-        }} dangerouslySetInnerHTML={{ __html: `&ldquo;${PHONE_CALL[idx].quote}&rdquo;` }} />
-      </div>
-      {/* Right — the keyboard you */}
-      <div style={{ background: DARK_CARD, border: `1px solid ${DARK_BORDER}`, borderLeft: "none", borderRadius: "0 8px 8px 0", padding: "2.5rem" }}>
-        <div style={{ color: DARK_MUTED, fontFamily: SANS, fontSize: "0.65rem", letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: "1.5rem" }}>
-          {EMAIL_SENT[idx].label}
-        </div>
-        <p style={{
-          color: DARK_MUTED, fontFamily: SANS, fontSize: "clamp(.9rem,1.75vw,1.05rem)", lineHeight: 1.85, margin: 0,
-          fontWeight: 300,
-          transition: tr, opacity: show ? 0.7 : 0, transform: show ? "translateY(0)" : "translateY(6px)",
-        }} dangerouslySetInnerHTML={{ __html: `&ldquo;${EMAIL_SENT[idx].quote}&rdquo;` }} />
-      </div>
-    </div>
-  );
-}
+const CREAM        = "#f8f4ef";
+const CREAM2       = "#f2ece3";
+const INK          = "#1a1510";
+const WARM_MUTED   = "#9c8e7e";
+const WARM_BORDER  = "#e0d8ce";
+const DARK         = "#0f0f18";
+const DARK2        = "#13131e";
+const DARK_CARD    = "#1a1a28";
+const LIGHT_TEXT   = "#eae6ff";
+const VIOLET       = "#9b72f8";
+const DARK_MUTED   = "#5e5878";
+const DARK_BORDER  = "#252336";
+const SERIF        = "'DM Serif Display', Georgia, serif";
+const SANS         = "'DM Sans', system-ui, -apple-system, sans-serif";
 
 export default function SensayV2() {
-  const [sticky, setSticky] = useState(false);
-
-  useEffect(() => {
-    const fn = () => setSticky(window.scrollY > window.innerHeight * 0.8);
-    window.addEventListener("scroll", fn, { passive: true });
-    return () => window.removeEventListener("scroll", fn);
-  }, []);
-
   return (
     <>
       <style>{`
@@ -192,14 +146,12 @@ export default function SensayV2() {
                 <a href="#how"     className="v2-ghost-light">See how →</a>
               </div>
             </div>
-            {/* Photo — man on phone call */}
             <div style={{ position: "relative", borderRadius: 16, overflow: "hidden", aspectRatio: "4/5", boxShadow: "0 24px 64px rgba(0,0,0,.12)" }}>
               <img
                 src="/sensay/hero-v2.jpg"
                 alt="Man on phone call"
                 style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
               />
-              {/* Soft warm vignette */}
               <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, transparent 60%, rgba(248,244,239,0.4) 100%)" }} />
             </div>
             </div>
@@ -236,7 +188,6 @@ export default function SensayV2() {
             </div>
 
             <div className="v2-two-col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2px", alignItems: "stretch" }}>
-              {/* Left: spoken */}
               <div style={{ background: DARK_CARD, border: `1px solid ${DARK_BORDER}`, borderRight: "none", borderRadius: "8px 0 0 8px", padding: "2.5rem" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: "1.5rem" }}>
                   <div style={{ width: 28, height: 28, borderRadius: "50%", background: VIOLET + "20", border: `1px solid ${VIOLET}50`, display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -253,7 +204,6 @@ export default function SensayV2() {
                 </p>
               </div>
 
-              {/* Right: received text */}
               <div style={{ background: "#16142a", border: `1px solid ${VIOLET}30`, borderLeft: "none", borderRadius: "0 8px 8px 0", padding: "2.5rem" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: "1.5rem" }}>
                   <div style={{ width: 28, height: 28, borderRadius: "50%", background: VIOLET + "20", border: `1px solid ${VIOLET}60`, display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -269,7 +219,6 @@ export default function SensayV2() {
               </div>
             </div>
 
-            {/* Stats row */}
             <div style={{ display: "flex", flexWrap: "wrap", gap: "4rem", marginTop: "4rem", paddingTop: "3rem", borderTop: `1px solid ${DARK_BORDER}` }}>
               {[
                 { n: "4×",  label: "faster than typing" },
@@ -421,20 +370,7 @@ export default function SensayV2() {
 
       </div>
 
-      {/* Sticky CTA */}
-      {sticky && (
-        <div style={{ position: "fixed", bottom: 24, right: 24, zIndex: 1000 }}>
-          <a href="#pricing" style={{
-            background: VIOLET, color: "#fff",
-            fontFamily: SANS, fontSize: "0.82rem", fontWeight: 500,
-            padding: "12px 24px", borderRadius: 4,
-            display: "inline-block",
-            boxShadow: "0 4px 24px rgba(155,114,248,.35)",
-          }}>
-            Try free →
-          </a>
-        </div>
-      )}
+      <StickyCta />
     </>
   );
 }
