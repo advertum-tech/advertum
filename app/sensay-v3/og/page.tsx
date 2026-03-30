@@ -34,6 +34,7 @@ export default function SensayV3OG() {
         <div style={{
           position: "absolute", right: 0, bottom: 0,
           width: 600, height: 630,
+          background: OFF,
         }}>
           <img
             src="/sensay/Untitled.png"
