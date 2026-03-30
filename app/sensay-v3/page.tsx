@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     description: "Speak. Get clean, ready-to-send text in your email, Slack, WhatsApp, or anywhere else. No typing. No switching apps.",
     url: "https://advertum.com/sensay-v3",
     siteName: "Sensay",
-    images: [{ url: "https://advertum.com/sensay/hero-v3.jpg", width: 1200, height: 800 }],
+    images: [{ url: "https://advertum.com/sensay/og-v3.png", width: 1200, height: 630 }],
     locale: "en_US",
     type: "website",
   },
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Sensay — Just Say It",
     description: "Speak. Get clean, ready-to-send text in your email, Slack, WhatsApp, or anywhere else. No typing. No switching apps.",
-    images: ["https://advertum.com/sensay/hero-v3.jpg"],
+    images: ["https://advertum.com/sensay/og-v3.png"],
   },
 };
 

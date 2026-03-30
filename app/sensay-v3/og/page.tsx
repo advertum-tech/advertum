@@ -37,7 +37,7 @@ export default function SensayV3OG() {
           background: OFF,
         }}>
           <img
-            src="/sensay/Untitled.png"
+            src="/sensay/hero-v3-cutout.png"
             alt=""
             style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
           />
