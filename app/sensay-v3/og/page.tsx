@@ -71,12 +71,11 @@ export default function SensayV3OG() {
         <div style={{
           position: "absolute", top: 0, left: 0,
           width: 720, height: "100%",
-          padding: "52px 64px",
+          padding: "56px",
           display: "flex", flexDirection: "column",
-          justifyContent: "space-between",
         }}>
 
-          {/* wordmark — large enough to read in Telegram thumbnail */}
+          {/* wordmark */}
           <div style={{
             fontFamily: SANS, fontSize: "2rem", fontWeight: 800,
             color: TEXT, letterSpacing: "-.02em",
@@ -84,24 +83,25 @@ export default function SensayV3OG() {
             Sens<span style={{ color: CORAL }}>ay</span>
           </div>
 
-          {/* headline — the only thing that matters at thumbnail size */}
+          {/* headline — auto margins center it between wordmark and tagline */}
           <h1 style={{
             fontFamily: SANS, fontWeight: 800,
             fontSize: "8rem", lineHeight: 0.95,
-            letterSpacing: "-.04em",
+            letterSpacing: "-.02em",
             color: TEXT,
+            margin: "auto 0",
           }}>
             Just<br />
             say<br />
             <span style={{ color: CORAL }}>it.</span>
           </h1>
 
-          {/* tagline — large enough to survive at small size */}
+          {/* tagline — one line, same weight logic as wordmark */}
           <p style={{
-            fontFamily: SANS, fontSize: "2.1rem", fontWeight: 500,
-            color: TEXT, opacity: 0.75, letterSpacing: "-.01em", lineHeight: 1.45,
+            fontFamily: SANS, fontSize: "1.9rem", fontWeight: 500,
+            color: TEXT, opacity: 0.72, letterSpacing: "-.02em",
           }}>
-            Voice dictation.<br />Works in any app.
+            Voice dictation&nbsp;·&nbsp;Works in any app.
           </p>
 
         </div>
