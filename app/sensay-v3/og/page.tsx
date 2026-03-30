@@ -71,7 +71,7 @@ export default function SensayV3OG() {
         <div style={{
           position: "absolute", top: 0, left: 0,
           width: 720, height: "100%",
-          padding: "56px",
+          padding: "36px 56px 56px",
           display: "flex", flexDirection: "column",
         }}>
 
