@@ -36,7 +36,7 @@ export default function SensayV3OG() {
           width: 600, height: 630,
         }}>
           <img
-            src="/sensay/hero-v3.jpg"
+            src="/sensay/Untitled.png"
             alt=""
             style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
           />
