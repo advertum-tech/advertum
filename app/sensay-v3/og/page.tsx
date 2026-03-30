@@ -36,10 +36,11 @@ export default function SensayV3OG() {
           width: 600, height: 630,
         }}>
           <img
-            src="/sensay/Untitled.png"
+            src="/sensay/hero-v3.jpg"
             alt=""
-            style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "center bottom" }}
+            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
           />
+          {/* fade photo into coral on the left edge */}
           <div style={{
             position: "absolute", inset: 0,
             background: `linear-gradient(to left, ${CORAL} 0%, transparent 32%)`,
