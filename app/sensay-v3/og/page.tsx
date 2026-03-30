@@ -97,10 +97,10 @@ export default function SensayV3OG() {
 
           {/* tagline — large enough to survive at small size */}
           <p style={{
-            fontFamily: SANS, fontSize: "1.9rem", fontWeight: 500,
-            color: TEXT, opacity: 0.75, letterSpacing: "-.01em",
+            fontFamily: SANS, fontSize: "2.1rem", fontWeight: 500,
+            color: TEXT, opacity: 0.75, letterSpacing: "-.01em", lineHeight: 1.45,
           }}>
-            Voice dictation · works in any app
+            Voice dictation.<br />Works in any app.
           </p>
 
         </div>
