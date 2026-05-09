@@ -19,7 +19,7 @@ export default function Nav() {
               <div className="flex items-center justify-between flex-1 min-[993px]:flex-none min-[993px]:w-1/2">
                 <Link href={p || "/"} className="inline-flex items-center gap-[0.45rem] border-b-0 hover:border-b-0 text-main">
                   <Image
-                    src="/images/advertum-mobile.webp"
+                    src="/icons/apple-touch-icon.png"
                     alt=""
                     width={40}
                     height={40}
