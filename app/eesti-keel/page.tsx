@@ -136,6 +136,20 @@ export default function EestiKeel() {
   return (
     <>
       <style>{`
+        /* dark warm theme bleeds into the global Nav and Footer while this page is mounted */
+        body { background: ${BG} !important; }
+
+        nav .bg-accentBackground { background: ${BG} !important; }
+        nav .text-main { color: ${TEXT} !important; }
+        nav [class*="border-main/25"] { border-color: rgba(250, 249, 245, 0.18) !important; }
+        nav [class*="border-main/50"] { border-color: rgba(250, 249, 245, 0.3) !important; }
+        nav .bg-white { background: ${SURFACE} !important; }
+        nav ul.fixed [class*="hover:bg-black"]:hover { background: rgba(250, 249, 245, 0.06) !important; }
+
+        footer.bg-accentBackground { background: ${BG} !important; color: ${TEXT} !important; }
+        footer a { color: ${TEXT} !important; }
+        footer .text-gray-400 { color: ${TEXT_DIM} !important; }
+
         .eesti { background: ${BG}; color: ${TEXT}; min-height: 100vh; font-family: ${SANS}; }
         .eesti * { box-sizing: border-box; }
 
