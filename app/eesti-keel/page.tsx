@@ -114,6 +114,59 @@ const EXAMPLES: { et: string; tag: string; ru: string; tone: Tone }[] = [
   { et: "Loen raamatut.", tag: "osastav", ru: "читаю книгу — процесс, действие не закончено", tone: "teal" },
 ];
 
+const POM_USAGE: { title: string; description: string; words: Word[]; tone: Tone }[] = [
+  {
+    title: "Принадлежность",
+    description: "«чьих» / «чего»",
+    tone: "purple",
+    words: [
+      { et: "naabrite koer", ru: "собака соседей" },
+      { et: "sõprade ring",  ru: "круг друзей" },
+      { et: "kasside toit",  ru: "корм для кошек" },
+    ],
+  },
+  {
+    title: "Сложные слова / определения",
+    description: "одно существительное определяет другое",
+    tone: "teal",
+    words: [
+      { et: "raamatute pood", ru: "книжный магазин (магазин книг)" },
+      { et: "naiste ajakiri", ru: "женский журнал (журнал женщин)" },
+      { et: "meeste juuksur", ru: "мужской парикмахер" },
+    ],
+  },
+  {
+    title: "Послелоги, время и место",
+    description: "перед послелогом / в выражениях времени и места",
+    tone: "amber",
+    words: [
+      { et: "puude vahel",    ru: "между деревьями" },
+      { et: "kappide juures", ru: "у шкафов" },
+      { et: "tööde ajal",     ru: "во время работ" },
+    ],
+  },
+];
+
+type PomRow = { form: string; example: string; ru: string };
+
+const POM_TABLE: PomRow[] = [
+  { form: "hammaste",  example: "hammaste pesemine", ru: "чистка зубов" },
+  { form: "sõprade",   example: "sõprade abi",       ru: "помощь друзей" },
+  { form: "arvutite",  example: "arvutite remont",   ru: "ремонт компьютеров" },
+  { form: "piltide",   example: "piltide näitus",    ru: "выставка картин" },
+  { form: "kappide",   example: "kappide vahel",     ru: "между шкафами" },
+  { form: "kasside",   example: "kasside toit",      ru: "корм для кошек" },
+  { form: "tüdrukute", example: "tüdrukute kool",    ru: "школа для девочек" },
+  { form: "puude",     example: "puude vari",        ru: "тень деревьев" },
+  { form: "tööde",     example: "tööde nimekiri",    ru: "список работ" },
+  { form: "raamatute", example: "raamatute riiul",   ru: "книжная полка" },
+  { form: "hiirte",    example: "hiirte arv",        ru: "количество мышей" },
+  { form: "põtrade",   example: "põtrade jaht",      ru: "охота на лосей" },
+  { form: "naiste",    example: "naiste rõivad",     ru: "женская одежда" },
+  { form: "meeste",    example: "meeste maailm",     ru: "мужской мир" },
+  { form: "naabrite",  example: "naabrite aed",      ru: "сад соседей" },
+];
+
 function Card({ word, tone }: { word: Word; tone: Tone }) {
   const t = TONE[tone];
   return (
@@ -296,6 +349,58 @@ export default function EestiKeel() {
         .eesti-ex-tag { font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase; }
         .eesti-ex-ru  { color: ${TEXT_DIM}; font-size: 0.84rem; line-height: 1.45; }
 
+        .eesti-tabs { margin-top: 40px; }
+        .eesti-tab-radio {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          opacity: 0;
+          pointer-events: none;
+        }
+        .eesti-tabbar {
+          display: flex;
+          gap: 4px;
+          border-bottom: 1px solid ${BORDER};
+          overflow-x: auto;
+        }
+        .eesti-tab {
+          padding: 12px 18px;
+          font-size: 0.92rem;
+          font-weight: 500;
+          color: ${TEXT_DIM};
+          cursor: pointer;
+          border-bottom: 2px solid transparent;
+          margin-bottom: -1px;
+          white-space: nowrap;
+          user-select: none;
+          transition: color 0.15s, border-color 0.15s;
+        }
+        .eesti-tab:hover { color: ${TEXT}; }
+
+        .eesti-panel { display: none; }
+
+        #eesti-tab-main:checked ~ .eesti-tabbar label[for="eesti-tab-main"],
+        #eesti-tab-pomastav:checked ~ .eesti-tabbar label[for="eesti-tab-pomastav"] {
+          color: ${PURPLE_FG};
+          border-bottom-color: ${PURPLE_FG};
+        }
+        #eesti-tab-main:checked ~ .eesti-panel[data-tab="main"],
+        #eesti-tab-pomastav:checked ~ .eesti-panel[data-tab="pomastav"] {
+          display: block;
+        }
+
+        .eesti-callout {
+          margin-top: 28px;
+          background: ${AMBER_BG};
+          border: 1px solid ${AMBER_BORDER};
+          border-radius: 10px;
+          padding: 14px 18px;
+          color: ${TEXT};
+          font-size: 0.9rem;
+          line-height: 1.55;
+        }
+        .eesti-callout strong { color: ${AMBER_FG}; font-weight: 600; }
+
         @media (max-width: 720px) {
           .eesti-container { padding: 40px 18px 64px; }
           .eesti-section { margin-top: 48px; }
@@ -306,6 +411,8 @@ export default function EestiKeel() {
           .eesti-table .case-cell { min-width: 130px; }
           .eesti-divider { margin: 48px 0 32px; }
           .eesti-ex { grid-template-columns: 1fr; gap: 12px; }
+          .eesti-tabs { margin-top: 28px; }
+          .eesti-tab { padding: 10px 14px; font-size: 0.88rem; }
         }
       `}</style>
 
@@ -316,6 +423,17 @@ export default function EestiKeel() {
             <h1>Эстонский</h1>
             <p>Личная база знаний</p>
           </header>
+
+          <div className="eesti-tabs">
+            <input type="radio" name="eesti-tab" id="eesti-tab-main" className="eesti-tab-radio" defaultChecked />
+            <input type="radio" name="eesti-tab" id="eesti-tab-pomastav" className="eesti-tab-radio" />
+
+            <div className="eesti-tabbar">
+              <label htmlFor="eesti-tab-main" className="eesti-tab">Main</label>
+              <label htmlFor="eesti-tab-pomastav" className="eesti-tab">24 · Mitmuse omastav</label>
+            </div>
+
+            <div className="eesti-panel" data-tab="main">
 
           <section className="eesti-section">
             <h2 className="eesti-section-title">Вопросительные слова — три группы</h2>
@@ -448,6 +566,70 @@ export default function EestiKeel() {
               ))}
             </div>
           </section>
+
+            </div>
+
+            <div className="eesti-panel" data-tab="pomastav">
+
+          <section className="eesti-section">
+            <h2 className="eesti-section-title">Mitmuse omastav — множественный родительный</h2>
+            <p className="eesti-section-sub">
+              Формы вида hammaste, sõprade, arvutite. Родительный / притяжательный падеж
+              множественного числа — это не accusative plural.
+            </p>
+
+            <div className="eesti-grid-3">
+              {POM_USAGE.map((g) => (
+                <Group
+                  key={g.title}
+                  title={g.title}
+                  description={g.description}
+                  words={g.words}
+                  tone={g.tone}
+                />
+              ))}
+            </div>
+          </section>
+
+          <section className="eesti-section">
+            <h2 className="eesti-section-title">Примеры</h2>
+            <p className="eesti-section-sub">
+              Форма множественного omastav → словосочетание → перевод
+            </p>
+
+            <div className="eesti-table-wrap">
+              <div className="eesti-table-scroll">
+                <table className="eesti-table eesti-table--analog">
+                  <thead>
+                    <tr>
+                      <th className="case-cell" style={{ textAlign: "left" }}>Plural omastav</th>
+                      <th>Пример</th>
+                      <th>Перевод</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {POM_TABLE.map((r) => (
+                      <tr key={r.form}>
+                        <td className="case-cell">
+                          <div className="name">{r.form}</div>
+                        </td>
+                        <td>{r.example}</td>
+                        <td>{r.ru}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div className="eesti-callout">
+              <strong>Запомни:</strong> plural omastav ≠ accusative plural. Это
+              родительный / притяжательный падеж.
+            </div>
+          </section>
+
+            </div>
+          </div>
 
         </div>
       </div>
