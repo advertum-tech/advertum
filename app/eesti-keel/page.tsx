@@ -83,6 +83,37 @@ const HEADERS: Word[] = [
   { et: "missugune", ru: "качество" },
 ];
 
+type AnalogRow = { case: string; q: string; ru: string };
+
+const ANALOGS: AnalogRow[] = [
+  { case: "nimetav", q: "kes? mis?",     ru: "именительный — кто? что?" },
+  { case: "omastav", q: "kelle? mille?", ru: "родительный — кого? чего? чей?" },
+  { case: "osastav", q: "keda? mida?",   ru: "винительный — кого? что?, с оттенком частичности" },
+];
+
+const ANALOG_NOTES: { k: string; v: string; tone: Tone }[] = [
+  {
+    k: "nimetav ↔ именительный",
+    v: "почти один в один",
+    tone: "amber",
+  },
+  {
+    k: "omastav ↔ родительный",
+    v: "основное соответствие. Отвечает на «чей?» (kelle raamat? — чья книга?). Также падеж завершённого прямого дополнения — в русском это винительный.",
+    tone: "purple",
+  },
+  {
+    k: "osastav ↔ винительный / родительный частичный",
+    v: "уникальный падеж без прямого аналога: частичный объект (joon vett — пью воду), отрицание (ma ei näe sind), после числительных (kaks raamatut), управление многих глаголов.",
+    tone: "teal",
+  },
+];
+
+const EXAMPLES: { et: string; tag: string; ru: string; tone: Tone }[] = [
+  { et: "Loen raamatu.",  tag: "omastav", ru: "прочитаю книгу целиком — действие завершено",  tone: "purple" },
+  { et: "Loen raamatut.", tag: "osastav", ru: "читаю книгу — процесс, действие не закончено", tone: "teal" },
+];
+
 function Card({ word, tone }: { word: Word; tone: Tone }) {
   const t = TONE[tone];
   return (
@@ -226,6 +257,45 @@ export default function EestiKeel() {
           font-weight: 500;
         }
 
+        .eesti-divider {
+          border: none;
+          border-top: 1px solid ${BORDER};
+          margin: 80px 0 48px;
+        }
+
+        .eesti-table--analog tbody tr:first-child td:not(.case-cell) {
+          color: ${TEXT};
+          font-weight: 400;
+        }
+        .eesti-table--analog td:not(.case-cell) { text-align: left; }
+        .eesti-table--analog th { text-align: left; }
+
+        .eesti-prose { color: ${TEXT_DIM}; font-size: 0.92rem; line-height: 1.6; margin: 28px 0 0; }
+        .eesti-prose strong { color: ${TEXT}; font-weight: 500; }
+
+        .eesti-notes { display: flex; flex-direction: column; gap: 12px; margin-top: 28px; }
+        .eesti-note { border-left: 2px solid ${BORDER}; padding: 4px 0 4px 16px; }
+        .eesti-note .k { font-weight: 500; font-size: 0.95rem; display: block; }
+        .eesti-note .v {
+          color: ${TEXT_DIM};
+          font-size: 0.86rem;
+          line-height: 1.5;
+          display: block;
+          margin-top: 3px;
+        }
+
+        .eesti-ex { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+        .eesti-ex-card {
+          border-radius: 10px;
+          padding: 16px 18px;
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+        }
+        .eesti-ex-et  { font-size: 1.05rem; font-weight: 500; }
+        .eesti-ex-tag { font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase; }
+        .eesti-ex-ru  { color: ${TEXT_DIM}; font-size: 0.84rem; line-height: 1.45; }
+
         @media (max-width: 720px) {
           .eesti-container { padding: 40px 18px 64px; }
           .eesti-section { margin-top: 48px; }
@@ -234,6 +304,8 @@ export default function EestiKeel() {
           .eesti-table { font-size: 0.88rem; }
           .eesti-table th, .eesti-table td { padding: 10px 10px; }
           .eesti-table .case-cell { min-width: 130px; }
+          .eesti-divider { margin: 48px 0 32px; }
+          .eesti-ex { grid-template-columns: 1fr; gap: 12px; }
         }
       `}</style>
 
@@ -304,6 +376,76 @@ export default function EestiKeel() {
                   </tbody>
                 </table>
               </div>
+            </div>
+          </section>
+
+          <hr className="eesti-divider" />
+
+          <section className="eesti-block">
+            <h2 className="eesti-section-title">nimetav · omastav · osastav — русские аналоги</h2>
+            <p className="eesti-section-sub">Три падежа, на которых держится прямое дополнение</p>
+
+            <div className="eesti-table-wrap">
+              <div className="eesti-table-scroll">
+                <table className="eesti-table eesti-table--analog">
+                  <thead>
+                    <tr>
+                      <th className="case-cell" style={{ textAlign: "left" }}>Эстонский падеж</th>
+                      <th>Вопросы</th>
+                      <th>Ближайший русский аналог</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {ANALOGS.map((row) => (
+                      <tr key={row.case}>
+                        <td className="case-cell">
+                          <div className="name">{row.case}</div>
+                        </td>
+                        <td>{row.q}</td>
+                        <td>{row.ru}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div className="eesti-notes">
+              {ANALOG_NOTES.map((n) => (
+                <div
+                  key={n.k}
+                  className="eesti-note"
+                  style={{ borderLeftColor: TONE[n.tone].border }}
+                >
+                  <span className="k" style={{ color: TONE[n.tone].fg }}>{n.k}</span>
+                  <span className="v">{n.v}</span>
+                </div>
+              ))}
+            </div>
+
+            <p className="eesti-prose">
+              <strong>Прямое дополнение</strong> — слово, на которое переходит действие
+              глагола (кого? что?). В русском это всегда винительный. В эстонском —
+              omastav или osastav, в зависимости от того, завершено действие или нет.
+            </p>
+
+            <div className="eesti-ex">
+              {EXAMPLES.map((e) => (
+                <div
+                  key={e.et}
+                  className="eesti-ex-card"
+                  style={{
+                    background: TONE[e.tone].bg,
+                    border: `1px solid ${TONE[e.tone].border}`,
+                  }}
+                >
+                  <div className="eesti-ex-et">{e.et}</div>
+                  <div className="eesti-ex-tag" style={{ color: TONE[e.tone].fg }}>
+                    {e.tag}
+                  </div>
+                  <div className="eesti-ex-ru">{e.ru}</div>
+                </div>
+              ))}
             </div>
           </section>
 
