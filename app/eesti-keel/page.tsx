@@ -167,6 +167,22 @@ const POM_TABLE: PomRow[] = [
   { form: "naabrite",  example: "naabrite aed",      ru: "сад соседей" },
 ];
 
+const POSTPOSITIONS: Word[] = [
+  { et: "pealt",  ru: "с (сверху)" },
+  { et: "all",    ru: "под" },
+  { et: "juures", ru: "у, рядом" },
+  { et: "kohal",  ru: "над" },
+  { et: "peal",   ru: "на" },
+  { et: "kõrval", ru: "возле, рядом" },
+  { et: "ääres",  ru: "у, около (берега)" },
+  { et: "käest",  ru: "у / от (из рук)" },
+  { et: "sees",   ru: "внутри, в" },
+  { et: "käes",   ru: "у / в руках" },
+  { et: "keskel", ru: "посреди" },
+  { et: "taga",   ru: "за" },
+  { et: "vahel",  ru: "между" },
+];
+
 function Card({ word, tone }: { word: Word; tone: Tone }) {
   const t = TONE[tone];
   return (
@@ -401,6 +417,29 @@ export default function EestiKeel() {
         }
         .eesti-callout strong { color: ${AMBER_FG}; font-weight: 600; }
 
+        .eesti-rule {
+          margin-top: 24px;
+          background: ${TEAL_BG};
+          border: 1px solid ${TEAL_BORDER};
+          border-radius: 12px;
+          padding: 18px 20px;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 14px;
+        }
+        .eesti-rule-case {
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+        }
+        .eesti-rule-cond { color: ${TEAL_FG}; font-size: 0.86rem; font-weight: 500; }
+        .eesti-rule-ex {
+          color: ${TEXT_DIM};
+          font-size: 0.86rem;
+          font-family: ui-monospace, "SF Mono", Menlo, monospace;
+        }
+        .eesti-rule .mark { color: ${AMBER_FG}; font-weight: 600; }
+
         @media (max-width: 720px) {
           .eesti-container { padding: 40px 18px 64px; }
           .eesti-section { margin-top: 48px; }
@@ -413,6 +452,7 @@ export default function EestiKeel() {
           .eesti-ex { grid-template-columns: 1fr; gap: 12px; }
           .eesti-tabs { margin-top: 28px; }
           .eesti-tab { padding: 10px 14px; font-size: 0.88rem; }
+          .eesti-rule { grid-template-columns: 1fr; gap: 16px; }
         }
       `}</style>
 
@@ -572,10 +612,41 @@ export default function EestiKeel() {
             <div className="eesti-panel" data-tab="pomastav">
 
           <section className="eesti-section">
+            <h2 className="eesti-section-title">Как образуется</h2>
+            <p className="eesti-section-sub">
+              Берём <strong style={{ color: TEXT }}>osastav</strong> единственного числа
+              и добавляем признак мн. числа{" "}
+              <b className="mark" style={{ color: AMBER_FG }}>-DE / -TE / (-E)</b>
+            </p>
+
+            <div className="eesti-rule">
+              <div className="eesti-rule-case">
+                <div className="eesti-rule-cond">osastav на -t / -d → +e → -TE / -DE</div>
+                <div className="eesti-rule-ex">
+                  raamat · raamatu · raamatu<b className="mark">t</b> → raamatu<b className="mark">TE</b>
+                </div>
+                <div className="eesti-rule-ex">
+                  idee · idee · idee<b className="mark">d</b> → idee<b className="mark">DE</b>
+                </div>
+              </div>
+              <div className="eesti-rule-case">
+                <div className="eesti-rule-cond">osastav на гласную → -DE</div>
+                <div className="eesti-rule-ex">
+                  lill · lille · lille → lille<b className="mark">DE</b>
+                </div>
+                <div className="eesti-rule-ex">
+                  laud · laua · lauda → lauda<b className="mark">DE</b>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section className="eesti-section">
             <h2 className="eesti-section-title">Mitmuse omastav — множественный родительный</h2>
             <p className="eesti-section-sub">
               Формы вида hammaste, sõprade, arvutite. Родительный падеж
-              множественного числа — это не accusative plural.
+              множественного числа — не путать с формой прямого дополнения мн. числа
+              (слово-объект действия, кого? что?; на -d: Pesen hambad — чищу зубы).
             </p>
 
             <div className="eesti-grid-3">
@@ -623,8 +694,39 @@ export default function EestiKeel() {
             </div>
 
             <div className="eesti-callout">
-              <strong>Запомни:</strong> plural omastav ≠ accusative plural. Это
-              родительный падеж.
+              <strong>Запомни:</strong> mitmuse omastav (hammaste, на -te/-de) ≠ форма
+              прямого дополнения мн. числа (слово-объект действия, кого? что?; hambad,
+              на -d). Это родительный падеж.
+            </div>
+          </section>
+
+          <hr className="eesti-divider" />
+
+          <section className="eesti-section">
+            <h2 className="eesti-section-title">Послелоги и их значения</h2>
+            <p className="eesti-section-sub">Стоят после слова в omastav</p>
+
+            <div className="eesti-table-wrap">
+              <div className="eesti-table-scroll">
+                <table className="eesti-table eesti-table--analog">
+                  <thead>
+                    <tr>
+                      <th className="case-cell" style={{ textAlign: "left" }}>Послелог</th>
+                      <th>Перевод</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {POSTPOSITIONS.map((p) => (
+                      <tr key={p.et}>
+                        <td className="case-cell">
+                          <div className="name">{p.et}</div>
+                        </td>
+                        <td>{p.ru}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </section>
 
