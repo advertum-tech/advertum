@@ -574,7 +574,7 @@ export default function EestiKeel() {
           <section className="eesti-section">
             <h2 className="eesti-section-title">Mitmuse omastav — множественный родительный</h2>
             <p className="eesti-section-sub">
-              Формы вида hammaste, sõprade, arvutite. Родительный / притяжательный падеж
+              Формы вида hammaste, sõprade, arvutite. Родительный падеж
               множественного числа — это не accusative plural.
             </p>
 
@@ -624,7 +624,7 @@ export default function EestiKeel() {
 
             <div className="eesti-callout">
               <strong>Запомни:</strong> plural omastav ≠ accusative plural. Это
-              родительный / притяжательный падеж.
+              родительный падеж.
             </div>
           </section>
 
