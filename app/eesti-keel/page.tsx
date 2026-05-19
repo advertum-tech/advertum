@@ -183,6 +183,29 @@ const POSTPOSITIONS: Word[] = [
   { et: "vahel",  ru: "между" },
 ];
 
+type LocCell = { end: string; q: string; ru: string };
+
+const LOCATIVE: { side: string; tone: Tone; cells: [LocCell, LocCell, LocCell] }[] = [
+  {
+    side: "Внутри (sisse-)",
+    tone: "purple",
+    cells: [
+      { end: "-sse", q: "kuhu?", ru: "→ внутрь" },
+      { end: "-s",   q: "kus?",  ru: "внутри" },
+      { end: "-st",  q: "kust?", ru: "← изнутри" },
+    ],
+  },
+  {
+    side: "На поверхности (ala-)",
+    tone: "teal",
+    cells: [
+      { end: "-le", q: "kuhu?", ru: "→ на" },
+      { end: "-l",  q: "kus?",  ru: "на поверхности" },
+      { end: "-lt", q: "kust?", ru: "← с поверхности" },
+    ],
+  },
+];
+
 function Card({ word, tone }: { word: Word; tone: Tone }) {
   const t = TONE[tone];
   return (
@@ -440,6 +463,31 @@ export default function EestiKeel() {
         }
         .eesti-rule .mark { color: ${AMBER_FG}; font-weight: 600; }
 
+        .eesti-loc { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 28px; }
+        .eesti-loc-col { display: flex; flex-direction: column; gap: 8px; }
+        .eesti-loc-title {
+          text-align: center;
+          font-weight: 600;
+          font-size: 1.05rem;
+          margin-bottom: 6px;
+        }
+        .eesti-loc-cell {
+          border-radius: 12px;
+          padding: 16px 14px;
+          text-align: center;
+        }
+        .eesti-loc-end { font-size: 1.3rem; font-weight: 600; }
+        .eesti-loc-q   { font-size: 0.85rem; color: ${TEXT_DIM}; margin-top: 4px; }
+        .eesti-loc-arrow { text-align: center; color: ${TEXT_DIM}; font-size: 1rem; line-height: 1; }
+        .eesti-loc-foot {
+          margin-top: 22px;
+          text-align: center;
+          color: ${TEXT_DIM};
+          font-size: 0.9rem;
+          line-height: 1.75;
+        }
+        .eesti-loc-foot b { color: ${TEXT}; font-weight: 500; }
+
         @media (max-width: 720px) {
           .eesti-container { padding: 40px 18px 64px; }
           .eesti-section { margin-top: 48px; }
@@ -453,6 +501,7 @@ export default function EestiKeel() {
           .eesti-tabs { margin-top: 28px; }
           .eesti-tab { padding: 10px 14px; font-size: 0.88rem; }
           .eesti-rule { grid-template-columns: 1fr; gap: 16px; }
+          .eesti-loc { grid-template-columns: 1fr; gap: 28px; }
         }
       `}</style>
 
@@ -534,6 +583,51 @@ export default function EestiKeel() {
                   </tbody>
                 </table>
               </div>
+            </div>
+          </section>
+
+          <hr className="eesti-divider" />
+
+          <section className="eesti-block">
+            <h2 className="eesti-section-title">Локативные падежи</h2>
+            <p className="eesti-section-sub">
+              Куда? / где? / откуда? — две группы окончаний по три формы
+            </p>
+
+            <div className="eesti-loc">
+              {LOCATIVE.map((col) => {
+                const t = TONE[col.tone];
+                return (
+                  <div key={col.side} className="eesti-loc-col">
+                    <div className="eesti-loc-title" style={{ color: t.fg }}>
+                      {col.side}
+                    </div>
+                    {col.cells.map((c, i) => (
+                      <div key={c.end}>
+                        {i === 2 && <div className="eesti-loc-arrow">↑</div>}
+                        <div
+                          className="eesti-loc-cell"
+                          style={{ background: t.bg, border: `1px solid ${t.border}` }}
+                        >
+                          <div className="eesti-loc-end" style={{ color: t.fg }}>
+                            {c.end}
+                          </div>
+                          <div className="eesti-loc-q">
+                            {c.q} {c.ru}
+                          </div>
+                        </div>
+                        {i === 0 && <div className="eesti-loc-arrow">↓</div>}
+                      </div>
+                    ))}
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="eesti-loc-foot">
+              <b>poes</b> — в магазине · <b>turul</b> — на рынке
+              <br />
+              <b>poest</b> — из магазина · <b>turult</b> — с рынка
             </div>
           </section>
 
