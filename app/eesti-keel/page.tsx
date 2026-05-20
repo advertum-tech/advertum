@@ -69,6 +69,9 @@ const CASES: CaseRow[] = [
   { case: "nimetav",     ru: "кто? что? какой?",       forms: ["kes",     "mis",     "milline",    "missugune"] },
   { case: "omastav",     ru: "кого? чей?",              forms: ["kelle",   "mille",   "millise",    "missuguse"] },
   { case: "osastav",     ru: "кого? что? (вин.)",       forms: ["keda",    "mida",    "millist",    "missugust"] },
+  { case: "sisseütlev",  ru: "в кого? во что?",         forms: ["kellesse","millesse","millisesse", "missugusesse"] },
+  { case: "seesütlev",   ru: "в ком? в чём?",           forms: ["kelles",  "milles",  "millises",   "missuguses"] },
+  { case: "seestütlev",  ru: "о ком? из кого?",         forms: ["kellest", "millest", "millisest",  "missugusest"] },
   { case: "alalütlev",   ru: "у кого? у чего?",         forms: ["kellel",  "millel",  "millisel",   "missugusel"] },
   { case: "alaleütlev",  ru: "кому? чему?",             forms: ["kellele", "millele", "millisele",  "missugusele"] },
   { case: "alaltütlev",  ru: "от кого? от чего?",       forms: ["kellelt", "millelt", "milliselt",  "missuguselt"] },
@@ -181,29 +184,6 @@ const POSTPOSITIONS: Word[] = [
   { et: "keskel", ru: "посреди" },
   { et: "taga",   ru: "за" },
   { et: "vahel",  ru: "между" },
-];
-
-type LocCell = { end: string; q: string; ru: string };
-
-const LOCATIVE: { side: string; tone: Tone; cells: [LocCell, LocCell, LocCell] }[] = [
-  {
-    side: "Внутри (sisse-)",
-    tone: "purple",
-    cells: [
-      { end: "-sse", q: "kuhu?", ru: "→ внутрь" },
-      { end: "-s",   q: "kus?",  ru: "внутри" },
-      { end: "-st",  q: "kust?", ru: "← изнутри" },
-    ],
-  },
-  {
-    side: "На поверхности (ala-)",
-    tone: "teal",
-    cells: [
-      { end: "-le", q: "kuhu?", ru: "→ на" },
-      { end: "-l",  q: "kus?",  ru: "на поверхности" },
-      { end: "-lt", q: "kust?", ru: "← с поверхности" },
-    ],
-  },
 ];
 
 function Card({ word, tone }: { word: Word; tone: Tone }) {
@@ -463,22 +443,8 @@ export default function EestiKeel() {
         }
         .eesti-rule .mark { color: ${AMBER_FG}; font-weight: 600; }
 
-        .eesti-loc { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 28px; }
-        .eesti-loc-col { display: flex; flex-direction: column; gap: 8px; }
-        .eesti-loc-title {
-          text-align: center;
-          font-weight: 600;
-          font-size: 1.05rem;
-          margin-bottom: 6px;
-        }
-        .eesti-loc-cell {
-          border-radius: 12px;
-          padding: 16px 14px;
-          text-align: center;
-        }
-        .eesti-loc-end { font-size: 1.3rem; font-weight: 600; }
-        .eesti-loc-q   { font-size: 0.85rem; color: ${TEXT_DIM}; margin-top: 4px; }
-        .eesti-loc-arrow { text-align: center; color: ${TEXT_DIM}; font-size: 1rem; line-height: 1; }
+        .eesti-box { max-width: 820px; margin: 28px auto 0; }
+        .eesti-box svg { width: 100%; height: auto; display: block; }
         .eesti-loc-foot {
           margin-top: 22px;
           text-align: center;
@@ -501,7 +467,6 @@ export default function EestiKeel() {
           .eesti-tabs { margin-top: 28px; }
           .eesti-tab { padding: 10px 14px; font-size: 0.88rem; }
           .eesti-rule { grid-template-columns: 1fr; gap: 16px; }
-          .eesti-loc { grid-template-columns: 1fr; gap: 28px; }
         }
       `}</style>
 
@@ -589,45 +554,101 @@ export default function EestiKeel() {
           <hr className="eesti-divider" />
 
           <section className="eesti-block">
-            <h2 className="eesti-section-title">Локативные падежи</h2>
+            <h2 className="eesti-section-title">Локативные падежи — «коробочка»</h2>
             <p className="eesti-section-sub">
-              Куда? / где? / откуда? — две группы окончаний по три формы
+              <b>-sse → -s → -st</b> проходит сквозь коробочку (внутрь · внутри · изнутри).
+              <b> -le</b> заходит на коробочку, <b>-lt</b> сходит с неё; <b>-l</b> —
+              нахождение на поверхности, без движения.
             </p>
 
-            <div className="eesti-loc">
-              {LOCATIVE.map((col) => {
-                const t = TONE[col.tone];
-                return (
-                  <div key={col.side} className="eesti-loc-col">
-                    <div className="eesti-loc-title" style={{ color: t.fg }}>
-                      {col.side}
-                    </div>
-                    {col.cells.map((c, i) => (
-                      <div key={c.end}>
-                        {i === 2 && <div className="eesti-loc-arrow">↑</div>}
-                        <div
-                          className="eesti-loc-cell"
-                          style={{ background: t.bg, border: `1px solid ${t.border}` }}
-                        >
-                          <div className="eesti-loc-end" style={{ color: t.fg }}>
-                            {c.end}
-                          </div>
-                          <div className="eesti-loc-q">
-                            {c.q} {c.ru}
-                          </div>
-                        </div>
-                        {i === 0 && <div className="eesti-loc-arrow">↓</div>}
-                      </div>
-                    ))}
-                  </div>
-                );
-              })}
+            <div className="eesti-box">
+              <svg viewBox="0 0 1120 770" role="img" aria-label="Локативные падежи — коробочка">
+                <defs>
+                  <marker
+                    id="eb-arrow"
+                    viewBox="0 0 10 10"
+                    refX="8"
+                    refY="5"
+                    markerWidth="7"
+                    markerHeight="7"
+                    orient="auto"
+                  >
+                    <path d="M0,0 L10,5 L0,10 z" fill={AMBER_FG} />
+                  </marker>
+                </defs>
+
+                {/* вопросы-колонки */}
+                {([
+                  ["kuhu? · куда", 185],
+                  ["kus? · где", 560],
+                  ["kust? · откуда", 935],
+                ] as [string, number][]).map(([t, cx]) => (
+                  <text
+                    key={t}
+                    x={cx}
+                    y={32}
+                    fontSize={27}
+                    fontWeight={600}
+                    fill={AMBER_FG}
+                    textAnchor="middle"
+                    fontFamily={SANS}
+                  >
+                    {t}
+                  </text>
+                ))}
+
+                {/* подписи групп */}
+                <text x={25} y={72} fontSize={22} fill={TONE.teal.fg} fontFamily={SANS}>
+                  ala- · на поверхности (снаружи)
+                </text>
+                <text x={25} y={456} fontSize={22} fill={TONE.purple.fg} fontFamily={SANS}>
+                  sisse- · внутри коробочки
+                </text>
+
+                {/* рамка «коробочки» вокруг блока -s */}
+                <rect x={375} y={449} width={370} height={275} rx={16} fill="none" stroke={AMBER_FG} strokeWidth={4} />
+                <text x={560} y={702} fontSize={26} fill={TEXT_DIM} textAnchor="middle" fontFamily={SANS}>коробочка</text>
+
+                {/* ячейки — все одинакового размера 320×180 */}
+                {([
+                  { x: 25,  y: 90,  end: "-le",  q: "kuhu? · ma lähen", tr: "иду на …",     c: TONE.teal.fg },
+                  { x: 400, y: 90,  end: "-l",   q: "kus? · ma olen",   tr: "есть на …",    c: TONE.teal.fg },
+                  { x: 775, y: 90,  end: "-lt",  q: "kust? · ma tulen", tr: "прихожу с …",  c: TONE.teal.fg },
+                  { x: 25,  y: 474, end: "-sse", q: "kuhu? · ma lähen", tr: "иду в …",      c: TONE.purple.fg },
+                  { x: 400, y: 474, end: "-s",   q: "kus? · ma olen",   tr: "есть в …",     c: TONE.purple.fg },
+                  { x: 775, y: 474, end: "-st",  q: "kust? · ma tulen", tr: "прихожу из …", c: TONE.purple.fg },
+                ] as { x: number; y: number; end: string; q: string; tr: string; c: string }[]).map((b) => (
+                  <g key={b.end}>
+                    <rect
+                      x={b.x}
+                      y={b.y}
+                      width={320}
+                      height={180}
+                      rx={10}
+                      fill={SURFACE}
+                      stroke="rgba(250,249,245,0.30)"
+                      strokeWidth={2}
+                    />
+                    <text x={b.x + 160} y={b.y + 60} fontSize={52} fontWeight={700} fill={b.c} textAnchor="middle" fontFamily={SANS}>{b.end}</text>
+                    <text x={b.x + 160} y={b.y + 110} fontSize={24} fill={TEXT} textAnchor="middle" fontFamily={SANS}>{b.q}</text>
+                    <text x={b.x + 160} y={b.y + 148} fontSize={23} fill={TEXT_DIM} textAnchor="middle" fontFamily={SANS}>{b.tr}</text>
+                  </g>
+                ))}
+
+                {/* стрелки */}
+                <g stroke={AMBER_FG} strokeWidth={4} fill="none" markerEnd="url(#eb-arrow)">
+                  <line x1={345} y1={564} x2={371} y2={564} />
+                  <line x1={745} y1={564} x2={771} y2={564} />
+                  <line x1={345} y1={266} x2={556} y2={452} />
+                  <line x1={564} y1={452} x2={788} y2={268} />
+                </g>
+              </svg>
             </div>
 
             <div className="eesti-loc-foot">
-              <b>poes</b> — в магазине · <b>turul</b> — на рынке
+              <b>poodi → poes → poest</b> — в магазин · в магазине · из магазина
               <br />
-              <b>poest</b> — из магазина · <b>turult</b> — с рынка
+              <b>turule → turul → turult</b> — на рынок · на рынке · с рынка
             </div>
           </section>
 
