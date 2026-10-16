@@ -15,9 +15,8 @@ export default function TermsPage() {
       <h2 className="text-2xl max-sm:text-xl mt-10 mb-4">1. About us</h2>
       <p className="mb-4">
         This website, advertum.com (the &quot;Website&quot;), is operated by
-        Advertum Tech OÜ, a private limited company incorporated in Estonia,
-        registry code 16351919, registered address Valge tn 10-16, Tallinn,
-        Harjumaa, 11413, Estonia (&quot;Advertum&quot;, &quot;we&quot;,
+        Advertum Tech OÜ, a private limited company incorporated in Estonia
+        (&quot;Advertum&quot;, &quot;we&quot;,
         &quot;us&quot;). You can contact us at{" "}
         <a href="mailto:hello@advertum.com">hello@advertum.com</a>.
       </p>

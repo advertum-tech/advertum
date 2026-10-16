@@ -36,8 +36,6 @@ export default function Footer() {
           </div>
           <div className="w-full lg:w-1/4">
             <a href="https://www.teatmik.ee/et/personlegal/16351919-Advertum-Tech-O%C3%9C" target="_blank">Advertum Tech OÜ</a>
-            <div>Registry code 16351919</div>
-            <address className="not-italic">Valge tn 10-16, Tallinn, Harjumaa, 11413, Estonia</address>
             <div className="mt-4">&copy; 2021 - {new Date().getFullYear()} Advertum Tech OÜ. All rights reserved.</div>
           </div>
         </div>

@@ -15,8 +15,7 @@ export default function PrivacyPage() {
       <h2 className="text-2xl max-sm:text-xl mt-10 mb-4">1. Data controller</h2>
       <p className="mb-4">
         The controller of personal data processed in connection with this
-        website is Advertum Tech OÜ, registry code 16351919, Valge tn 10-16,
-        Tallinn, Harjumaa, 11413, Estonia. Contact:{" "}
+        website is Advertum Tech OÜ, Estonia. Contact:{" "}
         <a href="mailto:hello@advertum.com">hello@advertum.com</a>.
       </p>
 
