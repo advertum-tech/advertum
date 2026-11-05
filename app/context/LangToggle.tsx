@@ -23,10 +23,28 @@ const FlagET = () => (
   </svg>
 );
 
+const FlagRU = () => (
+  <svg viewBox="0 0 20 20" width="14" height="14" className="rounded-full shrink-0" aria-hidden="true">
+    <rect width="20" height="6.67" y="0" fill="#ffffff" />
+    <rect width="20" height="6.67" y="6.67" fill="#0039A6" />
+    <rect width="20" height="6.66" y="13.34" fill="#D52B1E" />
+    <circle cx="10" cy="10" r="9.5" fill="none" stroke="rgba(0,0,0,0.15)" strokeWidth="1" />
+  </svg>
+);
+
+// Статьи журнала есть на английском и русском, эстонского текста у них нет.
+// На этих страницах вторая кнопка RU вместо ET.
+const RU_ARTICLES = ["/great-displacement", "/harness-engineering", "/vibe-coding-in-russian"];
+
 export default function LangToggle({ className }: { className?: string }) {
   const lang = useLang();
   const pathname = usePathname();
   const router = useRouter();
+
+  const base = pathname.replace(/^\/(et|ru)(?=\/|$)/, "") || "/";
+  const isArticle = RU_ARTICLES.includes(base);
+  // На /et/<статья> показан английский текст, поэтому подсвечена кнопка EN
+  const current = isArticle && lang === "et" ? "en" : lang;
 
   const active: React.CSSProperties = {
     backgroundColor: "#111827",
@@ -42,11 +60,15 @@ export default function LangToggle({ className }: { className?: string }) {
     cursor: "pointer",
   };
 
-  function switchTo(targetLang: "en" | "et") {
+  function switchTo(targetLang: "en" | "et" | "ru") {
     if (targetLang === lang) return;
+    // RU есть только у статей: переход без записи языка в cookie
+    if (targetLang === "ru") {
+      router.push(`/ru${base === "/" ? "" : base}`);
+      return;
+    }
     // Persist choice in cookie — middleware will use it on next request
     document.cookie = `lang=${targetLang}; path=/; max-age=${60 * 60 * 24 * 365}; SameSite=Lax`;
-    const base = pathname.replace(/^\/(et|ru)(?=\/|$)/, "") || "/";
     if (targetLang === "et") {
       router.push(`/et${base === "/" ? "" : base}`);
     } else {
@@ -58,20 +80,31 @@ export default function LangToggle({ className }: { className?: string }) {
     <div className={`flex gap-1 text-xs ${className ?? ""}`}>
       <button
         onClick={() => switchTo("en")}
-        style={lang === "en" ? active : inactive}
+        style={current === "en" ? active : inactive}
         className="rounded-l-full px-4 py-1.5 transition-colors inline-flex items-center gap-1.5"
       >
         <FlagEN />
         EN
       </button>
-      <button
-        onClick={() => switchTo("et")}
-        style={lang === "et" ? active : inactive}
-        className="rounded-r-full px-4 py-1.5 transition-colors inline-flex items-center gap-1.5"
-      >
-        <FlagET />
-        ET
-      </button>
+      {isArticle ? (
+        <button
+          onClick={() => switchTo("ru")}
+          style={current === "ru" ? active : inactive}
+          className="rounded-r-full px-4 py-1.5 transition-colors inline-flex items-center gap-1.5"
+        >
+          <FlagRU />
+          RU
+        </button>
+      ) : (
+        <button
+          onClick={() => switchTo("et")}
+          style={current === "et" ? active : inactive}
+          className="rounded-r-full px-4 py-1.5 transition-colors inline-flex items-center gap-1.5"
+        >
+          <FlagET />
+          ET
+        </button>
+      )}
       {/* RU выключен — дерево /ru осталось в коде, доступно только по прямой ссылке
       <button
         onClick={() => switchTo("ru")}

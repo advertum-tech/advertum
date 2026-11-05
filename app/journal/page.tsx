@@ -81,6 +81,50 @@ function HarnessSvg() {
   );
 }
 
+function VibeSvg({ lang }: { lang: string }) {
+  const baseY = 330;
+  const bars: [string, number, string][] = [
+    ["EN", 32, "#999"],
+    ["RU", 34, "#1a1a1a"],
+  ];
+  return (
+    <svg
+      viewBox="0 0 680 400"
+      className="max-w-full h-auto rounded-3xl"
+      style={{ background: "#f8f8f8" }}
+    >
+      {[...Array(12)].map((_, i) => (
+        <line key={`v${i}`} x1={60 * i} y1="0" x2={60 * i} y2="400" stroke="#e5e5e5" strokeWidth="0.5" />
+      ))}
+      {[...Array(8)].map((_, i) => (
+        <line key={`h${i}`} x1="0" y1={50 * i} x2="680" y2={50 * i} stroke="#e5e5e5" strokeWidth="0.5" />
+      ))}
+      {bars.map(([label, value, color], i) => {
+        const x = 200 + i * 160;
+        const h = value * 6.25;
+        return (
+          <g key={label}>
+            <rect x={x} y={baseY - h} width="120" height={h} fill={color} />
+            <text x={x + 60} y={baseY - h - 14} fontSize="28" fontFamily="monospace" fill="#1a1a1a" textAnchor="middle">
+              {value}
+            </text>
+            <text x={x + 60} y={baseY + 26} fontSize="14" fontFamily="monospace" fill="#999" textAnchor="middle">
+              {label}
+            </text>
+          </g>
+        );
+      })}
+      <line x1="160" y1={baseY} x2="520" y2={baseY} stroke="#1a1a1a" strokeWidth="1" />
+      <text x="50" y="30" fontSize="13" fontFamily="monospace" fill="#999">
+        {lang === "ru" ? "SWE-bench: решено задач из 100" : "SWE-bench: tasks solved out of 100"}
+      </text>
+      <text x="630" y="380" fontSize="11" fontFamily="monospace" fill="#999" textAnchor="end">
+        GPT-5-mini · MAPS, 2026
+      </text>
+    </svg>
+  );
+}
+
 export default function Journal() {
   const lang = useLang();
   const p = lang === "et" ? "/et" : lang === "ru" ? "/ru" : "";
@@ -93,8 +137,28 @@ export default function Journal() {
             <h2 className="tracking-tight">{lang === 'et' ? 'Ajakiri' : lang === 'ru' ? 'Журнал' : 'Journal'}</h2>
             <LangToggle />
           </div>
-          <div className="flex flex-col lg:flex-row gap-x-6">
-            <div className="w-full lg:w-1/2 max-lg:mb-8">
+          <div className="grid grid-cols-1 gap-x-6 gap-y-8 lg:grid-cols-2 lg:gap-y-12">
+            <div className="w-full">
+              <a href={`${p}/vibe-coding-in-russian`} className="border-b-0">
+                <VibeSvg lang={lang} />
+              </a>
+              <div className="meta">
+                <time dateTime="2026-11-05">11/2026</time>
+                <span>
+                  &nbsp;·{" "}
+                  {lang === "ru" ? "ИИ-агенты · Замеры" : "AI Agents · Benchmarks"}
+                </span>
+              </div>
+              <a href={`${p}/vibe-coding-in-russian`} className="text-[1.2rem] lg:text-[1.68rem] font-normal">
+                {lang === "ru" ? "Вайб-кодинг на русском" : "Vibe coding in Russian"}
+              </a>
+              <p className="mt-2 text-sm leading-relaxed text-gray-500">
+                {lang === "ru"
+                  ? "Замеры 2026 года: с заданием на русском агент решает задачи по коду не хуже, чем с заданием на английском."
+                  : "2026 benchmarks: a coding agent solves as many tasks from Russian instructions as from English ones."}
+              </p>
+            </div>
+            <div className="w-full">
               <a href={`${p}/great-displacement`} className="border-b-0">
                 <DisplacementSvg lang={lang} />
               </a>
@@ -116,7 +180,7 @@ export default function Journal() {
                   : "AI is devaluing cognitive labor faster than we can retrain. The scarcest resource will be hands, not minds."}
               </p>
             </div>
-            <div className="w-full lg:w-1/2">
+            <div className="w-full">
               <a href={`${p}/harness-engineering`} className="border-b-0">
                 <HarnessSvg />
               </a>
