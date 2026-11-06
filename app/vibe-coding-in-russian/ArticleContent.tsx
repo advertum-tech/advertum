@@ -56,55 +56,21 @@ function DataTable({
   );
 }
 
-const SOURCES: { title: string; url: string; table?: string }[] = [
-  {
-    title: "MAPS: A Multilingual Benchmark for Agent Performance and Security",
-    url: "https://arxiv.org/abs/2505.15935",
-    table: "19",
-  },
-  {
-    title:
-      "RuBench: A Repository-Level Agentic Coding Benchmark with Natively Authored Russian Task Specifications",
-    url: "https://arxiv.org/abs/2607.06411",
-    table: "3",
-  },
-  {
-    title: "Are Multilingual Models Actually Improving? Isolating True Cross-Lingual Transfer",
-    url: "https://arxiv.org/abs/2606.21954",
-    table: "10",
-  },
-  {
-    title: "mmPISA-bench: Do LLMs Reason Equally Well Across 43 Languages?",
-    url: "https://arxiv.org/abs/2606.07069",
-    table: "1",
-  },
-  {
-    title: "MGAL: A Multilingual Granularity-Aware Long-Context Benchmark",
-    url: "https://arxiv.org/abs/2608.20853",
-    table: "6",
-  },
-  {
-    title: "Anthropic: Multilingual support",
-    url: "https://platform.claude.com/docs/en/build-with-claude/multilingual-support",
-  },
-  {
-    title: "Common Crawl: Languages",
-    url: "https://commoncrawl.github.io/cc-crawl-statistics/plots/languages",
-  },
-];
+const SRC = {
+  maps: "https://arxiv.org/abs/2505.15935",
+  rubench: "https://arxiv.org/abs/2607.06411",
+  mmluProxLite: "https://arxiv.org/abs/2606.21954",
+  mmpisa: "https://arxiv.org/abs/2606.07069",
+  mgal: "https://arxiv.org/abs/2608.20853",
+  anthropic: "https://platform.claude.com/docs/en/build-with-claude/multilingual-support",
+  commonCrawl: "https://commoncrawl.github.io/cc-crawl-statistics/plots/languages",
+};
 
-function Sources({ tableWord }: { tableWord: string }) {
+function A({ href, children }: { href: string; children: React.ReactNode }) {
   return (
-    <ul className="list-disc space-y-2 pl-6">
-      {SOURCES.map((s) => (
-        <li key={s.url}>
-          <a href={s.url} className={link} target="_blank" rel="noopener noreferrer">
-            {s.title}
-          </a>
-          {s.table ? `, ${tableWord} ${s.table}` : ""}
-        </li>
-      ))}
-    </ul>
+    <a href={href} className={link} target="_blank" rel="noopener noreferrer">
+      {children}
+    </a>
   );
 }
 
@@ -117,26 +83,27 @@ function RuBody() {
 
       <div className={body}>
         <p>
-          В тесте MAPS агент на GPT-5-mini решал 100 задач из реальных проектов
-          на Python. С заданием на русском он решил 34 задачи, с заданием на
-          английском 32. Проекты и код были одни и те же, переводили только
-          текст задания.
+          В тесте <A href={SRC.maps}>MAPS</A> агент на GPT-5-mini решал 100 задач
+          из реальных проектов на Python. С заданием на русском он решил 34
+          задачи, с заданием на английском 32. Проекты и код были одни и те же,
+          переводили только текст задания.
         </p>
 
         <p>
-          На общих тестах 2026 года русский в среднем на 2 пункта из 100 ниже
-          английского. Заметное отставание нашлось в одном замере: модель читает
-          длинный документ на русском и отвечает на вопрос, для которого нужно
-          связать два абзаца.
+          <A href={SRC.mmluProxLite}>На общих тестах 2026 года</A> русский в
+          среднем на 2 пункта из 100 ниже английского. Заметное отставание
+          нашлось <A href={SRC.mgal}>в одном замере</A>: модель читает длинный
+          документ на русском и отвечает на вопрос, для которого нужно связать
+          два абзаца.
         </p>
 
         <h2 className={h2}>Код: задание на русском, проект на английском</h2>
 
         <p>
-          Тест MAPS, редакция февраля 2026 года. Агент SWE-agent на модели
-          GPT-5-mini решает 100 задач из набора SWE-bench, это задачи из
-          реальных репозиториев на Python. Текст задания перевели на 11 языков,
-          код оставили как есть.
+          Тест <A href={SRC.maps}>MAPS</A> (таблица 19), редакция февраля 2026
+          года. Агент SWE-agent на модели GPT-5-mini решает 100 задач из набора
+          SWE-bench, это задачи из реальных репозиториев на Python. Текст задания
+          перевели на 11 языков, код оставили как есть.
         </p>
 
         <DataTable
@@ -166,10 +133,11 @@ function RuBody() {
         <h2 className={h2}>Бэкенд-задачи, написанные по-русски</h2>
 
         <p>
-          Тест RuBench, июль 2026 года. 25 задач в пяти проектах: aiohttp и
-          aiogram на Python, Laravel на PHP, NestJS на TypeScript, Fastify на
-          JavaScript. Задания написаны на русском с самого начала, их не
-          переводили. Английской версии этих задач в тесте нет.
+          Тест <A href={SRC.rubench}>RuBench</A> (таблица 3), июль 2026 года. 25
+          задач в пяти проектах: aiohttp и aiogram на Python, Laravel на PHP,
+          NestJS на TypeScript, Fastify на JavaScript. Задания написаны на
+          русском с самого начала, их не переводили. Английской версии этих
+          задач в тесте нет.
         </p>
 
         <DataTable
@@ -185,10 +153,10 @@ function RuBody() {
         <h2 className={h2}>Общие тесты 2026 года</h2>
 
         <p>
-          <strong className={b}>MMLU-ProX-Lite</strong>: вопросы на знания и
-          рассуждение. Статья июня 2026 года, 20 моделей 2024–2026 годов, среди
-          них Claude Opus 4.7, Sonnet 4.6, Haiku 4.5, Gemini 3 Flash, Gemma 4,
-          Qwen 3 и GPT-OSS.
+          <A href={SRC.mmluProxLite}><strong className={b}>MMLU-ProX-Lite</strong></A> (таблица 10):
+          вопросы на знания и рассуждение. Статья июня 2026 года, 20 моделей
+          2024–2026 годов, среди них Claude Opus 4.7, Sonnet 4.6, Haiku 4.5,
+          Gemini 3 Flash, Gemma 4, Qwen 3 и GPT-OSS.
         </p>
 
         <ul className="list-disc space-y-2 pl-6">
@@ -203,9 +171,9 @@ function RuBody() {
         <p>Значения сняты с графика в статье, на графике нет подписей моделей.</p>
 
         <p>
-          <strong className={b}>mmPISA-bench</strong>: задания PISA по
-          математике и чтению, 25 заданий на каждый из 43 языков. Статья июня
-          2026 года. Доля верных ответов:
+          <A href={SRC.mmpisa}><strong className={b}>mmPISA-bench</strong></A> (таблица 1):
+          задания PISA по математике и чтению, 25 заданий на каждый из 43
+          языков. Статья июня 2026 года. Доля верных ответов:
         </p>
 
         <DataTable
@@ -221,9 +189,9 @@ function RuBody() {
         <h2 className={h2}>Где русский отстаёт: длинные документы</h2>
 
         <p>
-          Тест MGAL, август 2026 года. Отчёты ООН длиной от 8 до 128 тысяч
-          токенов, один и тот же текст на шести официальных языках ООН.
-          Проверяли модели 2025 года.
+          Тест <A href={SRC.mgal}>MGAL</A> (таблица 6), август 2026 года. Отчёты
+          ООН длиной от 8 до 128 тысяч токенов, один и тот же текст на шести
+          официальных языках ООН. Проверяли модели 2025 года.
         </p>
 
         <p>
@@ -255,8 +223,8 @@ function RuBody() {
         <h2 className={h2}>Сколько русского в интернете</h2>
 
         <p>
-          Доля страниц по языкам в архиве веб-страниц Common Crawl, срез
-          CC-MAIN-2026-43:
+          Доля страниц по языкам в архиве веб-страниц{" "}
+          <A href={SRC.commonCrawl}>Common Crawl</A>, срез CC-MAIN-2026-43:
         </p>
 
         <DataTable
@@ -276,9 +244,9 @@ function RuBody() {
         <h2 className={h2}>Для сравнения: другие языки</h2>
 
         <p>
-          Anthropic публикует результаты моделей Claude на тесте Global-MMLU по
-          14 языкам в процентах от результата на английском. Русского в этом
-          списке нет.
+          Anthropic публикует результаты моделей Claude на{" "}
+          <A href={SRC.anthropic}>тесте Global-MMLU</A> по 14 языкам в процентах
+          от результата на английском. Русского в этом списке нет.
         </p>
 
         <DataTable
@@ -296,11 +264,7 @@ function RuBody() {
 
         <p>У Haiku 5.5 разрыв больше, чем у Opus 5.5, сильнее всего на йоруба.</p>
 
-        <h2 className={h2}>Источники</h2>
-
         <p>Данные проверены 4 ноября 2026 года.</p>
-
-        <Sources tableWord="таблица" />
       </div>
     </>
   );
@@ -316,26 +280,28 @@ function EnBody() {
 
       <div className={body}>
         <p>
-          In the MAPS benchmark, an agent running GPT-5-mini worked on 100 tasks
-          from real Python projects. With the task written in Russian it solved
-          34, with the task written in English it solved 32. The projects and
-          the code were the same; only the task text was translated.
+          In the <A href={SRC.maps}>MAPS</A> benchmark, an agent running
+          GPT-5-mini worked on 100 tasks from real Python projects. With the task
+          written in Russian it solved 34, with the task written in English it
+          solved 32. The projects and the code were the same; only the task text
+          was translated.
         </p>
 
         <p>
-          On general 2026 tests, Russian scores on average 2 points out of 100
-          below English. One benchmark shows a clear gap: the model reads a long
-          document in Russian and answers a question that requires linking two
-          of its paragraphs.
+          <A href={SRC.mmluProxLite}>On general 2026 tests</A>, Russian scores on
+          average 2 points out of 100 below English.{" "}
+          <A href={SRC.mgal}>One benchmark</A> shows a clear gap: the model reads
+          a long document in Russian and answers a question that requires
+          linking two of its paragraphs.
         </p>
 
         <h2 className={h2}>Code: task in Russian, project in English</h2>
 
         <p>
-          MAPS, February 2026 revision. SWE-agent running GPT-5-mini works on
-          100 tasks from SWE-bench, which are tasks from real Python
-          repositories. The task text was translated into 11 languages, and the
-          code was left unchanged.
+          <A href={SRC.maps}>MAPS</A> (Table 19), February 2026 revision.
+          SWE-agent running GPT-5-mini works on 100 tasks from SWE-bench, which
+          are tasks from real Python repositories. The task text was translated
+          into 11 languages, and the code was left unchanged.
         </p>
 
         <DataTable
@@ -365,10 +331,11 @@ function EnBody() {
         <h2 className={h2}>Backend tasks written in Russian</h2>
 
         <p>
-          RuBench, July 2026. 25 tasks in five projects: aiohttp and aiogram in
-          Python, Laravel in PHP, NestJS in TypeScript, Fastify in JavaScript.
-          The tasks were written in Russian from the start, not translated. The
-          benchmark has no English version of these tasks.
+          <A href={SRC.rubench}>RuBench</A> (Table 3), July 2026. 25 tasks in
+          five projects: aiohttp and aiogram in Python, Laravel in PHP, NestJS in
+          TypeScript, Fastify in JavaScript. The tasks were written in Russian
+          from the start, not translated. The benchmark has no English version
+          of these tasks.
         </p>
 
         <DataTable
@@ -384,10 +351,10 @@ function EnBody() {
         <h2 className={h2}>General tests, 2026</h2>
 
         <p>
-          <strong className={b}>MMLU-ProX-Lite</strong>: knowledge and reasoning
-          questions. Paper from June 2026, 20 models released in 2024–2026,
-          including Claude Opus 4.7, Sonnet 4.6, Haiku 4.5, Gemini 3 Flash,
-          Gemma 4, Qwen 3 and GPT-OSS.
+          <A href={SRC.mmluProxLite}><strong className={b}>MMLU-ProX-Lite</strong></A> (Table 10):
+          knowledge and reasoning questions. Paper from June 2026, 20 models
+          released in 2024–2026, including Claude Opus 4.7, Sonnet 4.6, Haiku
+          4.5, Gemini 3 Flash, Gemma 4, Qwen 3 and GPT-OSS.
         </p>
 
         <ul className="list-disc space-y-2 pl-6">
@@ -402,9 +369,9 @@ function EnBody() {
         <p>The values are read from a chart in the paper. The chart does not label the models.</p>
 
         <p>
-          <strong className={b}>mmPISA-bench</strong>: PISA math and reading
-          items, 25 items for each of 43 languages. Paper from June 2026. Share
-          of correct answers:
+          <A href={SRC.mmpisa}><strong className={b}>mmPISA-bench</strong></A> (Table 1): PISA
+          math and reading items, 25 items for each of 43 languages. Paper from
+          June 2026. Share of correct answers:
         </p>
 
         <DataTable
@@ -420,9 +387,9 @@ function EnBody() {
         <h2 className={h2}>Where Russian falls behind: long documents</h2>
 
         <p>
-          MGAL, August 2026. UN reports of 8 to 128 thousand tokens, the same
-          text in the six official UN languages. The models tested are from
-          2025.
+          <A href={SRC.mgal}>MGAL</A> (Table 6), August 2026. UN reports of 8 to
+          128 thousand tokens, the same text in the six official UN languages.
+          The models tested are from 2025.
         </p>
 
         <p>
@@ -455,7 +422,8 @@ function EnBody() {
         <h2 className={h2}>How much Russian is on the web</h2>
 
         <p>
-          Share of pages by language in the Common Crawl web archive, crawl
+          Share of pages by language in the{" "}
+          <A href={SRC.commonCrawl}>Common Crawl</A> web archive, crawl
           CC-MAIN-2026-43:
         </p>
 
@@ -476,8 +444,9 @@ function EnBody() {
         <h2 className={h2}>For comparison: other languages</h2>
 
         <p>
-          Anthropic publishes Claude results on Global-MMLU for 14 languages as
-          a percentage of the English score. Russian is not on that list.
+          Anthropic publishes Claude results on{" "}
+          <A href={SRC.anthropic}>Global-MMLU</A> for 14 languages as a
+          percentage of the English score. Russian is not on that list.
         </p>
 
         <DataTable
@@ -495,11 +464,7 @@ function EnBody() {
 
         <p>Haiku 5.5 shows a larger gap than Opus 5.5, most of all on Yoruba.</p>
 
-        <h2 className={h2}>Sources</h2>
-
         <p>Data checked on 4 November 2026.</p>
-
-        <Sources tableWord="Table" />
       </div>
     </>
   );
